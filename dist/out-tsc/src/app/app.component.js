@@ -12,12 +12,19 @@ var AppComponent = (function () {
     function AppComponent() {
         this.title = 'app works!';
         this.calendarOptions = {
+            googleCalendarApiKey: 'AIzaSyDWFwpyg1ztInunWMTKRVPpS_NwzA83CdE',
+            eventSources: [
+                {
+                    googleCalendarId: 'dlau373@gmail.com',
+                }
+            ],
             defaultView: 'agendaWeek',
             views: {
                 agenda: {
                     slotDuration: '00:15:00',
                     minTime: '08:00',
-                    maxTime: '19:00'
+                    maxTime: '19:00',
+                    allDaySlot: false
                 }
             },
             header: {
@@ -32,11 +39,9 @@ var AppComponent = (function () {
                     start: '09:00',
                     end: '12:00'
                 }],
-            hiddenDays: [0],
             fixedWeekCount: false,
             editable: true,
-            eventLimit: true,
-            events: []
+            eventLimit: true
         };
     }
     return AppComponent;

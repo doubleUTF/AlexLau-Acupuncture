@@ -9,12 +9,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
   calendarOptions:Object = {
+    googleCalendarApiKey:'AIzaSyDWFwpyg1ztInunWMTKRVPpS_NwzA83CdE',
+    eventSources: [
+      {
+        googleCalendarId:'dlau373@gmail.com',
+      }
+    ],
     defaultView:'agendaWeek',
     views:{
       agenda:{
         slotDuration:'00:15:00',
         minTime:'08:00',
-        maxTime:'19:00'
+        maxTime:'19:00',
+        allDaySlot:false
       }
     },
       header:{
@@ -29,12 +36,9 @@ export class AppComponent {
         start:'09:00',
         end:'12:00'
       }],
-      hiddenDays:[0],
+      // hiddenDays:[0],
         fixedWeekCount : false,
         editable: true,
-        eventLimit: true, // allow "more" link when too many events
-        events: [
-
-        ]
+        eventLimit: true // allow "more" link when too many events
       };
   }
