@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,26 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
   calendarOptions:Object = {
-    googleCalendarApiKey:'AIzaSyDWFwpyg1ztInunWMTKRVPpS_NwzA83CdE',
-    eventSources: [
+    // googleCalendarApiKey:'AIzaSyDWFwpyg1ztInunWMTKRVPpS_NwzA83CdE',
+    // eventSources: [
+    //   {
+    //     googleCalendarId:'dlau373@gmail.com',
+    //   }
+    // ],
+    events:[
       {
-        googleCalendarId:'dlau373@gmail.com',
-      }
+      id:'1',
+      // title:'Make Appointment',
+      start: moment('2017-02-01 10:15'),
+      end: moment('2017-02-01 10:30'),
+    },
+    {
+    id:'2',
+    // title:'Schedule Appointment',
+    start: moment('2017-02-01 10:30'),
+    end: moment('2017-02-01 10:45'),
+    rendering:'background'
+    }
     ],
     defaultView:'agendaWeek',
     views:{

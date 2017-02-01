@@ -8,14 +8,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
+import * as moment from 'moment';
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'app works!';
         this.calendarOptions = {
-            googleCalendarApiKey: 'AIzaSyDWFwpyg1ztInunWMTKRVPpS_NwzA83CdE',
-            eventSources: [
+            events: [
                 {
-                    googleCalendarId: 'dlau373@gmail.com',
+                    id: '1',
+                    start: moment('2017-02-01 10:15'),
+                    end: moment('2017-02-01 10:30'),
+                },
+                {
+                    id: '2',
+                    start: moment('2017-02-01 10:30'),
+                    end: moment('2017-02-01 10:45'),
+                    rendering: 'background'
                 }
             ],
             defaultView: 'agendaWeek',
