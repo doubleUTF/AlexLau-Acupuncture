@@ -7,7 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { Component } from '@angular/core';
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'app works!';
     }
     return AppComponent;
 }());
@@ -19,4 +18,4 @@ AppComponent = __decorate([
     })
 ], AppComponent);
 export { AppComponent };
-//# sourceMappingURL=../../../../src/app/app.component.js.map
+//# sourceMappingURL=../../../src/app/app.component.js.map

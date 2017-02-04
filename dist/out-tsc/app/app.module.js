@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import { DropdownModule } from 'ng2-bootstrap';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,11 +25,12 @@ AppModule = __decorate([
         imports: [
             BrowserModule,
             FormsModule,
-            HttpModule
+            HttpModule,
+            DropdownModule.forRoot()
         ],
         providers: [],
         bootstrap: [AppComponent]
     })
 ], AppModule);
 export { AppModule };
-//# sourceMappingURL=../../../../src/app/app.module.js.map
+//# sourceMappingURL=../../../src/app/app.module.js.map

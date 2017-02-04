@@ -19,7 +19,7 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "../node_modules/fullcalendar/dist/fullcalendar.min.css"
+        "../node_modules/bootstrap3/css/bootstrap.min.css"
       ],
       "scripts": [
       ],

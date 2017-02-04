@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {CalendarComponent} from "angular2-fullcalendar/src/calendar/calendar";
+import { NavComponent } from './nav/nav.component';
+import { DropdownModule } from 'ng2-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalendarComponent
+    NavComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
