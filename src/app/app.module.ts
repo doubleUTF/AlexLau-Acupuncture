@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { DropdownModule } from 'ng2-bootstrap';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    AppointmentsComponent
   ],
   imports: [
     BrowserModule,
