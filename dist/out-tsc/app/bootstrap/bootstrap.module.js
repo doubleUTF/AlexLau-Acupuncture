@@ -7,36 +7,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
-import { BootstrapModule } from './bootstrap/bootstrap.module';
-import { AppointmentsComponent } from './appointments/appointments.component';
-var AppModule = (function () {
-    function AppModule() {
+import { DropdownModule, AlertModule } from 'ng2-bootstrap';
+var BootstrapModule = (function () {
+    function BootstrapModule() {
     }
-    return AppModule;
+    return BootstrapModule;
 }());
-AppModule = __decorate([
+BootstrapModule = __decorate([
     NgModule({
-        declarations: [
-            AppComponent,
-            NavComponent,
-            AppointmentsComponent
-        ],
         imports: [
-            BrowserModule,
-            FormsModule,
-            HttpModule,
-            BootstrapModule
+            DropdownModule.forRoot(),
+            AlertModule.forRoot()
         ],
-        providers: [],
-        bootstrap: [AppComponent]
+        declarations: [],
+        exports: [
+            DropdownModule,
+            AlertModule
+        ]
     }),
     __metadata("design:paramtypes", [])
-], AppModule);
-export { AppModule };
-//# sourceMappingURL=../../../src/app/app.module.js.map
+], BootstrapModule);
+export { BootstrapModule };
+//# sourceMappingURL=../../../../src/app/bootstrap/bootstrap.module.js.map

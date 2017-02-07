@@ -1,0 +1,14 @@
+Goal of this project:
+
+To make a fully functional web app for my acupuncture clinic. The homepage will
+be designed with an Eastern-Asian theme with bright and green colors.
+Users will be able to register an account with the following features:
+  - Manage appointments
+  - View visit history and retrieve receipts
+  - Pay online
+  - Speak to a representative
+  - Order herbs
+  - Submit insurance and intake forms
+  - Enable various languages
+
+  

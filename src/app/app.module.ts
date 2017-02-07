@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { DropdownModule } from 'ng2-bootstrap';
+import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { AppointmentsComponent } from './appointments/appointments.component';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    DropdownModule.forRoot()
+    BootstrapModule
   ],
   providers: [],
   bootstrap: [AppComponent]
