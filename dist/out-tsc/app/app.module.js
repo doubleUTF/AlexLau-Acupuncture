@@ -12,8 +12,9 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { BootstrapModule } from './bootstrap/bootstrap.module';
-import { AppointmentsComponent } from './appointments/appointments.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { ScheduleComponent } from './dashboard/schedule/schedule.component';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,8 +25,9 @@ AppModule = __decorate([
         declarations: [
             AppComponent,
             NavComponent,
-            AppointmentsComponent,
-            HomeComponent
+            DashboardComponent,
+            HomeComponent,
+            ScheduleComponent
         ],
         imports: [
             BrowserModule,
