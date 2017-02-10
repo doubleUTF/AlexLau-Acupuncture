@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DropdownModule, AlertModule } from 'ng2-bootstrap';
 var BootstrapModule = (function () {
     function BootstrapModule() {
@@ -24,7 +24,8 @@ BootstrapModule = __decorate([
         exports: [
             DropdownModule,
             AlertModule
-        ]
+        ],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }),
     __metadata("design:paramtypes", [])
 ], BootstrapModule);
