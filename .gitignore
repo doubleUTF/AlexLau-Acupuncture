@@ -39,5 +39,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# config files
-/server/config/config.json
+# config files // uncomment when ready
+#/server/config/config.json
