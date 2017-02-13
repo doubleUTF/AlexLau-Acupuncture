@@ -40,4 +40,4 @@ testem.log
 Thumbs.db
 
 # config files // uncomment when ready
-#/server/config/config.json
+/server/config/config.json
