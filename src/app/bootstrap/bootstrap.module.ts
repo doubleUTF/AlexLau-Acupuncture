@@ -1,4 +1,4 @@
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { DropdownModule, AlertModule } from 'ng2-bootstrap';
 
 @NgModule({
@@ -10,7 +10,6 @@ import { DropdownModule, AlertModule } from 'ng2-bootstrap';
   exports:[
     DropdownModule,
     AlertModule
-  ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  ]
 })
 export class BootstrapModule { }

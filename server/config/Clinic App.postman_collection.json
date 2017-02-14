@@ -1,0 +1,28 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Clinic App",
+		"_postman_id": "408bc665-698b-1331-09b8-0637719779d5",
+		"description": "MEAN stack app for Acupuncture Clinic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/user/me",
+			"request": {
+				"url": "localhost:3000/user/me",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "test",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
