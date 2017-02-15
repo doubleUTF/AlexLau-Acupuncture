@@ -3,6 +3,7 @@ cd h# See http://help.github.com/ignore-files/ for more about ignoring files.
 # compiled output
 /public
 /tmp
+/dist
 
 # dependencies
 /node_modules

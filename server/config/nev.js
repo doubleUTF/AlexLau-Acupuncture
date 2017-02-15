@@ -1,4 +1,4 @@
-const {User}=require('../../models/user');
+const {User}=require('../models/user');
 var {myHasher}=require('../db/pwhash');
 const nevConfig={
     verificationURL: 'http://localhost:3000/email-verification/${URL}',
@@ -10,7 +10,7 @@ const nevConfig={
     emailFieldName: 'email',
     passwordFieldName: 'password',
     URLFieldName: 'GENERATED_VERIFYING_URL',
-    expirationTime: 60,
+    expirationTime: 86400,
 
     // emailing options
     transportOptions: {

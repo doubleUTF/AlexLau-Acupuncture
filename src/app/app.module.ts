@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
@@ -10,6 +10,7 @@ import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { ScheduleComponent } from './dashboard/schedule/schedule.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ScheduleComponent } from './dashboard/schedule/schedule.component';
     NavComponent,
     DashboardComponent,
     HomeComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,6 @@ import { ScheduleComponent } from './dashboard/schedule/schedule.component';
     routing
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

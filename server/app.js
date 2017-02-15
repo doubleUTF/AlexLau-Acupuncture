@@ -12,8 +12,9 @@ var nodemailer=require('nodemailer');
 const {mongoose}=require('./db/mongoose');
 var nev=require('email-verification')(mongoose);
 const {nevConfig}=require('./config/nev');
-const {User}= require('../models/user');
-var userRoutes=require('../routes/user');
+const {User}= require('./models/user');
+var userRoutes=require('./routes/user');
+var appRoutes=require('./routes/app');
 var app = express();
 
 // uncomment after placing your favicon in /public
@@ -24,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
-
+app.set('view engine','hbs');
 // Uncomment to allow cross server setup
 // app.use((req,res,next)=>{
 //   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -50,6 +51,8 @@ nev.generateTempUserModel(User, (err,tempUserModel)=>{
   console.log('Generated temp user model: '+ (typeof tempUserModel==='function'));
 });
 
+
+// Routes
 app.post('/register',(req,res,next)=>{
   var body=_.pick(req.body,['email','firstName','lastName','password'])
   var user= new User(body);
@@ -105,10 +108,11 @@ app.get('/email-verification/:URL',(req,res)=>{
   })
 })
 app.use('/user',userRoutes);
+// app.use('/',appRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.redirect('/')
+  return res.render('index');
 });
 
 module.exports = app;

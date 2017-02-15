@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var _=require('lodash');
 
-var {authenticate}=require('../server/middleware/authenticate');
+var {authenticate}=require('../middleware/authenticate');
 const {User}= require('../models/user');
 
 router.get('/dashboard', authenticate, (req,res,next)=>{
