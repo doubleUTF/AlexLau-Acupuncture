@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { User } from '../user.model';
-import { isEmail } from 'validator';
+
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { isEmail } from 'validator';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
     this.userForm=new FormGroup({
@@ -18,23 +19,31 @@ export class RegisterComponent implements OnInit {
       lastName:new FormControl(null, Validators.required),
       email:new FormControl('', [
         Validators.required,
-        this.validateEmail
+        this.authService.validateEmail
       ]),
-      password:new FormControl(null, Validators.required)
+      password:new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6)
+      ])
     })
   }
 
   userForm:FormGroup;
 
   onSubmit(){
-    console.log(this.userForm)
+    const user= new User(
+      this.userForm.value.firstName,
+      this.userForm.value.lastName,
+      this.userForm.value.email,
+      this.userForm.value.password
+    );
+    this.authService.signup(user)
+      .subscribe(
+        data=>console.log(data),
+        error=>console.error(error)
+      );
+    this.userForm.reset({email:''});
   }
 
-  validateEmail(c:FormControl){
-    return isEmail(c.value) ? null :{
-      validateEmail:{
-        valid:false
-      }
-    };
-  }
+
 }

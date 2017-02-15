@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +11,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { ScheduleComponent } from './dashboard/schedule/schedule.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AuthService } from './auth/auth.service';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -20,17 +21,17 @@ import { RegisterComponent } from './auth/register/register.component';
     DashboardComponent,
     HomeComponent,
     ScheduleComponent,
-    RegisterComponent
+    RegisterComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
     BootstrapModule,
     ReactiveFormsModule,
     routing
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

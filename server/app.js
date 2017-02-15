@@ -52,6 +52,7 @@ nev.generateTempUserModel(User, (err,tempUserModel)=>{
 
 
 // Routes
+
 app.post('/register',(req,res,next)=>{
   var body=_.pick(req.body,['email','firstName','lastName','password'])
   var user= new User(body);

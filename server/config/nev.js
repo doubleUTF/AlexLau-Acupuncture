@@ -10,7 +10,7 @@ const nevConfig={
     emailFieldName: 'email',
     passwordFieldName: 'password',
     URLFieldName: 'GENERATED_VERIFYING_URL',
-    expirationTime: 86400,
+    expirationTime: 86400, // 86400 is 24 hours
 
     // emailing options
     transportOptions: {
