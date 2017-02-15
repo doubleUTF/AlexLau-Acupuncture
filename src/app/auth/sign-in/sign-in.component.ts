@@ -24,6 +24,6 @@ export class SignInComponent implements OnInit {
   signInForm:FormGroup;
 
   onSubmit(){
-
+    this.signInForm.reset({email:''})
   }
 }

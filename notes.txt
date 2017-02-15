@@ -11,4 +11,5 @@ Users will be able to register an account with the following features:
   - Submit insurance and intake forms
   - Enable various languages
 
-  
+  Dependencies:
+  Need to install type files for validator module(index.d.ts)

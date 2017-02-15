@@ -32,12 +32,12 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     const user= new User(
-      this.userForm.value.firstName,
-      this.userForm.value.lastName,
       this.userForm.value.email,
-      this.userForm.value.password
+      this.userForm.value.password,
+      this.userForm.value.firstName,
+      this.userForm.value.lastName
     );
-    this.authService.signup(user)
+    this.authService.register(user)
       .subscribe(
         data=>console.log(data),
         error=>console.error(error)
