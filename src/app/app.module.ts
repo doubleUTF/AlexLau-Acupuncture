@@ -3,10 +3,11 @@ import { NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BootstrapModule } from './bootstrap/bootstrap.module';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { ScheduleComponent } from './dashboard/schedule/schedule.component';
@@ -26,6 +27,7 @@ import { RegisterComponent } from './auth/register/register.component';
     FormsModule,
     HttpModule,
     BootstrapModule,
+    ReactiveFormsModule,
     routing
   ],
   providers: [],
