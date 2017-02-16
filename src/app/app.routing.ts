@@ -7,7 +7,7 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 
 const APP_ROUTES=[
   {path:'', component:HomeComponent},
-  {path:'dashboard', component:DashboardComponent},
+  {path:'user/dashboard', component:DashboardComponent},
   {path:'schedule', component: ScheduleComponent},
   {path:'register', component: RegisterComponent},
   {path:'user/signin',component:SignInComponent}

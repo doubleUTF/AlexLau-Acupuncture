@@ -19,8 +19,12 @@ export class AuthService {
       .catch((error:Response)=>Observable.throw(error.json()))
   }
 
-  signIn(){
-    
+  signIn(user:User){
+    const body=JSON.stringify(user);
+    const headers= new Headers({'Content-Type':'application/json'})
+    return this.http.post('http://localhost:3000/user/signin',body, {headers})
+      .map((res:Response)=>res.json())
+      .catch((error:Response)=>Observable.throw(error.json()))
   }
 
   validateEmail(c:FormControl){
@@ -29,5 +33,9 @@ export class AuthService {
         valid:false
       }
     };
+  }
+
+  isLoggedIn(){
+    return localStorage.getItem('token') !==null;
   }
 }

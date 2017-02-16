@@ -36,7 +36,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink='dashboard'>Dashboard</a></li>
+        <li><a routerLink='user/dashboard'>Dashboard</a></li>
         <li><a href="#">Visit history</a></li>
         <li class="dropdown" dropdown>
           <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>*Username <span class="caret"></span></a>
@@ -46,8 +46,8 @@
             <li><a href="#">Manage preferences</a></li>
             <li><a routerLink='register'>Register an account</a></li>
             <li role="separator" class="divider"></li>
-            <li><a routerLink='user/signin'>Sign in</a></li>
-            <li><a href="#">Sign out</a></li>
+            <li *ngIf='!isLoggedIn()'><a routerLink='user/signin'>Sign in</a></li>
+            <li *ngIf='isLoggedIn()'><a style='cursor:pointer' (click)='onSignOut()'>Sign out</a></li>
           </ul>
         </li>
       </ul>

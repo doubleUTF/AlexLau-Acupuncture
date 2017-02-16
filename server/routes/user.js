@@ -7,9 +7,10 @@ var jwt=require('jsonwebtoken');
 var {authenticate}=require('../middleware/authenticate');
 const {User}= require('../models/user');
 
-router.get('/dashboard', authenticate, (req,res,next)=>{
-  res.send(_.pick(req.user.toObject(),['_id','email']))
-})
+// Not sure if better to protect route server side or client side
+// router.get('/dashboard', authenticate, (req,res,next)=>{
+//   res.send(_.pick(req.user.toObject(),['_id','email']))
+// })
 
 router.post('/signin',(req,res,next)=>{
   User.findOne({email:req.body.email}, (err,user)=>{
