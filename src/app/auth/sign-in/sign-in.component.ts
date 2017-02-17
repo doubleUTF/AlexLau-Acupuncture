@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { User } from '../user.model';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent implements OnInit, AfterViewInit {
 
   constructor(private authService:AuthService, private router:Router) { }
 
@@ -39,5 +39,11 @@ export class SignInComponent implements OnInit {
       err=>console.error(err)
     )
     this.signInForm.reset({email:''})
+  }
+
+  focusEvent= new EventEmitter<boolean>();
+
+  ngAfterViewInit(){
+    this.focusEvent.emit(true)
   }
 }

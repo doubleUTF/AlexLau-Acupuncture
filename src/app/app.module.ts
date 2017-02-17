@@ -13,6 +13,7 @@ import { ScheduleComponent } from './dashboard/schedule/schedule.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthService } from './auth/auth.service';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { FocusDirective } from './directives/focus.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
     HomeComponent,
     ScheduleComponent,
     RegisterComponent,
-    SignInComponent
+    SignInComponent,
+    FocusDirective
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { User } from '../user.model';
 
@@ -45,5 +45,10 @@ export class RegisterComponent implements OnInit {
     this.userForm.reset({email:''});
   }
 
+  focusEvent= new EventEmitter<boolean>();
+
+  ngAfterViewInit(){
+    this.focusEvent.emit(true)
+  }
 
 }

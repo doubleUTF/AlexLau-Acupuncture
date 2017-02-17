@@ -8,9 +8,9 @@ var {authenticate}=require('../middleware/authenticate');
 const {User}= require('../models/user');
 
 // Not sure if better to protect route server side or client side
-// router.get('/dashboard', authenticate, (req,res,next)=>{
-//   res.send(_.pick(req.user.toObject(),['_id','email']))
-// })
+router.get('/dashboard', authenticate, (req,res,next)=>{
+  res.status(200).json({text:'Logged into dashboard'})
+})
 
 router.post('/signin',(req,res,next)=>{
   User.findOne({email:req.body.email}, (err,user)=>{
@@ -32,12 +32,24 @@ router.post('/signin',(req,res,next)=>{
         error:{message: 'Invalid login credentials'}
       });
     }
-    var token=jwt.sign({user},process.env.JWT_SECRET,{expiresIn:7200});
-    res.status(200).json({
-      message:'Successfully logged in',
-      token,
-      userId:user._id
-    })
+
+    user.generateAuthToken().then((token)=>{
+      res.header('x-auth',token).status(200).json({
+        message:'Successfully logged in',
+        token,
+        userId:user._id
+      })
+    });
+    // var token=jwt.sign({user},process.env.JWT_SECRET,{expiresIn:7200});
+    // res.status(200).json({
+    //   message:'Successfully logged in',
+    //   token,
+    //   userId:user._id
+    // })
   });
+})
+
+router.get('/',(req,res,next)=>{
+  res.redirect('user/signin')
 })
 module.exports=router;
