@@ -1,18 +1,22 @@
-const {User}= require('../models/user');
+const {Patient}= require('../models/patient');
 
 var authenticate=(req,res,next)=>{
   var token=req.header('x-auth');
 
-  User.findByToken(token).then((user)=>{
-    if (!user){
+  Patient.findByToken(token).then((patient)=>{
+    if (!patient){
       return Promise.reject();
     }
 
-    req.user=user;
+    req.patient=patient;
     req.token=token;
     next();
   }).catch((e)=>{
-    res.status(401).redirect('signin');
+    return res.status(401).json({
+      title:'Login failed',
+      error:'Invalid login credentials'
+    })
+    // .redirect('signin');
   });
 }
 

@@ -4,7 +4,7 @@ const jwt=require('jsonwebtoken');
 const _=require('lodash');
 // const bcrypt=require('bcryptjs');
 
-var UserSchema=new mongoose.Schema({
+var PatientSchema=new mongoose.Schema({
   email:{
     required:true,
     type:String,
@@ -29,6 +29,16 @@ var UserSchema=new mongoose.Schema({
     type:String,
     minlength:6
   },
+  phone:{
+    type:Number,
+    minlength:10
+  },
+  appointments:[
+    {
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Appointment'
+    }
+  ],
   tokens:[{
     access:{
       type:String,
@@ -41,19 +51,19 @@ var UserSchema=new mongoose.Schema({
   }]
 })
 
-UserSchema.methods.generateAuthToken=function(){
-  var user=this; // instance object
+PatientSchema.methods.generateAuthToken=function(){
+  var patient=this; // instance object
   var access='auth';
-  var token=jwt.sign({_id:user._id.toHexString(),access},process.env.JWT_SECRET,{expiresIn:7200});
+  var token=jwt.sign({_id:patient._id.toHexString(),access},process.env.JWT_SECRET);
 
-  user.tokens.push({access,token})
-  return user.save().then(()=>{
+  patient.tokens.push({access,token})
+  return patient.save().then(()=>{
     return token;
   });
 };
 
-UserSchema.statics.findByToken=function(token){
-  var User=this; // model object
+PatientSchema.statics.findByToken=function(token){
+  var Patient=this; // model object
   var decoded;
 
   try {
@@ -62,13 +72,22 @@ UserSchema.statics.findByToken=function(token){
     return Promise.reject();
   }
 
-  return User.findOne({
+  return Patient.findOne({
     '_id':decoded._id,
     'tokens.token':token,
     'tokens.access':'auth'
   });
 }
 
-var User=mongoose.model('User', UserSchema)
+PatientSchema.methods.removeToken=function(token){
+  var patient= this;
+  return patient.update({
+    $pull:{
+      tokens:{token}
+    }
+  })
+};
 
-module.exports={User}
+var Patient=mongoose.model('Patient', PatientSchema)
+
+module.exports={Patient}

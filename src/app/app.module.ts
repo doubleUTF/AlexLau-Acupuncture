@@ -14,6 +14,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { AuthService } from './auth/auth.service';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { FocusDirective } from './directives/focus.directive';
+import { AuthGuard } from './auth/auth.guard';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { FocusDirective } from './directives/focus.directive';
     ScheduleComponent,
     RegisterComponent,
     SignInComponent,
-    FocusDirective
+    FocusDirective,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,10 @@ import { FocusDirective } from './directives/focus.directive';
     ReactiveFormsModule,
     routing
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

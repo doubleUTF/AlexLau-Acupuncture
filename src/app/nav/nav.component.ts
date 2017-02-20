@@ -11,15 +11,22 @@ export class NavComponent implements OnInit {
 
   constructor(private router:Router, private authService:AuthService) { }
 
+  private isLoggedIn(){
+    return this.authService.isLoggedIn()
+  }
+
   ngOnInit() {
   }
 
   onSignOut(){
+    this.authService.signOut()
+    .subscribe(
+      data=>console.log(data),
+      err=>console.error(err)
+    );
     localStorage.clear();
-    this.router.navigate(['/user','signin'])
+    this.router.navigate(['/patient','signin'])
   }
 
-  isLoggedIn(){
-    return this.authService.isLoggedIn();
-  }
+
 }

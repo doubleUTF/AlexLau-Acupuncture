@@ -1,12 +1,12 @@
-const {User}=require('../models/user');
+const {Patient}=require('../models/patient');
 var {myHasher}=require('../db/pwhash');
 const nevConfig={
     verificationURL: 'http://localhost:3000/email-verification/${URL}',
     URLLength: 48,
 
     // mongo-stuff
-    persistentUserModel: User,
-    tempUserCollection: 'temporary_users',
+    persistentUserModel: Patient,
+    tempUserCollection: 'temporary_patients',
     emailFieldName: 'email',
     passwordFieldName: 'password',
     URLFieldName: 'GENERATED_VERIFYING_URL',

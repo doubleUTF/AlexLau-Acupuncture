@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs';
-import {FormControl} from '@angular/forms';
+import {FormControl} from '@angular/forms'; // Just for validating email
 import { isEmail } from 'validator';
 import 'rxjs/Rx';
 
-import { User } from './user.model';
+import { Patient } from './patient.model';
 
 @Injectable()
 export class AuthService {
 
   constructor(private http:Http) { }
-  register(user:User){
-    const body=JSON.stringify(user);
+  register(patient:Patient){
+    const body=JSON.stringify(patient);
     const headers= new Headers({'Content-Type':'application/json'})
     return this.http.post('http://localhost:3000/register', body, {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
 
-  signIn(user:User){
-    const body=JSON.stringify(user);
+  signIn(patient:Patient){
+    const body=JSON.stringify(patient);
     const headers= new Headers({'Content-Type':'application/json'})
-    return this.http.post('http://localhost:3000/user/signin',body, {headers})
+    return this.http.post('http://localhost:3000/patient/signin',body, {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
@@ -35,7 +35,23 @@ export class AuthService {
     };
   }
 
+  signOut(){
+    const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
+    const headers= new Headers({'Content-Type':'application/json','x-auth': token})
+    return this.http.delete('http://localhost:3000/patient/token', {headers})
+      .map((res:Response)=>res.json())
+      .catch((error:Response)=>Observable.throw(error.json()))
+  }
+
   isLoggedIn(){
     return localStorage.getItem('token') !==null;
+  }
+
+  getPatientInfo(){
+    const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
+    const headers= new Headers({'Content-Type':'application/json','x-auth': token})
+    return this.http.get('http://localhost:3000/patient/me', {headers})
+      .map((res:Response)=>res.json())
+      .catch((error:Response)=>Observable.throw(error.json()))
   }
 }

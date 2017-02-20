@@ -8,13 +8,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var _=require('lodash');
 var nodemailer=require('nodemailer');
+var AcuityScheduling=require('acuityscheduling');
 
 const {mongoose}=require('./db/mongoose');
 var nev=require('email-verification')(mongoose);
 const {nevConfig}=require('./config/nev');
-const {User}= require('./models/user');
-var userRoutes=require('./routes/user');
+const {Patient}= require('./models/patient');
+var patientRoutes=require('./routes/patient');
 var app = express();
+
+// Temporary imports
+var bcrypt=require('bcryptjs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -33,6 +37,10 @@ app.set('view engine','hbs');
 //   next();
 // });
 
+var acuity=AcuityScheduling.basic({
+  "userId":process.env.ACUITY_USER_ID,
+  "apiKey":process.env.ACUITY_API_KEY
+})
 // Node Email Verification
 nev.configure(nevConfig, (err,options)=>{
   if (err) {
@@ -42,7 +50,7 @@ nev.configure(nevConfig, (err,options)=>{
   console.log('Node email verification configured: '+(typeof options==='object'));
 });
 
-nev.generateTempUserModel(User, (err,tempUserModel)=>{
+nev.generateTempUserModel(Patient, (err,tempUserModel)=>{
   if (err) {
     console.log(err);
     return;
@@ -53,52 +61,82 @@ nev.generateTempUserModel(User, (err,tempUserModel)=>{
 
 // Routes
 
+
+// Test routes
 app.post('/register',(req,res,next)=>{
   var body=_.pick(req.body,['email','firstName','lastName','password'])
-  var user= new User(body);
-
-  nev.createTempUser(user,(err,existingPersistentUser,newTempUser)=>{
-    if (err){
-      return res.status(404).send('Error: creating temp user failed');
-    }
-
-    if (existingPersistentUser){
-      return res.json({
-        msg:'This account is already registered.'
+  var patient= new Patient(body)
+  bcrypt.genSalt(10,(err,salt)=>{
+    bcrypt.hash(patient.password,salt,(err,hash)=>{
+      patient.password=hash
+      patient.save().then(()=>{
+        return patient.generateAuthToken().then((token)=>{
+          res.header('x-auth',token).send({token,patientId:patient._id})
+        }).catch((err)=>{
+          res.status(400).send(err);
+        })
       })
-    }
-
-    if (newTempUser){
-      var URL=newTempUser[nev.options.URLFieldName];
-      nev.sendVerificationEmail(user.email,URL,(err,info)=>{
-        if (err){
-          return res.status(404).send('Error: sending verification email failed');
-        }
-        res.json({
-          msg:'An email has been sent to you. Please check it to verify your account.',
-          info
-        });
-      })
-    } else{
-      res.json({
-        msg:'You have already signed up. Please check your email to verify your account.'
-      })
-    }
+    })
   })
-});
+})
+
+// Acuity test routes
+app.get('/acuity',(req,res,next)=>{
+  acuity.request('/appointments', (err,response)=>{
+    if (err){
+      return console.error(err);
+    }
+    return res.send(response.body);
+  })
+})
+
+// Real app route, commenting out for testing purposes
+// app.post('/register',(req,res,next)=>{
+//   var body=_.pick(req.body,['email','firstName','lastName','password'])
+//   var patient= new Patient(body);
+//
+//   nev.createTempUser(patient,(err,existingPersistentUser,newTempUser)=>{
+//     if (err){
+//       return res.status(404).send('Error: creating temp user failed');
+//     }
+//
+//     if (existingPersistentUser){
+//       return res.json({
+//         msg:'This account is already registered.'
+//       })
+//     }
+//
+//     if (newTempUser){
+//       var URL=newTempUser[nev.options.URLFieldName];
+//       nev.sendVerificationEmail(patient.email,URL,(err,info)=>{
+//         if (err){
+//           return res.status(404).send('Error: sending verification email failed');
+//         }
+//         res.json({
+//           msg:'An email has been sent to you. Please check it to verify your account.',
+//           info
+//         });
+//       })
+//     } else{
+//       res.json({
+//         msg:'You have already signed up. Please check your email to verify your account.'
+//       })
+//     }
+//   })
+// });
 
 app.get('/email-verification/:URL',(req,res)=>{
   var url=req.params.URL;
 
-  nev.confirmTempUser(url,(err,user)=>{
+  nev.confirmTempUser(url,(err,patient)=>{
     if (user){
-      nev.sendConfirmationEmail(user.email,(err,info)=>{
+      nev.sendConfirmationEmail(patient.email,(err,info)=>{
         if (err){
           return res.status(404).send('Error: sending confirmation email failed');
         }
         user.generateAuthToken().then((token)=>{
           res.header('x-auth',token).status(200).send(
-            _.pick(user.toObject(),['_id','email'])
+            _.pick(patient.toObject(),['_id','email'])
           );
         });
       })
@@ -107,7 +145,7 @@ app.get('/email-verification/:URL',(req,res)=>{
     }
   })
 })
-app.use('/user',userRoutes);
+app.use('/patient',patientRoutes);
 
 
 // catch 404 and forward to error handler

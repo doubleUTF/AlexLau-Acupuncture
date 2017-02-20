@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
-import { User } from '../user.model';
+import { Patient } from '../patient.model';
 
 import { AuthService } from '../auth.service';
 
@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   constructor(private authService:AuthService) { }
 
   ngOnInit() {
-    this.userForm=new FormGroup({
+    this.patientForm=new FormGroup({
       firstName:new FormControl(null, Validators.required),
       lastName:new FormControl(null, Validators.required),
       email:new FormControl('', [
@@ -28,21 +28,24 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  userForm:FormGroup;
+  patientForm:FormGroup;
 
   onSubmit(){
-    const user= new User(
-      this.userForm.value.email,
-      this.userForm.value.password,
-      this.userForm.value.firstName,
-      this.userForm.value.lastName
+    const patient= new Patient(
+      this.patientForm.value.email,
+      this.patientForm.value.password,
+      this.patientForm.value.firstName,
+      this.patientForm.value.lastName
     );
-    this.authService.register(user)
+    this.authService.register(patient)
       .subscribe(
-        data=>console.log(data),
+        data=>{
+          localStorage.setItem('token',data.token),
+          localStorage.setItem('patientId',data.patientId)
+      },
         error=>console.error(error)
       );
-    this.userForm.reset({email:''});
+    this.patientForm.reset({email:''});
   }
 
   focusEvent= new EventEmitter<boolean>();

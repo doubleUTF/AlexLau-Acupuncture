@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../user.model';
+import { Patient } from '../patient.model';
 
 @Component({
   selector: 'app-sign-in',
@@ -25,16 +25,16 @@ export class SignInComponent implements OnInit, AfterViewInit {
   signInForm:FormGroup;
 
   onSubmit(){
-    const user= new User(
+    const patient= new Patient(
       this.signInForm.value.email,
       this.signInForm.value.password
     )
-    this.authService.signIn(user)
+    this.authService.signIn(patient)
       .subscribe(
       data=>{
         localStorage.setItem('token',data.token),
-        localStorage.setItem('userId',data.userId);
-        this.router.navigateByUrl('/user/dashboard')
+        localStorage.setItem('patientId',data.patientId);
+        this.router.navigateByUrl('/patient/dashboard')
       },
       err=>console.error(err)
     )
