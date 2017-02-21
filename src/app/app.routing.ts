@@ -8,10 +8,10 @@ import { AuthGuard } from './auth/auth.guard';
 
 const APP_ROUTES=[
   {path:'', component:HomeComponent},
-  {path:'patient/dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
+  {path:'patients/dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
   {path:'schedule', component: ScheduleComponent},
   {path:'register', component: RegisterComponent},
-  {path:'patient/signin',component:SignInComponent}
+  {path:'patients/signin',component:SignInComponent}
 ]
 
 export const routing=RouterModule.forRoot(APP_ROUTES)

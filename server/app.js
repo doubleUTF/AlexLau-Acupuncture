@@ -8,13 +8,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var _=require('lodash');
 var nodemailer=require('nodemailer');
-var AcuityScheduling=require('acuityscheduling');
 
 const {mongoose}=require('./db/mongoose');
 var nev=require('email-verification')(mongoose);
 const {nevConfig}=require('./config/nev');
 const {Patient}= require('./models/patient');
-var patientRoutes=require('./routes/patient');
+var patientsRoutes=require('./routes/patients');
 var app = express();
 
 // Temporary imports
@@ -37,10 +36,7 @@ app.set('view engine','hbs');
 //   next();
 // });
 
-var acuity=AcuityScheduling.basic({
-  "userId":process.env.ACUITY_USER_ID,
-  "apiKey":process.env.ACUITY_API_KEY
-})
+
 // Node Email Verification
 nev.configure(nevConfig, (err,options)=>{
   if (err) {
@@ -77,16 +73,6 @@ app.post('/register',(req,res,next)=>{
         })
       })
     })
-  })
-})
-
-// Acuity test routes
-app.get('/acuity',(req,res,next)=>{
-  acuity.request('/appointments', (err,response)=>{
-    if (err){
-      return console.error(err);
-    }
-    return res.send(response.body);
   })
 })
 
@@ -145,7 +131,7 @@ app.get('/email-verification/:URL',(req,res)=>{
     }
   })
 })
-app.use('/patient',patientRoutes);
+app.use('/patients',patientRoutes);
 
 
 // catch 404 and forward to error handler

@@ -2,7 +2,7 @@ var mongoose=require('mongoose');
 
 var appointmentSchema=new mongoose.Schema({
   _id:Number,
-  calendarId:Number,
+  acuityCalendarId:Number,
   date:Date,
   patientId:{
     type:mongoose.Schema.Types.ObjectId,
@@ -12,9 +12,10 @@ var appointmentSchema=new mongoose.Schema({
     type:mongoose.Schema.Types.ObjectId,
     ref:'Physician'
   },
+  completed:Boolean,
   chiefComplaint:String,
   copay:Number,
-  paid:Boolean,
+  paid:String,
   paymentType:String,
   amountPaid:Number,
   treatmentType:String,

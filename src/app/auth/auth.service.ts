@@ -22,7 +22,7 @@ export class AuthService {
   signIn(patient:Patient){
     const body=JSON.stringify(patient);
     const headers= new Headers({'Content-Type':'application/json'})
-    return this.http.post('http://localhost:3000/patient/signin',body, {headers})
+    return this.http.post('http://localhost:3000/patients/signin',body, {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
@@ -38,7 +38,7 @@ export class AuthService {
   signOut(){
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
     const headers= new Headers({'Content-Type':'application/json','x-auth': token})
-    return this.http.delete('http://localhost:3000/patient/token', {headers})
+    return this.http.delete('http://localhost:3000/patients/token', {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
@@ -50,7 +50,7 @@ export class AuthService {
   getPatientInfo(){
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
     const headers= new Headers({'Content-Type':'application/json','x-auth': token})
-    return this.http.get('http://localhost:3000/patient/me', {headers})
+    return this.http.get('http://localhost:3000/patients/me', {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }

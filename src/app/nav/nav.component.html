@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf='isLoggedIn()'><a routerLink='patient/dashboard'>Dashboard</a></li>
+        <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>Dashboard</a></li>
         <!-- <li><a href="#">Visit history</a></li> -->
         <li class="dropdown" dropdown>
           <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>*Username <span class="caret"></span></a>
@@ -20,7 +20,7 @@
             <li *ngIf='isLoggedIn()'><a href="#">Manage preferences</a></li>
             <li *ngIf='!isLoggedIn()'><a routerLink='register'>Register an account</a></li>
             <li role="separator" class="divider"></li>
-            <li *ngIf='!isLoggedIn()'><a routerLink='patient/signin'>Sign in</a></li>
+            <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li>
             <li *ngIf='isLoggedIn()'><a style='cursor:pointer' (click)='onSignOut()'>Sign out</a></li>
           </ul>
         </li>

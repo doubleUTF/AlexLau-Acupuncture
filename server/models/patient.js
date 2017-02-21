@@ -35,7 +35,8 @@ var PatientSchema=new mongoose.Schema({
   },
   appointments:[
     {
-      type:mongoose.Schema.Types.ObjectId,
+      type:Number,
+      unique:true,
       ref:'Appointment'
     }
   ],
@@ -76,6 +77,13 @@ PatientSchema.statics.findByToken=function(token){
     '_id':decoded._id,
     'tokens.token':token,
     'tokens.access':'auth'
+  });
+}
+
+PatientSchema.statics.findByEmail=function(email){
+  var Patient=this;
+  return Patient.findOne({
+    'email':email
   });
 }
 
