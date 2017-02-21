@@ -4,6 +4,7 @@ var _=require('lodash');
 var bcrypt=require('bcryptjs');
 var jwt=require('jsonwebtoken');
 var crypto=require('crypto');
+var qs=require('qs');
 
 var {authenticate}=require('../middleware/authenticate');
 const {Patient}= require('../models/patient');
@@ -62,20 +63,18 @@ router.delete('/token', authenticate, (req,res,next)=>{
 
 // Acuity webhook routes
 router.post('/newAppointment',(req,res,next)=>{
-  // For some reason, the hashes don't match even with verified posts
-  // from authentic Acuity site
+
   var hasher=crypto.createHmac('sha256',process.env.ACUITY_API_KEY);
-  hasher.update(JSON.stringify(req.body));
+  hasher.update(qs.stringify(req.body));
   var hash=hasher.digest('base64');
-  console.log('stringified body:',JSON.stringify(req.body))
-  console.log('hash:',hash)
-  console.log('Acuity hash:', req.header('X-Acuity-Signature'))
 
   if (hash!==req.header('X-Acuity-Signature')){
     console.error('This message was forged!')
-    res.status(200).send()
+    res.status(401).json({
+      msg:'Forged hash detected'
+    })
   }
-  return console.log(req.body);
+  res.end('Good to go')
 })
 
 router.post('/removeAppointment',(req,res,next)=>{
