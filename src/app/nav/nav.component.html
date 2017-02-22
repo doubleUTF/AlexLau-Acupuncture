@@ -18,7 +18,7 @@
             <li *ngIf='isLoggedIn()'><a href="#">Schedule appointment</a></li>
             <li *ngIf='isLoggedIn()'><a href="#">Cancel appointment</a></li>
             <li *ngIf='isLoggedIn()'><a href="#">Manage preferences</a></li>
-            <li *ngIf='!isLoggedIn()'><a routerLink='register'>Register an account</a></li>
+            <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register an account</a></li>
             <li role="separator" class="divider"></li>
             <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li>
             <li *ngIf='isLoggedIn()'><a style='cursor:pointer' (click)='onSignOut()'>Sign out</a></li>

@@ -1,17 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent} from './dashboard/dashboard.component';
-import { ScheduleComponent} from './dashboard/schedule/schedule.component';
-import { RegisterComponent} from './auth/register/register.component';
-import { SignInComponent } from './auth/sign-in/sign-in.component';
-import { AuthGuard } from './auth/auth.guard';
+import { PATIENTS_ROUTES } from './patients/patients.routing';
 
-const APP_ROUTES=[
+const APP_ROUTES:Routes=[
   {path:'', component:HomeComponent},
-  {path:'patients/dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
-  {path:'schedule', component: ScheduleComponent},
-  {path:'register', component: RegisterComponent},
-  {path:'patients/signin',component:SignInComponent}
+  {path:'patients', children: PATIENTS_ROUTES }
 ]
 
 export const routing=RouterModule.forRoot(APP_ROUTES)

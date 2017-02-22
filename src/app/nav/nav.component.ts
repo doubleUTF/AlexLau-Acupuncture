@@ -25,7 +25,7 @@ export class NavComponent implements OnInit {
       err=>console.error(err)
     );
     localStorage.clear();
-    this.router.navigate(['/patient','signin'])
+    this.router.navigate(['/patients','signin'])
   }
 
 

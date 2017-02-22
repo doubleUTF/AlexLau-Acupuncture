@@ -1,0 +1,6 @@
+<li class="list-group-item">
+  {{this.appointmentService.formatTime(appointment.date)}}
+  <span class='options'>
+    <a (click)='onCancel(appointment)'>Cancel</a>
+  </span>
+</li>

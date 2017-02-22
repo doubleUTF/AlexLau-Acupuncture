@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Patient } from '../patient.model';
 
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-register',

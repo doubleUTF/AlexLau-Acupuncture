@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Patient } from '../patient.model';
@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
       data=>{
         localStorage.setItem('token',data.token),
         localStorage.setItem('patientId',data.patientId);
-        this.router.navigateByUrl('/patient/dashboard')
+        this.router.navigateByUrl('/patients/dashboard')
       },
       err=>console.error(err)
     )

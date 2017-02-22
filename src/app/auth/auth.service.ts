@@ -5,7 +5,7 @@ import {FormControl} from '@angular/forms'; // Just for validating email
 import { isEmail } from 'validator';
 import 'rxjs/Rx';
 
-import { Patient } from './patient.model';
+import { Patient } from '../patients/patient.model';
 
 @Injectable()
 export class AuthService {

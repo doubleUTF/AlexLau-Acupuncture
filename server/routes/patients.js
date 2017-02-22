@@ -3,17 +3,112 @@ var router = express.Router();
 var _=require('lodash');
 var bcrypt=require('bcryptjs');
 var jwt=require('jsonwebtoken');
-
+const {mongoose}=require('../db/mongoose');
+var nev=require('email-verification')(mongoose);
 var AcuityScheduling=require('acuityscheduling');
-
+var nodemailer=require('nodemailer');
+var _=require('lodash');
 const {authenticate}=require('../middleware/authenticate');
 const {acuityAuth}=require('../middleware/acuity-auth');
 const {Patient}= require('../models/patient');
 const {Appointment}=require('../models/appointment');
+const {nevConfig}=require('../config/nev');
 
+// Acuity Configuration
 var acuity=AcuityScheduling.basic({
   "userId":process.env.ACUITY_USER_ID,
   "apiKey":process.env.ACUITY_API_KEY
+})
+
+// Node Email Verification Configuration
+nev.configure(nevConfig, (err,options)=>{
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log('Node email verification configured: '+(typeof options==='object'));
+});
+
+nev.generateTempUserModel(Patient, (err,tempUserModel)=>{
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log('Generated temp user model: '+ (typeof tempUserModel==='function'));
+});
+
+// Real app route, commenting out for testing purposes
+// app.post('/register',(req,res,next)=>{
+//   var body=_.pick(req.body,['email','firstName','lastName','password'])
+//   var patient= new Patient(body);
+//
+//   nev.createTempUser(patient,(err,existingPersistentUser,newTempUser)=>{
+//     if (err){
+//       return res.status(404).send('Error: creating temp user failed');
+//     }
+//
+//     if (existingPersistentUser){
+//       return res.json({
+//         msg:'This account is already registered.'
+//       })
+//     }
+//
+//     if (newTempUser){
+//       var URL=newTempUser[nev.options.URLFieldName];
+//       nev.sendVerificationEmail(patient.email,URL,(err,info)=>{
+//         if (err){
+//           return res.status(404).send('Error: sending verification email failed');
+//         }
+//         res.json({
+//           msg:'An email has been sent to you. Please check it to verify your account.',
+//           info
+//         });
+//       })
+//     } else{
+//       res.json({
+//         msg:'You have already signed up. Please check your email to verify your account.'
+//       })
+//     }
+//   })
+// });
+
+router.get('/email-verification/:URL',(req,res)=>{
+  var url=req.params.URL;
+
+  nev.confirmTempUser(url,(err,patient)=>{
+    if (user){
+      nev.sendConfirmationEmail(patient.email,(err,info)=>{
+        if (err){
+          return res.status(404).send('Error: sending confirmation email failed');
+        }
+        user.generateAuthToken().then((token)=>{
+          res.header('x-auth',token).status(200).send(
+            _.pick(patient.toObject(),['_id','email'])
+          );
+        });
+      })
+    } else {
+      return res.status(404).send('Error: confirming temp user failed');
+    }
+  })
+})
+
+// Test routes
+router.post('/register',(req,res,next)=>{
+  var body=_.pick(req.body,['email','firstName','lastName','password'])
+  var patient= new Patient(body)
+  bcrypt.genSalt(10,(err,salt)=>{
+    bcrypt.hash(patient.password,salt,(err,hash)=>{
+      patient.password=hash
+      patient.save().then(()=>{
+        return patient.generateAuthToken().then((token)=>{
+          res.header('x-auth',token).send({token,patientId:patient._id})
+        }).catch((err)=>{
+          res.status(400).send(err);
+        })
+      })
+    })
+  })
 })
 
 // This route is to get patient info
@@ -148,6 +243,6 @@ router.post('/acuity/any', acuityAuth, (req,res,next)=>{
 
 // Fallback route
 router.get('/',(req,res,next)=>{
-  res.redirect('patient/signin')
+  res.redirect('patients/signin')
 })
 module.exports=router;
