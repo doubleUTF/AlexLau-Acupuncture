@@ -180,7 +180,6 @@ router.get('/appointments', authenticate, (req,res,next)=>{
 router.post('/acuity/new',acuityAuth,(req,res,next)=>{
 
   var appointmentId=req.body.id;
-
   acuity.request(`/appointments/${appointmentId}`,(err,response,acuityAppointment)=>{
     if (err) res.status(400).json({msg:'Bad request'})
 
@@ -201,12 +200,12 @@ router.post('/acuity/new',acuityAuth,(req,res,next)=>{
           res.status(200).json({
           msg:'Appointment successfully saved',
           appointment
-        }).catch((e)=>{
-          res.status(404).json({
-            msg:'Error saving appointment to user list'
-          })
         })
+      }).catch((e)=>{
+        res.status(404).json({
+          msg:'Error saving appointment to user list'
         })
+      })
       }).catch((e)=>{
         res.status(400).json({
           msg:'Error saving appointment',
@@ -214,8 +213,8 @@ router.post('/acuity/new',acuityAuth,(req,res,next)=>{
         })
       })
     }).catch((e)=>{
-      res.status(404).json({
-        msg:'Patient email not in database',
+    res.status(404).json({
+      msg:'Patient email not in database',
       })
     })
   })

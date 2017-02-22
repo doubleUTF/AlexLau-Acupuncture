@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { DropdownModule, AlertModule, ModalModule,
-         ModalDirective } from 'ng2-bootstrap';
+import { DropdownModule, AlertModule, ModalModule } from 'ng2-bootstrap';
 
 @NgModule({
   imports: [
@@ -13,7 +12,6 @@ import { DropdownModule, AlertModule, ModalModule,
     DropdownModule,
     AlertModule,
     ModalModule,
-    ModalDirective
   ]
 })
 export class BootstrapModule { }

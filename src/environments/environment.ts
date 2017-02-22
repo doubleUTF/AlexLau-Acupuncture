@@ -9,4 +9,5 @@ export const environment = {
   "DOMAIN":"http://localhost:3000",
   "ACUITY_URL":"https://app.acuityscheduling.com/schedule.php",
   "ACUITY_USER_ID":"13202886",
+  "ACUITY_APPT_TYPE":"2462595"
 };
