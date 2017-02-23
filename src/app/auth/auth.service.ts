@@ -14,9 +14,9 @@ export class AuthService {
   register(patient:Patient){
     const body=JSON.stringify(patient);
     const headers= new Headers({'Content-Type':'application/json'})
-    return this.http.post('http://localhost:3000/register', body, {headers})
+    return this.http.post('http://localhost:3000/patients/register', body, {headers})
       .map((res:Response)=>res.json())
-      .catch((error:Response)=>Observable.throw(error.json()))
+      .catch((error:Response)=>Observable.throw(error))
   }
 
   signIn(patient:Patient){

@@ -113,7 +113,7 @@ router.post('/register',(req,res,next)=>{
 
 // This route is to get patient info
 router.get('/me', authenticate, (req,res,next)=>{
-  var patientInfo=_.pick(req.patient,['firstName','lastName','email','phone'])
+  var patientInfo=_.pick(req.patient,['firstName','lastName','email','phone',"_id"])
    res.status(200).json({
     message:'Successfully logged in',
     patientInfo
@@ -180,11 +180,13 @@ router.get('/appointments', authenticate, (req,res,next)=>{
 router.post('/acuity/new',acuityAuth,(req,res,next)=>{
 
   var appointmentId=req.body.id;
+  console.log(req.body)
   acuity.request(`/appointments/${appointmentId}`,(err,response,acuityAppointment)=>{
     if (err) res.status(400).json({msg:'Bad request'})
 
+    // Change this so we look up patient by ObjectId field from
+    // Acuity response in forms array.
     var email=acuityAppointment.email;
-    console.log(email);
     Patient.findByEmail(email).then((patient)=>{
       var appointment=new Appointment({
         _id:appointmentId,
