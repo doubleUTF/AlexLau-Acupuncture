@@ -18,7 +18,7 @@ var appointmentSchema=new mongoose.Schema({
   paid:String,
   paymentType:String,
   amountPaid:Number,
-  treatmentType:String,
+  appointmentTypeId:Number,
   insuranceAmountPaid:Number,
   notes:String
 })

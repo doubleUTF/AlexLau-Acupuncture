@@ -195,7 +195,8 @@ router.post('/acuity/new', acuityAuth, (req,res,next)=>{
         date:acuityAppointment.datetime,
         patientId:patient._id.toHexString(),
         copay:70,
-        paid:acuityAppointment.paid
+        paid:acuityAppointment.paid,
+        appointmentTypeId:acuityAppointment.appointmentTypeID
       })
 
       appointment.save().then(()=>{
