@@ -79,13 +79,13 @@ PatientSchema.statics.findByToken=function(token){
     'tokens.access':'auth'
   });
 }
-
-PatientSchema.statics.findByEmail=function(email){
-  var Patient=this;
-  return Patient.findOne({
-    'email':email
-  });
-}
+// 
+// PatientSchema.statics.findById=function(id){
+//   var Patient=this;
+//   return Patient.findOne({
+//     '_id':id
+//   });
+// }
 
 PatientSchema.methods.removeToken=function(token){
   var patient= this;

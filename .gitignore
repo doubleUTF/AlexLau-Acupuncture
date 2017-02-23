@@ -43,3 +43,6 @@ Thumbs.db
 # config files // uncomment when ready
 /server/config/config.json
 /src/environments
+
+# testing/playground
+/test

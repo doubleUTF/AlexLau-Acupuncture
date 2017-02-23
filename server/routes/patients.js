@@ -8,11 +8,13 @@ var nev=require('email-verification')(mongoose);
 var AcuityScheduling=require('acuityscheduling');
 var nodemailer=require('nodemailer');
 var _=require('lodash');
+
 const {authenticate}=require('../middleware/authenticate');
 const {acuityAuth}=require('../middleware/acuity-auth');
 const {Patient}= require('../models/patient');
 const {Appointment}=require('../models/appointment');
 const {nevConfig}=require('../config/nev');
+const {getMongoPatientId}=require('../helpers/patients');
 
 // Acuity Configuration
 var acuity=AcuityScheduling.basic({
@@ -177,17 +179,16 @@ router.get('/appointments', authenticate, (req,res,next)=>{
 })
 
 // Acuity webhook routes
-router.post('/acuity/new',acuityAuth,(req,res,next)=>{
+
+router.post('/acuity/new', acuityAuth, (req,res,next)=>{
 
   var appointmentId=req.body.id;
-  console.log(req.body)
   acuity.request(`/appointments/${appointmentId}`,(err,response,acuityAppointment)=>{
     if (err) res.status(400).json({msg:'Bad request'})
 
-    // Change this so we look up patient by ObjectId field from
-    // Acuity response in forms array.
-    var email=acuityAppointment.email;
-    Patient.findByEmail(email).then((patient)=>{
+    var mongoId=getMongoPatientId(acuityAppointment);
+
+    Patient.findById(mongoId).then((patient)=>{
       var appointment=new Appointment({
         _id:appointmentId,
         acuityCalendarId:acuityAppointment.calendarID,
@@ -196,6 +197,7 @@ router.post('/acuity/new',acuityAuth,(req,res,next)=>{
         copay:70,
         paid:acuityAppointment.paid
       })
+
       appointment.save().then(()=>{
         patient.appointments.push(appointment);
         patient.save().then(()=>{
@@ -215,13 +217,10 @@ router.post('/acuity/new',acuityAuth,(req,res,next)=>{
         })
       })
     }).catch((e)=>{
-    res.status(404).json({
-      msg:'Patient email not in database',
-      })
+      res.end('Could not find patient with supplied ID')
     })
   })
 })
-
 router.post('/acuity/remove',acuityAuth,(req,res,next)=>{
   console.log(req.body);
   res.status(200).send({
