@@ -12,16 +12,9 @@ export class NavComponent implements OnInit {
 
   constructor(private router:Router, private authService:AuthService) { }
 
-  private isLoggedIn():Observable<boolean>|boolean{
-    return this.authService.isLoggedIn().map(e=>{
-      if (e){
-        return true;
-      }
-    }).catch(()=>{
-      this.router.navigate(['/patients','signin'])
-      return Observable.of(false);
-    })
-  }
+  isLoggedIn(){
+    return localStorage.getItem('token')
+  };
 
   ngOnInit() {
   }

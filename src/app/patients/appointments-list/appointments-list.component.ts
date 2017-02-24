@@ -27,4 +27,19 @@ export class AppointmentsListComponent implements OnInit {
     this.appointment=appointment
     this.staticModal.show()
   }
+
+  confirmCancel(id:Number){
+    this.appointmentService.cancelAppointment(id)
+      .subscribe(
+        data=>{
+          this.appointmentService.getAppointments()
+            .subscribe(
+              data=>this.appointments=data.appointments,
+              err=>console.error(err)
+            )
+          this.staticModal.hide()
+        },
+        err=>console.error(err)
+      )
+  }
 }

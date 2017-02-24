@@ -63,6 +63,9 @@ PatientSchema.methods.generateAuthToken=function(){
   });
 };
 
+// I am considering placing tokens array into its own collection to
+// utilize MongoDB's TTL feature which will auto remove expired tokens
+// from DB.
 PatientSchema.statics.findByToken=function(token){
   var Patient=this; // model object
   var decoded;
@@ -79,14 +82,15 @@ PatientSchema.statics.findByToken=function(token){
     'tokens.access':'auth'
   });
 }
-// 
-// PatientSchema.statics.findById=function(id){
-//   var Patient=this;
-//   return Patient.findOne({
-//     '_id':id
-//   });
-// }
 
+PatientSchema.methods.removeAppointment=function(appointmentId){
+  var patient=this;
+  return patient.update({
+    $pull:{
+      appointments:appointmentId
+    }
+  })
+}
 PatientSchema.methods.removeToken=function(token){
   var patient= this;
   return patient.update({

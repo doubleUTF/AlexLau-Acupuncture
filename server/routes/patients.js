@@ -178,6 +178,17 @@ router.get('/appointments', authenticate, (req,res,next)=>{
   })
 })
 
+router.delete('/appointments/:id',authenticate,(req,res,next)=>{
+  appointmentId=req.params.id;
+  Patient.findById(req.patient._id).then((patient)=>{
+    patient.removeAppointment(appointmentId).then(()=>{
+      Appointment.remove({_id:appointmentId}).then(()=>{
+        res.status(200).json({msg:'Succesfully removed appointment'})
+      }).catch((e)=>{res.status(404).json({msg:'Could not remove from appointment collection'})})
+    }).catch((e)=>res.status(404).json({msg:'Could not remove from patients array'}))
+  }).catch((e)=>res.status(404).json({msg:'Could not find patient ID'}))
+})
+
 // Acuity webhook routes
 
 router.post('/acuity/new', acuityAuth, (req,res,next)=>{
