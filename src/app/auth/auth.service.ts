@@ -43,8 +43,12 @@ export class AuthService {
       .catch((error:Response)=>Observable.throw(error.json()))
   }
 
-  isLoggedIn(){
-    return localStorage.getItem('token') !==null;
+  isLoggedIn():Observable<boolean>{
+    const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
+    const headers= new Headers({'Content-Type':'application/json','x-auth': token})
+    return this.http.get('http://localhost:3000/patients/me',{headers})
+      .map(response=>response.ok)
+      .catch((error:Response)=>Observable.throw(error.json()))
   }
 
   getPatientInfo(){

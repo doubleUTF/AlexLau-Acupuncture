@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-nav',
@@ -11,8 +12,15 @@ export class NavComponent implements OnInit {
 
   constructor(private router:Router, private authService:AuthService) { }
 
-  private isLoggedIn(){
-    return this.authService.isLoggedIn()
+  private isLoggedIn():Observable<boolean>|boolean{
+    return this.authService.isLoggedIn().map(e=>{
+      if (e){
+        return true;
+      }
+    }).catch(()=>{
+      this.router.navigate(['/patients','signin'])
+      return Observable.of(false);
+    })
   }
 
   ngOnInit() {

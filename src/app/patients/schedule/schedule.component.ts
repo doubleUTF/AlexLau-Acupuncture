@@ -20,7 +20,7 @@ export class ScheduleComponent implements OnInit {
     this.authService.getPatientInfo().subscribe(
       data=>{
         this.currentPatient=data.patientInfo
-        this.acuityURL+=`?owner=${environment.ACUITY_USER_ID}&appointmentType=${environment.ACUITY_APPT_TYPE}&firstName=${this.currentPatient.firstName}&lastName=${this.currentPatient.lastName}&email=${this.currentPatient.email}&field:2606533=${this.currentPatient._id}`
+        this.acuityURL+=`?owner=${environment.ACUITY_USER_ID}&appointmentType=${environment.ACUITY_APPT_TYPE}&firstName=${this.currentPatient.firstName}&lastName=${this.currentPatient.lastName}&email=${this.currentPatient.email}&field:${environment.ACUITY_OBJECT_ID_FIELD}=${this.currentPatient._id}`
         this.isReady=true;
       },
       err=>console.error(err)
