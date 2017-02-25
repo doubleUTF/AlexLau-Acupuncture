@@ -91,6 +91,7 @@ PatientSchema.methods.removeAppointment=function(appointmentId){
     }
   })
 }
+
 PatientSchema.methods.removeToken=function(token){
   var patient= this;
   return patient.update({

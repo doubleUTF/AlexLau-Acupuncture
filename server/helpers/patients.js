@@ -1,4 +1,4 @@
-var _=require('lodash')
+var _=require('lodash');
 
 function getMongoPatientId(appointment){
   var formObjects=appointment.forms;
@@ -11,4 +11,19 @@ function getMongoPatientId(appointment){
   return mongoField.value
 }
 
-module.exports={getMongoPatientId}
+function getUpcomingAppointments(appointmentsArray){
+  return _.filter(appointmentsArray,(o)=>{
+    var date=new Date(o.date)
+    return date>=new Date()
+  })
+}
+
+function getPastAppointments(appointmentsArray){
+  return _.filter(appointmentsArray,(o)=>{
+    var date=new Date(o.date)
+    return date<new Date()
+  })
+}
+
+module.exports={getMongoPatientId, getUpcomingAppointments,
+getPastAppointments}

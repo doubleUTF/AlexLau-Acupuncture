@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   constructor(private router:Router, private authService:AuthService) { }
 
   isLoggedIn(){
-    return localStorage.getItem('token')
+    return localStorage.getItem('token') !== null;
   };
 
   ngOnInit() {

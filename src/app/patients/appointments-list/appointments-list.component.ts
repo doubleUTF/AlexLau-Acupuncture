@@ -11,20 +11,28 @@ export class AppointmentsListComponent implements OnInit {
 
   constructor(private appointmentService:AppointmentService) { }
 
-  appointments=[]
-  appointment={}
+  upcomingAppointments=[];
+  pastAppointments=[];
+  selectedAppointment={date:null}
+
+  alertStatus=false
+  alertMessage:string=''
   @ViewChild('staticModal') public staticModal:ModalDirective;
+
   ngOnInit() {
     this.appointmentService.getAppointments()
       .subscribe(
-        data=>this.appointments=data.appointments,
+        data=>{
+          this.upcomingAppointments=data.upcomingAppointments,
+          this.pastAppointments=data.pastAppointments
+        },
         err=>console.error(err)
       )
   }
 
   onCanceled(appointment){
     // console.log(appointment)
-    this.appointment=appointment
+    this.selectedAppointment=appointment
     this.staticModal.show()
   }
 
@@ -32,14 +40,18 @@ export class AppointmentsListComponent implements OnInit {
     this.appointmentService.cancelAppointment(id)
       .subscribe(
         data=>{
-          this.appointmentService.getAppointments()
-            .subscribe(
-              data=>this.appointments=data.appointments,
-              err=>console.error(err)
-            )
+          this.upcomingAppointments.splice(this.upcomingAppointments.indexOf(id),1)
           this.staticModal.hide()
+          let message=`Your appointment on <b>${this.appointmentService.formatTime(this.selectedAppointment.date)}</b>
+          has been canceled.`
+          this.showAlert(message);
         },
         err=>console.error(err)
       )
+  }
+
+  showAlert(message:string){
+    this.alertMessage=message;
+    this.alertStatus=true
   }
 }

@@ -1,12 +1,18 @@
 <div class="container">
   <h2>View appointments</h2>
+  <alert *ngIf='alertStatus' type='info'>
+    <p [innerHTML]='alertMessage'></p>
+  </alert>
   <h3>Upcoming</h3>
     <ul class="list-group">
-      <appointment-item *ngFor='let appointment of appointments'
+      <appointment-item *ngFor='let appointment of upcomingAppointments'
       [appointment]='appointment' (onCanceled)='onCanceled($event)'></appointment-item>
     </ul>
   <h3>Past appointments</h3>
-  <button type="button" class="btn btn-primary" (click)="staticModal.show()">Static modal</button>
+  <ul class="list-group">
+    <appointment-item *ngFor='let appointment of pastAppointments'
+    [appointment]='appointment'></appointment-item>
+  </ul>
 
 <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
      tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -21,7 +27,7 @@
       <div class="modal-body">
         <div class='row'>
         <div class="col-xs-12">
-          <p>Confirm cancel appointment on {{this.appointmentService.formatTime(this.appointment.date)}}</p>
+          <p>Confirm cancel appointment on {{this.appointmentService.formatTime(this.selectedAppointment.date)}}</p>
           <div class="thumbnail">
             <a class='thumb-hover' (click)='confirmCancel(this.appointment._id)'>
             <span class="glyphicon glyphicon-ok text-center" style='display:block; font-size:50px; color:green' aria-hidden="true"></span>
@@ -31,10 +37,9 @@
             </a>
           </div>
         </div>
-
         <div class="col-xs-12">
           <div class="thumbnail">
-            <a class='thumb-hover'>
+            <a class='thumb-hover' (click)='staticModal.hide()'>
             <span class="glyphicon glyphicon-remove text-center" style='display:block; font-size:50px; color:red' aria-hidden="true"></span>
             <div class="caption">
               <h3 class='text-center'>No, don't cancel</h3>

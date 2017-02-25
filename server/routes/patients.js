@@ -14,7 +14,8 @@ const {acuityAuth}=require('../middleware/acuity-auth');
 const {Patient}= require('../models/patient');
 const {Appointment}=require('../models/appointment');
 const {nevConfig}=require('../config/nev');
-const {getMongoPatientId}=require('../helpers/patients');
+const {getMongoPatientId, getUpcomingAppointments,
+       getPastAppointments}=require('../helpers/patients');
 
 // Acuity Configuration
 var acuity=AcuityScheduling.basic({
@@ -171,7 +172,8 @@ router.get('/appointments', authenticate, (req,res,next)=>{
     _id:id
   }).populate('appointments').then((patient)=>{
     res.status(200).json({
-      appointments:patient.appointments
+      upcomingAppointments:getUpcomingAppointments(patient.appointments),
+      pastAppointments:getPastAppointments(patient.appointments)
     })
   }).catch((e)=>{
     res.status(400).json(e)
@@ -183,7 +185,14 @@ router.delete('/appointments/:id',authenticate,(req,res,next)=>{
   Patient.findById(req.patient._id).then((patient)=>{
     patient.removeAppointment(appointmentId).then(()=>{
       Appointment.remove({_id:appointmentId}).then(()=>{
-        res.status(200).json({msg:'Succesfully removed appointment'})
+        var options={
+          method:'PUT'
+        }
+        acuity.request('/appointments/'+appointmentId+'/cancel',options,
+        (err,response,appointment)=>{
+          if (err) res.status(400).json({msg:'Could not remove appointment'})
+          res.status(200).json({msg:'Succesfully removed appointment'})
+        })
       }).catch((e)=>{res.status(404).json({msg:'Could not remove from appointment collection'})})
     }).catch((e)=>res.status(404).json({msg:'Could not remove from patients array'}))
   }).catch((e)=>res.status(404).json({msg:'Could not find patient ID'}))
@@ -202,12 +211,12 @@ router.post('/acuity/new', acuityAuth, (req,res,next)=>{
     Patient.findById(mongoId).then((patient)=>{
       var appointment=new Appointment({
         _id:appointmentId,
-        acuityCalendarId:acuityAppointment.calendarID,
+        // acuityCalendarId:acuityAppointment.calendarID,
         date:acuityAppointment.datetime,
         patientId:patient._id.toHexString(),
         copay:70,
         paid:acuityAppointment.paid,
-        appointmentTypeId:acuityAppointment.appointmentTypeID
+        // appointmentTypeId:acuityAppointment.appointmentTypeID
       })
 
       appointment.save().then(()=>{
