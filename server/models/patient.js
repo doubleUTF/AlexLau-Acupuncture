@@ -65,7 +65,8 @@ var PatientSchema=new mongoose.Schema({
     token:{
       type:String,
       required:true
-    }
+    },
+    createdAt:Date
   }]
 })
 
@@ -74,7 +75,7 @@ PatientSchema.methods.generateAuthToken=function(){
   var access='auth';
   var token=jwt.sign({_id:patient._id.toHexString(),access},process.env.JWT_SECRET);
 
-  patient.tokens.push({access,token})
+  patient.tokens.push({access,token,createdAt:new Date()})
   return patient.save().then(()=>{
     return token;
   });
