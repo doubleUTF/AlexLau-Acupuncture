@@ -14,10 +14,13 @@ export class AppointmentItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  @Input() viewReceipt:boolean=false;
+  @Input() canCancel:boolean=false;
   @Input() appointment:Object;
   @Output() onCanceled=new EventEmitter();
 
   onCancel(id:Number){
     this.onCanceled.emit(id)
   }
+
 }

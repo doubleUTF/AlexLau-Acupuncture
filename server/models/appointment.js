@@ -20,7 +20,9 @@ var appointmentSchema=new mongoose.Schema({
   amountPaid:Number,
   appointmentTypeId:Number,
   insuranceAmountPaid:Number,
-  notes:String
+  notes:String,
+  workInjury:Boolean,
+  autoInjury:Boolean,
 })
 
 var Appointment=mongoose.model('Appointment',appointmentSchema);

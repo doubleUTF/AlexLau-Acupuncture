@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppointmentService } from './appointment.service';
 import { ModalModule, ModalDirective } from 'ng2-bootstrap/modal';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'appointments-list',
@@ -9,7 +10,9 @@ import { ModalModule, ModalDirective } from 'ng2-bootstrap/modal';
 })
 export class AppointmentsListComponent implements OnInit {
 
-  constructor(private appointmentService:AppointmentService) { }
+  constructor(
+    private appointmentService:AppointmentService,
+    private authService:AuthService) {}
 
   upcomingAppointments=[];
   pastAppointments=[];
@@ -26,7 +29,10 @@ export class AppointmentsListComponent implements OnInit {
           this.upcomingAppointments=data.upcomingAppointments,
           this.pastAppointments=data.pastAppointments
         },
-        err=>console.error(err)
+        err=>{
+          this.authService.signOut()
+          console.error(err)
+        }
       )
   }
 

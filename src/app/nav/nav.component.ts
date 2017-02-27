@@ -10,24 +10,41 @@ import { Observable } from 'rxjs/Rx';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private router:Router, private authService:AuthService) { }
+  constructor(private router:Router, private authService:AuthService) {
+  authService.name$.subscribe(
+    nameSource=>{
+      this.firstName=nameSource[0];
+      this.lastName=nameSource[1];
+      this.updateMenuTitle();
+    }
+  ) }
+
+  firstName:string='';
+  lastName:string='';
 
   isLoggedIn(){
     return localStorage.getItem('token') !== null;
   };
 
   ngOnInit() {
+    if (this.isLoggedIn()){
+      this.router.navigate(['/patients','dashboard'])
+      this.firstName=localStorage.getItem('firstName');
+      this.lastName=localStorage.getItem('lastName');
+    }
+  }
+
+  updateMenuTitle(){
+    if (!this.firstName || !this.lastName){
+      return 'Menu'
+    }
+    return this.firstName+ ' '+ this.lastName[0]+'.'
   }
 
   onSignOut(){
-    this.authService.signOut()
-    .subscribe(
-      data=>console.log(data),
-      err=>console.error(err)
-    );
-    localStorage.clear();
-    this.router.navigate(['/patients','signin'])
+    this.authService.signOut();
+    this.firstName,this.lastName='',''
+    this.updateMenuTitle();
   }
-
 
 }

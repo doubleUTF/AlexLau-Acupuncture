@@ -14,8 +14,7 @@ const {acuityAuth}=require('../middleware/acuity-auth');
 const {Patient}= require('../models/patient');
 const {Appointment}=require('../models/appointment');
 const {nevConfig}=require('../config/nev');
-const {getMongoPatientId, getUpcomingAppointments,
-       getPastAppointments}=require('../helpers/patients');
+const {getMongoPatientId}=require('../helpers/patients');
 
 // Acuity Configuration
 var acuity=AcuityScheduling.basic({
@@ -117,10 +116,15 @@ router.post('/register',(req,res,next)=>{
 // This route is to get patient info
 router.get('/me', authenticate, (req,res,next)=>{
   var patientInfo=_.pick(req.patient,['firstName','lastName','email','phone',"_id"])
+  if (!patientInfo.phone) patientInfo.phone=''
    res.status(200).json({
     message:'Successfully logged in',
     patientInfo
   })
+})
+
+router.get('/auth',authenticate,(req,res,next)=>{
+  res.status(200).end()
 })
 
 router.post('/signin',(req,res,next)=>{
@@ -148,7 +152,9 @@ router.post('/signin',(req,res,next)=>{
       res.header('x-auth',token).status(200).json({
         message:'Successfully logged in',
         token,
-        patientId:patient._id
+        patientId:patient._id,
+        firstName:patient.firstName,
+        lastName:patient.lastName
       })
     });
   });
@@ -171,9 +177,13 @@ router.get('/appointments', authenticate, (req,res,next)=>{
   Patient.findOne({
     _id:id
   }).populate('appointments').then((patient)=>{
+    var splitAppointments=_.partition(patient.appointments,(o)=>{
+      var date=new Date(o.date)
+      return date>=new Date()
+    })
     res.status(200).json({
-      upcomingAppointments:getUpcomingAppointments(patient.appointments),
-      pastAppointments:getPastAppointments(patient.appointments)
+      upcomingAppointments:splitAppointments[0],
+      pastAppointments:splitAppointments[1]
     })
   }).catch((e)=>{
     res.status(400).json(e)

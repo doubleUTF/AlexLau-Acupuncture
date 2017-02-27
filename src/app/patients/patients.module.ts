@@ -12,6 +12,7 @@ import { SafePipe } from '../pipes/safe.pipe';
 import { AppointmentsListComponent } from './appointments-list/appointments-list.component';
 import { AppointmentItemComponent } from './appointments-list/appointment-item/appointment-item.component';
 import { AppointmentService } from './appointments-list/appointment.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { AppointmentService } from './appointments-list/appointment.service';
     FocusDirective,
     SafePipe,
     AppointmentsListComponent,
-    AppointmentItemComponent
+    AppointmentItemComponent,
+    ProfileComponent
   ],
   providers:[
     AppointmentService

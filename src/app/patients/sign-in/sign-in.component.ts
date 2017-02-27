@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -34,6 +34,9 @@ export class SignInComponent implements OnInit, AfterViewInit {
       data=>{
         localStorage.setItem('token',data.token),
         localStorage.setItem('patientId',data.patientId);
+        localStorage.setItem('firstName',data.firstName);
+        localStorage.setItem('lastName',data.lastName);
+        this.authService.emitName([data.firstName,data.lastName])
         this.router.navigateByUrl('/patients/dashboard')
       },
       err=>console.error(err)
@@ -45,5 +48,6 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(){
     this.focusEvent.emit(true)
+
   }
 }

@@ -6,12 +6,12 @@
   <h3>Upcoming</h3>
     <ul class="list-group">
       <appointment-item *ngFor='let appointment of upcomingAppointments'
-      [appointment]='appointment' (onCanceled)='onCanceled($event)'></appointment-item>
+      [appointment]='appointment' (onCanceled)='onCanceled($event)' [canCancel]='true'></appointment-item>
     </ul>
   <h3>Past appointments</h3>
   <ul class="list-group">
     <appointment-item *ngFor='let appointment of pastAppointments'
-    [appointment]='appointment'></appointment-item>
+    [appointment]='appointment' [viewReceipt]='true'></appointment-item>
   </ul>
 
 <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
