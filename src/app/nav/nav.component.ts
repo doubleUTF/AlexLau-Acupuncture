@@ -28,7 +28,6 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     if (this.isLoggedIn()){
-      this.router.navigate(['/patients','dashboard'])
       this.firstName=localStorage.getItem('firstName');
       this.lastName=localStorage.getItem('lastName');
     }

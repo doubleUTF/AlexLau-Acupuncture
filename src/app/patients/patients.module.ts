@@ -13,13 +13,15 @@ import { AppointmentsListComponent } from './appointments-list/appointments-list
 import { AppointmentItemComponent } from './appointments-list/appointment-item/appointment-item.component';
 import { AppointmentService } from './appointments-list/appointment.service';
 import { ProfileComponent } from './profile/profile.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     BootstrapModule,
-    RouterModule
+    RouterModule,
+    TextMaskModule
   ],
   declarations: [
     SignInComponent,

@@ -5,7 +5,7 @@ import { DropdownModule, AlertModule, ModalModule } from 'ng2-bootstrap';
   imports: [
     DropdownModule.forRoot(),
     AlertModule.forRoot(),
-    ModalModule.forRoot(),
+    ModalModule.forRoot()
   ],
   declarations: [],
   exports:[
