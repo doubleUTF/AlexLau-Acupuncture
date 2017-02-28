@@ -10,7 +10,7 @@ module.exports = {
         NODE_ENV: "development"
       },
       watch:true,
-      ignore_watch:["node_modules","src","dist"],
+      ignore_watch:["node_modules","src","dist",".git"],
       script:"./bin/www"
     },
   ],
