@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Patient } from '../patient.model';
-
+import { ValidatorService } from '../../services/validator.service';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
@@ -11,7 +11,8 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService,
+  private validatorService:ValidatorService) { }
 
   ngOnInit() {
     this.patientForm=new FormGroup({
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
       lastName:new FormControl(null, Validators.required),
       email:new FormControl('', [
         Validators.required,
-        this.authService.validateEmail
+        this.validatorService.validateEmail
       ]),
       password:new FormControl(null, [
         Validators.required,

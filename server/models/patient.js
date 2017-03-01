@@ -47,6 +47,7 @@ var PatientSchema=new mongoose.Schema({
     id:String,
     payerId:String
   }],
+  referredBy:String,
   emergencyContact:{
     name:String,
     phone:Number
@@ -119,6 +120,10 @@ PatientSchema.methods.removeToken=function(token){
   })
 };
 
+PatientSchema.methods.saveProfile=function(patientObj){
+  var patient=this;
+  return patient.update(patientObj)
+}
 var Patient=mongoose.model('Patient', PatientSchema)
 
 module.exports={Patient}

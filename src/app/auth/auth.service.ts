@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs';
 import {FormControl} from '@angular/forms'; // Just for validating email
-import { isEmail } from 'validator';
 import { Subject } from 'rxjs/Subject'
 import 'rxjs/Rx';
 import { Router } from '@angular/router';
@@ -17,7 +16,7 @@ export class AuthService {
   emitName(nameArray:Array<string>){
     this.nameSource.next(nameArray)
   }
-  
+
   constructor(private http:Http, private router:Router) { }
 
   register(patient:Patient){
@@ -36,13 +35,6 @@ export class AuthService {
       .catch((error:Response)=>Observable.throw(error.json()))
   }
 
-  validateEmail(c:FormControl){
-    return isEmail(c.value) ? null :{
-      validateEmail:{
-        valid:false
-      }
-    };
-  }
 
   signOut(){
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
@@ -76,6 +68,5 @@ export class AuthService {
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
-
 
 }

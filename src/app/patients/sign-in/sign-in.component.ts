@@ -3,6 +3,7 @@ import { AuthService } from '../../auth/auth.service';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Patient } from '../patient.model';
+import { ValidatorService } from '../../services/validator.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,13 +12,14 @@ import { Patient } from '../patient.model';
 })
 export class SignInComponent implements OnInit, AfterViewInit {
 
-  constructor(private authService:AuthService, private router:Router) { }
+  constructor(private authService:AuthService, private router:Router,
+  private validatorService:ValidatorService) { }
 
   ngOnInit() {
     this.signInForm=new FormGroup({
       email:new FormControl('',[
         Validators.required,
-        this.authService.validateEmail
+        this.validatorService.validateEmail
       ]),
       password:new FormControl(null, Validators.required)
     })

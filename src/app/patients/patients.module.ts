@@ -14,6 +14,8 @@ import { AppointmentItemComponent } from './appointments-list/appointment-item/a
 import { AppointmentService } from './appointments-list/appointment.service';
 import { ProfileComponent } from './profile/profile.component';
 import { TextMaskModule } from 'angular2-text-mask';
+import { PatientService} from './patient.service';
+import { ValidatorService } from '../services/validator.service';
 
 @NgModule({
   imports: [
@@ -36,6 +38,8 @@ import { TextMaskModule } from 'angular2-text-mask';
   ],
   providers:[
     AppointmentService,
+    PatientService,
+    ValidatorService
   ]
 })
 

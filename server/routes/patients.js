@@ -125,6 +125,21 @@ router.get('/me', authenticate, (req,res,next)=>{
   })
 })
 
+router.post('/me',authenticate,(req,res,next)=>{
+  Patient.findById(req.patient._id).then((patient)=>{
+    patient.saveProfile(req.body).then((response)=>{
+      res.status(200).json({
+        msg:'Patient saved!',
+        response
+      }).catch((e)=>{
+        res.status(400).json({
+          msg:'Could not save',
+          err:e
+        })
+      })
+    })
+  })
+})
 router.get('/auth',authenticate,(req,res,next)=>{
   res.status(200).end()
 })
@@ -254,6 +269,7 @@ router.post('/acuity/new', acuityAuth, (req,res,next)=>{
     })
   })
 })
+
 router.post('/acuity/remove',acuityAuth,(req,res,next)=>{
   console.log(req.body);
   res.status(200).send({

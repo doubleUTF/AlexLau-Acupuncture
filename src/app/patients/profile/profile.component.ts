@@ -2,6 +2,8 @@ import { Component, OnInit,  } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Patient } from '../patient.model';
 import { AuthService } from '../../auth/auth.service';
+import { PatientService } from '../patient.service';
+import { ValidatorService } from '../../services/validator.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,12 +12,16 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService,
+  private patientService:PatientService,
+  private validatorService:ValidatorService) { }
 
   ngOnInit() {
     this.profileForm= new FormGroup({
-      firstName:new FormControl(''),
-      lastName:new FormControl(''),
+      firstName:new FormControl('',[Validators.required,
+        this.validatorService.validateAlpha]),
+      lastName:new FormControl('',[Validators.required,
+        this.validatorService.validateAlpha]),
       email:new FormControl(''),
       referredBy:new FormControl(''),
       primaryPhone:new FormControl(''),
@@ -50,7 +56,13 @@ export class ProfileComponent implements OnInit {
   formDisabled:boolean=true;
 
   onSave(){
-    console.log(this.profileForm.value)
+    const formModel:Patient= this.profileForm.value;
+    this.patientService.savePatientInfo(formModel).subscribe(
+      data=>console.log(data),
+      err=>console.error(err)
+    )
+    this.currentForm=formModel;
+    this.formDisabled=true;
   }
 
   onEdit(){
