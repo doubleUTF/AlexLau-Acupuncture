@@ -5,21 +5,32 @@
       Your profile is incomplete, we will not be able to provide treatment until
       it is completed.
     </alert>
-    <form class='form-horizontal' [formGroup]='profileForm'>
-      <fieldset>
+
+    <form class='form-horizontal' [formGroup]='profileForm' novalidate>
+      <div class="row">
+        <div class="text-center" style='padding-bottom:15px'>
+          <button *ngIf='formDisabled' type='button' (click)='onEdit()' class='btn btn-primary'>
+            <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>&nbsp;Edit</button>
+          <button *ngIf='!formDisabled' (click)='onSave()' type="button" class="btn btn-success">
+            <span class='glyphicon glyphicon-floppy-disk' aria-hidden='true'></span>&nbsp;Save</button>
+          <button *ngIf='!formDisabled' (click)='onCancel()' type="button" class="btn btn-danger">
+            <span class='glyphicon glyphicon-remove' aria-hidden='true'></span>&nbsp;Cancel</button>
+        </div>
+      </div>
+      <fieldset [disabled]='formDisabled'>
         <div class="row">
           <div class="form-group col-sm-6">
             <label for="firstName" class='col-sm-4 control-label'>First Name</label>
             <div class="input-group col-sm-8">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input type="text" class="form-control" id="firstName">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden='true'></i></span>
+              <input type="text" class="form-control" id="firstName" formControlName='firstName'>
             </div>
           </div>
           <div class="form-group col-sm-6">
             <label for="lastName" class='col-sm-4 control-label'>Last Name</label>
             <div class="input-group col-sm-8">
-               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input type="text" class="form-control" id="lastName">
+               <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden='true'></i></span>
+              <input type="text" class="form-control" id="lastName" formControlName='lastName'>
             </div>
           </div>
         </div>
@@ -29,65 +40,72 @@
           <label for="email" class='col-sm-4 control-label'>Email address</label>
           <div class="input-group col-sm-8">
            <span class="input-group-addon"><i class="fa fa-at" aria-hidden='true'></i></span>
-            <input type="email" class="form-control" id="email">
+            <input type="email" class="form-control" id="email" formControlName='email'>
           </div>
         </div>
         <div class="form-group col-sm-6">
           <label for="referredBy" class='col-sm-4 control-label'>Referred by</label>
           <div class="input-group col-sm-8">
-            <input type="text" class="form-control" id="referredBy" placeholder="Email">
+            <input type="text" class="form-control" id="referredBy" formControlName='referredBy'>
           </div>
         </div>
       </div>
 
     <div class="row">
       <div class="form-group col-sm-6">
-        <label for="phone1" class='col-sm-4 control-label'>Phone number</label>
+        <label for="primaryPhone" class='col-sm-4 control-label'>Primary phone</label>
         <div class="input-group col-sm-8">
           <span class="input-group-addon"><i class='glyphicon glyphicon-earphone' aria-hidden='true'></i></span>
-          <input [textMask]='{mask:phoneMask}' type="text" id="phone1" class='form-control'
-          placeholder='(___) ___-____'>
+          <input [textMask]='{mask:phoneMask}' type="text" id="primaryPhone" class='form-control'
+          placeholder='(___) ___-____' formControlName='primaryPhone'>
         </div>
       </div>
       <div class="form-group col-sm-6">
-        <label for="phone2" class='col-sm-4 control-label'>Alternate phone</label>
+        <label for="secondaryPhone" class='col-sm-4 control-label'>Secondary phone</label>
         <div class="input-group col-sm-8">
           <span class="input-group-addon"><i class='glyphicon glyphicon-earphone' aria-hidden='true'></i></span>
-          <input [textMask]='{mask:phoneMask}' type="text" id="phone2" class='form-control'
-          placeholder='(___) ___-____'>
+          <input [textMask]='{mask:phoneMask}' type="text" id="secondaryPhone" class='form-control'
+          placeholder='(___) ___-____' formControlName='secondaryPhone'>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="form-group col-sm-4">
-        <label for="gender" class='col-sm-4 control-label'>Gender</label>
-        <div class="input-group col-sm-8">
-          <label class="radio-inline">
-            <input type="radio" name="genderOptions" id="maleRadio" value="option1"> Male
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="genderOptions" id="femaleRadio" value="option2"> Female
-          </label>
+      <div class="col-sm-6 form-group">
+        <div class="col-sm-6">
+          <label for="gender" class='col-sm-4 control-label'>Gender</label>
+          <div class="input-group col-sm-8">
+            <label class="radio-inline">
+              <input type="radio" name="gender" id="maleRadio"
+               value="male" formControlName='gender'>Male
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="gender" id="femaleRadio"
+               value="female" formControlName='gender'>Female
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <label for="pregnant" class='col-sm-5 control-label'>Pregnant</label>
+          <div class="input-group col-sm-7">
+            <label for="no" class="radio-inline">
+              <input type="radio" name="pregnant" id="noRadio"
+               value="false" formControlName='pregnant'>No
+            </label>
+            <label for="yes" class='radio-inline'>
+              <input type="radio" name="pregnant" id="yesRadio"
+               value="true" formControlName='pregnant'>Yes
+            </label>
+          </div>
         </div>
       </div>
-      <div class="form-group col-sm-4">
-        <label for="pregnant" class='col-sm-4 control-label'>Pregnant</label>
+
+      <div class="form-group col-sm-6">
+        <label for="dateOfBirth" class='col-sm-4 control-label'>Date of Birth</label>
         <div class="input-group col-sm-8">
-          <label for="no" class="radio-inline">
-            <input type="radio" name="pregnantOptions" id="noRadio" value="No"> No
-          </label>
-          <label for="yes" class='radio-inline'>
-            <input type="radio" name="pregnantOptions" id="yesRadio" value="Yes">Yes
-          </label>
-        </div>
-      </div>
-      <div class="form-group col-sm-4">
-        <label for="dateOfBirth" class='col-sm-5 control-label'>Date of Birth</label>
-        <div class="input-group col-sm-7">
-          <span class="input-group-addon"><i class='glyphicon glyphicon-calendar'></i></span>
+          <span class="input-group-addon"><i class='glyphicon glyphicon-calendar' aria-hidden='true'></i></span>
           <input [textMask]='{mask:dobMask}' type="text" id="dateOfBirth" class='form-control'
-          placeholder='mm/dd/yyyy'>
+          placeholder='mm/dd/yyyy' formControlName='dateOfBirth'>
         </div>
       </div>
     </div>
@@ -96,15 +114,15 @@
       <div class="form-group col-sm-6">
         <label for="address" class='col-sm-4 control-label'>Address</label>
         <div class="input-group col-sm-8">
-         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-          <input type="text" class="form-control" id="address" placeholder="827 Oyster St.">
+         <span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden='true'></i></span>
+          <input type="text" class="form-control" id="address" formControlName='address'>
         </div>
       </div>
       <div class="form-group col-sm-6">
         <label for="email" class='col-sm-4 control-label'>City</label>
         <div class="input-group col-sm-8">
          <span class="input-group-addon"><i class="fa fa-building" aria-hidden='true'></i></span>
-          <input type="text" class="form-control" id="city">
+          <input type="text" class="form-control" id="city" formControlName='city'>
         </div>
       </div>
     </div>
@@ -113,60 +131,60 @@
       <div class="form-group col-sm-6">
       <label for="email" class='col-sm-4 control-label'>State</label>
       <div class="input-group col-sm-8">
-       <span class="input-group-addon"><i class="fa fa-at" aria-hidden='true'></i></span>
-       <select name="state" class="form-control selectpicker" >
+       <span class="input-group-addon"><i class="glyphicon glyphicon-th-list" aria-hidden='true'></i></span>
+       <select name="state" class="form-control selectpicker" formControlName='state'>
       <option value=" " >Please select your state</option>
-      <option>Alabama</option>
-      <option>Alaska</option>
-      <option >Arizona</option>
-      <option >Arkansas</option>
-      <option >California</option>
-      <option >Colorado</option>
-      <option >Connecticut</option>
-      <option >Delaware</option>
-      <option >District of Columbia</option>
-      <option> Florida</option>
-      <option >Georgia</option>
-      <option >Hawaii</option>
-      <option >daho</option>
-      <option >Illinois</option>
-      <option >Indiana</option>
-      <option >Iowa</option>
-      <option> Kansas</option>
-      <option >Kentucky</option>
-      <option >Louisiana</option>
-      <option>Maine</option>
-      <option >Maryland</option>
-      <option> Mass</option>
-      <option >Michigan</option>
-      <option >Minnesota</option>
-      <option>Mississippi</option>
-      <option>Missouri</option>
-      <option>Montana</option>
-      <option>Nebraska</option>
-      <option>Nevada</option>
-      <option>New Hampshire</option>
-      <option>New Jersey</option>
-      <option>New Mexico</option>
-      <option>New York</option>
-      <option>North Carolina</option>
-      <option>North Dakota</option>
-      <option>Ohio</option>
-      <option>Oklahoma</option>
-      <option>Oregon</option>
-      <option>Pennsylvania</option>
-      <option>Rhode Island</option>
-      <option>South Carolina</option>
-      <option>South Dakota</option>
-      <option>Tennessee</option>
-      <option>Texas</option>
-      <option>Utah</option>
-      <option>Vermont</option>
-      <option>Virginia</option>
-      <option>Washington</option>
-      <option>West Virginia</option>
-      <option>Wisconsin</option>
-      <option>Wyoming</option>
+      <option value='AL'>Alabama</option>
+      <option value='AK'>Alaska</option>
+      <option value='AZ'>Arizona</option>
+      <option value='AR'>Arkansas</option>
+      <option value='CA'>California</option>
+      <option value='CO'>Colorado</option>
+      <option value='CT'>Connecticut</option>
+      <option value='DE'>Delaware</option>
+      <option value='DC'>District of Columbia</option>
+      <option value='FL'>Florida</option>
+      <option value='GA'>Georgia</option>
+      <option value='HI'>Hawaii</option>
+      <option value='ID'>Idaho</option>
+      <option value='IL'>Illinois</option>
+      <option value='IN'>Indiana</option>
+      <option value='IA'>Iowa</option>
+      <option value='KS'> Kansas</option>
+      <option value='KY'>Kentucky</option>
+      <option value='LA'>Louisiana</option>
+      <option value='ME'>Maine</option>
+      <option value='MD'>Maryland</option>
+      <option value='MA'>Massachusetts</option>
+      <option value='MI'>Michigan</option>
+      <option value='MN'>Minnesota</option>
+      <option value='MS'>Mississippi</option>
+      <option value='MO'>Missouri</option>
+      <option value='MT'>Montana</option>
+      <option value='NE'>Nebraska</option>
+      <option value='NV'>Nevada</option>
+      <option value='NH'>New Hampshire</option>
+      <option value='NJ'>New Jersey</option>
+      <option value='NM'>New Mexico</option>
+      <option value='NY'>New York</option>
+      <option value='NC'>North Carolina</option>
+      <option value='ND'>North Dakota</option>
+      <option value='OH'>Ohio</option>
+      <option value='OK'>Oklahoma</option>
+      <option value='OR'>Oregon</option>
+      <option value='PA'>Pennsylvania</option>
+      <option value='RI'>Rhode Island</option>
+      <option value='SC'>South Carolina</option>
+      <option value='SD'>South Dakota</option>
+      <option value='TN'>Tennessee</option>
+      <option value='TX'>Texas</option>
+      <option value='UT'>Utah</option>
+      <option value='VT'>Vermont</option>
+      <option value='VA'>Virginia</option>
+      <option value='WA'>Washington</option>
+      <option value='WV'>West Virginia</option>
+      <option value='WI'>Wisconsin</option>
+      <option value='WY'>Wyoming</option>
       </select>
       </div>
       </div>
@@ -175,12 +193,31 @@
         <label for="zip" class='col-sm-4 control-label'>Zip code</label>
         <div class="input-group col-sm-8">
          <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-          <input type="text" class="form-control" id="zip">
+          <input type="text" class="form-control" id="zip" formControlName='zip'>
         </div>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="emergencyContact" class='col-sm-4 control-label'>Emergency contact</label>
+        <div class="input-group col-sm-8">
+         <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden='true'></i></span>
+         <input type="text" class="form-control col-sm-8" id="emergencyContact"
+          formControlName='emergencyContact'>
+        </div>
+
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="emergencyPhone" class='col-sm-4 control-label'>Phone number</label>
+        <div class="input-group col-sm-8">
+          <span class="input-group-addon"><i class='glyphicon glyphicon-earphone' aria-hidden='true'></i></span>
+          <input [textMask]='{mask:phoneMask}' type="text" id="emergencyPhone" class='form-control'
+          placeholder='(___) ___-____' formControlName='emergencyPhone'>
+        </div>
+      </div>
+    </div>
+
     </fieldset>
     </form>
   </div>

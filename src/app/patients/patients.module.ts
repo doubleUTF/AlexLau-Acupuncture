@@ -35,7 +35,7 @@ import { TextMaskModule } from 'angular2-text-mask';
     ProfileComponent
   ],
   providers:[
-    AppointmentService
+    AppointmentService,
   ]
 })
 

@@ -115,11 +115,13 @@ router.post('/register',(req,res,next)=>{
 
 // This route is to get patient info
 router.get('/me', authenticate, (req,res,next)=>{
-  var patientInfo=_.pick(req.patient,['firstName','lastName','email','phone',"_id"])
-  if (!patientInfo.phone) patientInfo.phone=''
+  var patientObj=JSON.parse(JSON.stringify(req.patient))
+  var patientProfile=_.omit(patientObj,['_id','password','__v',
+  'tokens','appointments'])
+  // if (!patientInfo.phone) patientInfo.phone=''
    res.status(200).json({
     message:'Successfully logged in',
-    patientInfo
+    patientProfile
   })
 })
 

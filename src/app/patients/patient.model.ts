@@ -7,9 +7,10 @@ export class Patient{
     public gender?:string,
     public dob?:string,
     public address?:string,
-    public phone?:number,
+    public phone?:string,
     public pregnant?:boolean,
-    public emergencyContact?:any,
+    public emergencyContact?:string,
+    public emergencyPhone?:string,
     public insurances?:any[],
     public signedDisclosure?:boolean
   ) {}
