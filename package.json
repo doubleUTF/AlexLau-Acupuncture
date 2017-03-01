@@ -5,8 +5,8 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "pm2 start ecosystem.config.js",
-    "watch": "nodemon ./bin/www",
+    "pm2start": "pm2 start ecosystem.config.js",
+    "start": "nodemon ./bin/www",
     "ngstart": "ng serve",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "test": "ng test",
@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
     "@types/jquery": "^2.0.39",
+    "@types/lodash": "^4.14.53",
     "acuityscheduling": "^0.1.7",
     "angular2-fullcalendar": "^1.1.1",
     "angular2-text-mask": "^6.1.0",

@@ -29,29 +29,24 @@ var PatientSchema=new mongoose.Schema({
     type:String,
     minlength:6
   },
-  phone:{
-    mobile:Number,
-    home:Number
-  },
+  primaryPhone:String,
+  secondaryPhone:String,
   gender:String,
-  pregnant:Boolean,
-  dob:Date,
-  address:{
-    street:String,
-    city:String,
-    state:String,
-    zip:Number
-  },
+  pregnant:String,
+  dateOfBirth:Date,
+  address:String,
+  street:String,
+  city:String,
+  state:String,
+  zip:String,
   insurances:[{
     groupName:String,
     id:String,
     payerId:String
   }],
   referredBy:String,
-  emergencyContact:{
-    name:String,
-    phone:Number
-  },
+  emergencyContact:String,
+  emergencyPhone:String,
   appointments:[{
     type:Number,
     unique:true,

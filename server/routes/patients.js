@@ -117,7 +117,7 @@ router.post('/register',(req,res,next)=>{
 router.get('/me', authenticate, (req,res,next)=>{
   var patientObj=JSON.parse(JSON.stringify(req.patient))
   var patientProfile=_.omit(patientObj,['_id','password','__v',
-  'tokens','appointments'])
+  'tokens','appointments','insurances'])
   // if (!patientInfo.phone) patientInfo.phone=''
    res.status(200).json({
     message:'Successfully logged in',
@@ -131,11 +131,11 @@ router.post('/me',authenticate,(req,res,next)=>{
       res.status(200).json({
         msg:'Patient saved!',
         response
-      }).catch((e)=>{
-        res.status(400).json({
-          msg:'Could not save',
-          err:e
-        })
+      })
+    }).catch((e)=>{
+      res.status(400).json({
+        msg:'Could not save',
+        err:e
       })
     })
   })

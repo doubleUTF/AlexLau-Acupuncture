@@ -4,6 +4,7 @@ import { Patient } from '../patient.model';
 import { AuthService } from '../../auth/auth.service';
 import { PatientService } from '../patient.service';
 import { ValidatorService } from '../../services/validator.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-profile',
@@ -18,31 +19,36 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.profileForm= new FormGroup({
-      firstName:new FormControl('',[Validators.required,
-        this.validatorService.validateAlpha]),
-      lastName:new FormControl('',[Validators.required,
-        this.validatorService.validateAlpha]),
-      email:new FormControl(''),
+      firstName:new FormControl('',[Validators.required]),
+      lastName:new FormControl('',[Validators.required]),
+      email:new FormControl('',[this.validatorService.validateEmail]),
       referredBy:new FormControl(''),
-      primaryPhone:new FormControl(''),
+      primaryPhone:new FormControl('',Validators.required),
       secondaryPhone:new FormControl(''),
-      gender:new FormControl(''),
+      gender:new FormControl('',Validators.required),
       pregnant:new FormControl(''),
-      dateOfBirth:new FormControl(''),
-      address:new FormControl(''),
-      city:new FormControl(''),
-      state:new FormControl(''),
-      zip:new FormControl(''),
+      dateOfBirth:new FormControl('',Validators.required),
+      address:new FormControl('',Validators.required),
+      city:new FormControl('',Validators.required),
+      state:new FormControl('',Validators.required),
+      zip:new FormControl('',Validators.required),
       emergencyContact:new FormControl(''),
       emergencyPhone:new FormControl('')
     })
 
     this.authService.getPatientInfo().subscribe(
       data=>{
+        let tempForm=JSON.parse(JSON.stringify(this.profileForm.value));
+        // Don't display insurance information in first profile page
+        this.currentForm=_.omit(tempForm,['insurances']);
         for (var p in data.patientProfile){
           this.currentForm[p]=data.patientProfile[p]
-          this.profileForm.patchValue({[p]:data.patientProfile[p]})
         }
+        this.profileForm.setValue(this.currentForm);
+        // for (var p in data.patientProfile){
+        //   this.currentForm[p]=data.patientProfile[p]
+        //   this.profileForm.patchValue({[p]:data.patientProfile[p]})
+        // }
       },
       err=>console.error(err)
     )
@@ -71,9 +77,7 @@ export class ProfileComponent implements OnInit {
 
   onCancel(){
     this.formDisabled=true;
-    this.profileForm.reset();
-    for (var p in this.currentForm){
-      this.profileForm.patchValue({[p]:this.currentForm[p]})
-    }
+    console.log(this.profileForm);
+    this.profileForm.reset(this.currentForm);
   }
 }
