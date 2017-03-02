@@ -28,34 +28,42 @@ export class ProfileComponent implements OnInit {
       gender:new FormControl('',Validators.required),
       pregnant:new FormControl(''),
       dateOfBirth:new FormControl('',Validators.required),
-      address:new FormControl('',Validators.required),
-      city:new FormControl('',Validators.required),
-      state:new FormControl('',Validators.required),
-      zip:new FormControl('',Validators.required),
+      address:new FormGroup({
+        street:new FormControl('',Validators.required),
+        city:new FormControl('',Validators.required),
+        state:new FormControl('',Validators.required),
+        zip:new FormControl('',Validators.required),
+      }),
       emergencyContact:new FormControl(''),
       emergencyPhone:new FormControl('')
     })
 
     this.authService.getPatientInfo().subscribe(
       data=>{
-        let tempForm=JSON.parse(JSON.stringify(this.profileForm.value));
+        this.currentForm=JSON.parse(JSON.stringify(this.profileForm.value));
         // Don't display insurance information in first profile page
-        this.currentForm=_.omit(tempForm,['insurances']);
-        for (var p in data.patientProfile){
+        let incomingForm=_.omit(data.patientProfile,['insurances']);
+        // console.log(this.currentForm)
+        for (var p in incomingForm){
           this.currentForm[p]=data.patientProfile[p]
         }
         this.profileForm.setValue(this.currentForm);
+        setTimeout(()=>this.canView=true);
       },
       err=>console.error(err)
     )
   }
 
-  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-  public dobMask = [ /[0-1]/, /\d/, '/', /[0-3]/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
+  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  public dobMask = [ /[0-1]/, /\d/, '/', /[0-3]/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
+  canView:boolean=false;
   profileForm:FormGroup;
   currentForm={};
   formDisabled:boolean=true;
+
+  // TODO use double opt security if patient wants to change
+  // email or password.
 
   onSave(){
     const formModel:Patient= this.profileForm.value;
@@ -87,4 +95,5 @@ export class ProfileComponent implements OnInit {
     this.errorPresent=true;
     this.errorMessage=err.err;
   }
+
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h2>My Profile</h2>
-    <alert type="warning" *ngIf='!profileForm.valid'>
+    <alert type="warning" *ngIf='!profileForm.valid && canView'>
       Your profile is incomplete, we will not be able to provide treatment until
       it is completed.
     </alert>
@@ -95,11 +95,11 @@
           <div class="input-group col-sm-7">
             <label for="no" class="radio-inline">
               <input type="radio" name="pregnant" id="noRadio"
-               value="false" formControlName='pregnant'>No
+               [value]="false" formControlName='pregnant'>No
             </label>
             <label for="yes" class='radio-inline'>
               <input type="radio" name="pregnant" id="yesRadio"
-               value="true" formControlName='pregnant'>Yes
+               [value]="true" formControlName='pregnant'>Yes
             </label>
           </div>
         </div>
@@ -115,12 +115,13 @@
       </div>
     </div>
 
+  <div formGroupName='address'>
     <div class="row">
       <div class="form-group col-sm-6">
-        <label for="address" class='col-sm-4 control-label'>Address</label>
+        <label for="address" class='col-sm-4 control-label'>Street Address</label>
         <div class="input-group col-sm-8">
          <span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden='true'></i></span>
-          <input type="text" class="form-control" id="address" formControlName='address'>
+          <input type="text" class="form-control" id="address" formControlName='street'>
         </div>
       </div>
       <div class="form-group col-sm-6">
@@ -202,6 +203,7 @@
         </div>
       </div>
     </div>
+  </div>
 
     <div class="row">
       <div class="form-group col-sm-6">

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { isAlpha } from 'validator';
-import { isEmail } from 'validator';
+import { isAlpha,isEmail, isAfter,isBefore } from 'validator';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 
@@ -24,18 +23,7 @@ export class ValidatorService {
     }
   }
 
-  asyncValidator(control:FormControl):Promise<any>|Observable<any>{
-    const promise=new Promise<any>(
-      (resolve,reject)=>{
-        setTimeout(()=>{
-          if (!control.value){
-            resolve({'invalid':true});
-          } else {
-            resolve(null);
-          }
-        },1500);
-      }
-    );
-    return promise;
+  validateDOB(c:FormControl){
+
   }
 }

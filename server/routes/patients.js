@@ -104,7 +104,8 @@ router.post('/register',(req,res,next)=>{
       patient.password=hash
       patient.save().then(()=>{
         return patient.generateAuthToken().then((token)=>{
-          res.header('x-auth',token).send({token,patientId:patient._id})
+          res.header('x-auth',token).send({token,patientId:patient._id,
+          firstName:patient.firstName,lastName:patient.lastName})
         }).catch((err)=>{
           res.status(400).send(err);
         })
