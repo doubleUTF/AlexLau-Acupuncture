@@ -132,10 +132,10 @@ router.post('/me',authenticate,(req,res,next)=>{
         msg:'Patient saved!',
         response
       })
-    }).catch((e)=>{
+    }).catch((err)=>{
       res.status(400).json({
         msg:'Could not save',
-        err:e
+        err:err.toString()
       })
     })
   })

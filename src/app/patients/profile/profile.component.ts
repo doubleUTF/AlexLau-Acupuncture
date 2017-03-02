@@ -45,10 +45,6 @@ export class ProfileComponent implements OnInit {
           this.currentForm[p]=data.patientProfile[p]
         }
         this.profileForm.setValue(this.currentForm);
-        // for (var p in data.patientProfile){
-        //   this.currentForm[p]=data.patientProfile[p]
-        //   this.profileForm.patchValue({[p]:data.patientProfile[p]})
-        // }
       },
       err=>console.error(err)
     )
@@ -64,8 +60,13 @@ export class ProfileComponent implements OnInit {
   onSave(){
     const formModel:Patient= this.profileForm.value;
     this.patientService.savePatientInfo(formModel).subscribe(
-      data=>console.log(data),
-      err=>console.error(err)
+      data=>{
+        console.log(data)
+      },
+      err=>{
+        console.error(err);
+        this.showError(err);
+      }
     )
     this.currentForm=formModel;
     this.formDisabled=true;
@@ -77,7 +78,13 @@ export class ProfileComponent implements OnInit {
 
   onCancel(){
     this.formDisabled=true;
-    console.log(this.profileForm);
     this.profileForm.reset(this.currentForm);
+  }
+
+  errorPresent=false;
+  errorMessage=null;
+  showError(err){
+    this.errorPresent=true;
+    this.errorMessage=err.err;
   }
 }

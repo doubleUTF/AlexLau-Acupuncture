@@ -41,8 +41,10 @@ export class RegisterComponent implements OnInit {
     this.authService.register(patient)
       .subscribe(
         data=>{
-          localStorage.setItem('token',data.token),
-          localStorage.setItem('patientId',data.patientId)
+          localStorage.setItem('token',data.token);
+          localStorage.setItem('patientId',data.patientId);
+          localStorage.setItem('firstName',data.firstName);
+          localStorage.setItem('lastName',data.lastName);
       },
         error=>console.error(error)
       );

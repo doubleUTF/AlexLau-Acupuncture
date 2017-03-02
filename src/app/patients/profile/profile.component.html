@@ -1,9 +1,12 @@
 <div class="container">
   <div class="row">
     <h2>My Profile</h2>
-    <alert type="warning">
+    <alert type="warning" *ngIf='!profileForm.valid'>
       Your profile is incomplete, we will not be able to provide treatment until
       it is completed.
+    </alert>
+    <alert type='danger' *ngIf='errorPresent'>
+      {{errorMessage}}
     </alert>
 
     <form class='form-horizontal' [formGroup]='profileForm' novalidate>

@@ -119,6 +119,17 @@ PatientSchema.methods.saveProfile=function(patientObj){
   var patient=this;
   return patient.update(patientObj)
 }
+
+// Error handler
+PatientSchema.post('update',(error,doc,next)=>{
+  console.log('save error detected')
+  if (error.name=== 'MongoError' && error.code===11000){
+    next(new Error('That email is already taken'));
+  } else {
+    next(error);
+  }
+})
+
 var Patient=mongoose.model('Patient', PatientSchema)
 
 module.exports={Patient}
