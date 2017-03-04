@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row">
     <h2>My Profile</h2>
-    <alert type="warning" *ngIf='!profileForm.valid && canView'>
-      Your profile is incomplete, we will not be able to provide treatment until
-      it is completed.
-    </alert>
+    <div [@alertState]='alertState'>
+      <alert type="warning" *ngIf='profileForm.invalid && canView'>
+        Your profile is incomplete, we will not be able to provide treatment until
+        it is completed.
+      </alert>
+    </div>
     <alert type='danger' *ngIf='errorPresent'>
       {{errorMessage}}
     </alert>

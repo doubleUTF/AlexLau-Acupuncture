@@ -23,7 +23,7 @@ export class ValidatorService {
     }
   }
 
-  validateDOB(c:FormControl){
-
-  }
+  // validateDOB(c:FormControl){
+  //   if isAfter()
+  // }
 }

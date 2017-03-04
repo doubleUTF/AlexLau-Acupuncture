@@ -1,4 +1,5 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition,
+animate } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Patient } from '../patient.model';
 import { AuthService } from '../../auth/auth.service';
@@ -9,7 +10,14 @@ import * as _ from 'lodash';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  animations:[
+    trigger('alertState',[
+      state('hidden',style({opacity:0})),
+      state('show',style({opacity:1})),
+      transition('hidden=>show',animate(500)),
+    ])
+  ]
 })
 export class ProfileComponent implements OnInit {
 
@@ -57,6 +65,7 @@ export class ProfileComponent implements OnInit {
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public dobMask = [ /[0-1]/, /\d/, '/', /[0-3]/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
+  alertState='hidden'
   canView:boolean=false;
   profileForm:FormGroup;
   currentForm={};
@@ -96,4 +105,12 @@ export class ProfileComponent implements OnInit {
     this.errorMessage=err.err;
   }
 
+  ngDoCheck(){
+    if (this.profileForm.invalid) {
+      this.alertState='show'
+    } else if (this.profileForm.valid){
+      this.alertState='hidden'
+    }
+    console.log('Alert state:', this.alertState)
+  }
 }
