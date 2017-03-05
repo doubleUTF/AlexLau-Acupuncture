@@ -64,7 +64,10 @@ var PatientSchema=new mongoose.Schema({
       required:true
     },
     createdAt:Date
-  }]
+  }],
+  emailOptions:{
+    reminders:Boolean
+  }
 })
 
 PatientSchema.methods.generateAuthToken=function(){
@@ -116,7 +119,7 @@ PatientSchema.methods.removeToken=function(token){
   })
 };
 
-PatientSchema.methods.saveProfile=function(patientObj){
+PatientSchema.methods.updateProfile=function(patientObj){
   var patient=this;
   return patient.update(patientObj)
 }

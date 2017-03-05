@@ -16,6 +16,7 @@ import * as _ from 'lodash';
       state('hidden',style({opacity:0})),
       state('show',style({opacity:1})),
       transition('hidden=>show',animate(500)),
+      transition('show=>hidden',animate(500))
     ])
   ]
 })
@@ -29,7 +30,7 @@ export class ProfileComponent implements OnInit {
     this.profileForm= new FormGroup({
       firstName:new FormControl('',[Validators.required]),
       lastName:new FormControl('',[Validators.required]),
-      email:new FormControl('',[this.validatorService.validateEmail]),
+      email:new FormControl({value:'',disabled:true},[this.validatorService.validateEmail]),
       referredBy:new FormControl(''),
       primaryPhone:new FormControl('',Validators.required),
       secondaryPhone:new FormControl(''),
@@ -46,6 +47,17 @@ export class ProfileComponent implements OnInit {
       emergencyPhone:new FormControl('')
     })
 
+    this.emailForm=new FormGroup({
+      currentEmail:new FormControl({value:'',disabled:true},this.validatorService.validateEmail),
+      newEmail:new FormControl('', this.validatorService.validateEmail),
+      retypeEmail:new FormControl('', this.validatorService.validateEmail),
+      password:new FormControl('',Validators.required)
+    });
+
+    this.privacyForm=new FormGroup({
+      
+    })
+
     this.authService.getPatientInfo().subscribe(
       data=>{
         this.currentForm=JSON.parse(JSON.stringify(this.profileForm.value));
@@ -56,6 +68,7 @@ export class ProfileComponent implements OnInit {
           this.currentForm[p]=data.patientProfile[p]
         }
         this.profileForm.setValue(this.currentForm);
+        this.emailForm.patchValue({currentEmail:data.patientProfile.email})
         setTimeout(()=>this.canView=true);
       },
       err=>console.error(err)
@@ -68,6 +81,8 @@ export class ProfileComponent implements OnInit {
   alertState='hidden'
   canView:boolean=false;
   profileForm:FormGroup;
+  emailForm:FormGroup;
+  privacyForm:FormGroup;
   currentForm={};
   formDisabled:boolean=true;
 
@@ -105,12 +120,15 @@ export class ProfileComponent implements OnInit {
     this.errorMessage=err.err;
   }
 
+  onUpdateEmail(){
+
+  }
+
   ngDoCheck(){
     if (this.profileForm.invalid) {
       this.alertState='show'
     } else if (this.profileForm.valid){
       this.alertState='hidden'
     }
-    console.log('Alert state:', this.alertState)
   }
 }

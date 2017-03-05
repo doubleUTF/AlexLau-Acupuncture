@@ -126,13 +126,13 @@ router.get('/me', authenticate, (req,res,next)=>{
   })
 })
 
-router.post('/me',authenticate,(req,res,next)=>{
+router.patch('/me',authenticate,(req,res,next)=>{
   Patient.findById(req.patient._id).then((patient)=>{
-    patient.saveProfile(req.body).then((response)=>{
+    patient.updateProfile(req.body).then((response)=>{
       res.status(200).json({
         msg:'Patient saved!',
         response
-      })
+      });
     }).catch((err)=>{
       res.status(400).json({
         msg:'Could not save',
@@ -141,6 +141,18 @@ router.post('/me',authenticate,(req,res,next)=>{
     })
   })
 })
+
+router.patch('/me/email',authenticate,(req,res,next)=>{
+  Patient.findById(req.patient._id).then((patient)=>{
+    if (patient.email==req.body.newEmail){
+      res.status(400).json({msg:'No update, emails are the same'})
+    } else{
+      // nev.sendNewVerificationEmail(newEmail,oldEmail, url, (err,info)=>{})
+      res.status(200).json(patient)
+    }
+  })
+})
+
 router.get('/auth',authenticate,(req,res,next)=>{
   res.status(200).end()
 })

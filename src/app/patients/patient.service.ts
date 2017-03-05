@@ -12,7 +12,7 @@ export class PatientService {
     const body=patient;
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
     const headers= new Headers({'Content-Type':'application/json','x-auth': token})
-    return this.http.post('http://localhost:3000/patients/me',body, {headers})
+    return this.http.patch('http://localhost:3000/patients/me',body, {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
