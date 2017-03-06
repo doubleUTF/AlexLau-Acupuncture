@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
       lastName:new FormControl('',[Validators.required]),
       email:new FormControl(''),
       referredBy:new FormControl(''),
-      primaryPhone:new FormControl('',Validators.required),
+      primaryPhone:new FormControl('',[Validators.required]),
       secondaryPhone:new FormControl(''),
       gender:new FormControl('',Validators.required),
       pregnant:new FormControl(''),
@@ -144,6 +144,7 @@ export class ProfileComponent implements OnInit {
   passwordSaved:boolean=false;
   passwordUnsuccessful=false;
   passwordAlertState='hidden'
+  // TODO send an email notifying the patient's password has changed
   onUpdatePassword(){
     this.patientService.updatePassword({
       currentPassword:this.passwordForm.value.currentPassword,
@@ -159,6 +160,7 @@ export class ProfileComponent implements OnInit {
       err=>{
         this.passwordUnsuccessful=true
         this.passwordAlertState='show'
+        this.passwordForm.reset();
       }
     )
   }
