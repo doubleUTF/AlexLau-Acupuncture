@@ -139,20 +139,37 @@ router.patch('/me',authenticate,(req,res,next)=>{
         err:err.toString()
       })
     })
+  }).catch((err)=>{
+    res.status(400).json({
+      msg:'Could not find patient',
+      err
+    })
   })
 })
 
-router.patch('/me/email',authenticate,(req,res,next)=>{
+// Update password route
+router.patch('/me/password',authenticate,(req,res,next)=>{
+  var body=_.pick(req.body,['currentPassword','newPassword'])
+  if (!body.newPassword){
+    return res.status(400).json({msg:'New password is required'})
+  } else if (body.newPassword.length<6){
+    return res.status(400).json({msg:'New password length must be at least 6 characters'})
+  }
+
   Patient.findById(req.patient._id).then((patient)=>{
-    if (patient.email==req.body.newEmail){
-      res.status(400).json({msg:'No update, emails are the same'})
-    } else{
-      patient.updateProfile(patient.email).then((patient)=>{
-        res.status(200).json({msg:'Email updated!',patient})
-      }).catch((err)=>{
-        res.status(400).json(err)
-      })
-    }
+    bcrypt.compare(body.currentPassword, patient.password).then((response)=>{
+      if (response) {
+        bcrypt.genSalt(10,(err,salt)=>{
+          bcrypt.hash(body.newPassword,salt,(err,hash)=>{
+            patient.updateProfile({password:hash}).then(()=>{
+              return res.status(200).json({msg:'Password successfully saved'})
+            })
+          }
+        )}
+      )} else if (!response){
+        return res.status(400).json({msg:'Error, incorrect password'})
+      }
+    }).catch((e)=>{return res.status(400).json(e.toString())})
   })
 })
 

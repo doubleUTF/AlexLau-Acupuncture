@@ -55,7 +55,8 @@ export class ProfileComponent implements OnInit {
 
     this.passwordForm=new FormGroup({
       currentPassword:new FormControl('',Validators.required),
-      newPassword:new FormControl('',Validators.required),
+      newPassword:new FormControl('',[
+        Validators.required, Validators.minLength(6)]),
       retypePassword:new FormControl('',Validators.required)
     })
 
@@ -138,7 +139,28 @@ export class ProfileComponent implements OnInit {
         },
         err=>console.error(err)
       )
+  }
 
+  passwordSaved:boolean=false;
+  passwordUnsuccessful=false;
+  passwordAlertState='hidden'
+  onUpdatePassword(){
+    this.patientService.updatePassword({
+      currentPassword:this.passwordForm.value.currentPassword,
+      newPassword:this.passwordForm.value.newPassword
+    }).subscribe(
+      data=>{
+        this.passwordSaved=true;
+        this.passwordUnsuccessful=false
+        this.passwordAlertState='show'
+        this.passwordForm.reset();
+        this.passwordForm.disabled;
+      },
+      err=>{
+        this.passwordUnsuccessful=true
+        this.passwordAlertState='show'
+      }
+    )
   }
 
   ngDoCheck(){
