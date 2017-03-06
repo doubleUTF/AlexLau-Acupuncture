@@ -147,8 +147,11 @@ router.patch('/me/email',authenticate,(req,res,next)=>{
     if (patient.email==req.body.newEmail){
       res.status(400).json({msg:'No update, emails are the same'})
     } else{
-      // nev.sendNewVerificationEmail(newEmail,oldEmail, url, (err,info)=>{})
-      res.status(200).json(patient)
+      patient.updateProfile(patient.email).then((patient)=>{
+        res.status(200).json({msg:'Email updated!',patient})
+      }).catch((err)=>{
+        res.status(400).json(err)
+      })
     }
   })
 })

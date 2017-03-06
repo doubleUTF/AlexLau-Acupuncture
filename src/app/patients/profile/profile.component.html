@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h2>My Profile</h2>
-    <div [@alertState]='alertState'>
+    <div [@alertState]='personalAlertState'>
       <alert type="warning" *ngIf='profileForm.invalid && canView'>
         Your profile is incomplete, we will not be able to provide treatment until
         it is completed.
@@ -12,7 +12,7 @@
     </alert>
 
     <tabset>
-      <tab heading='Personal info'>
+      <tab heading='Profile info'>
         <form class='form-horizontal' [formGroup]='profileForm' novalidate>
           <div class="row">
             <div class="text-center" style='padding-bottom:15px; padding-top:15px'>
@@ -45,17 +45,29 @@
 
           <div class="row">
             <div class="form-group col-sm-6">
-              <label for="email" class='col-sm-4 control-label'>Email address</label>
+              <label for="gender" class='col-sm-4 control-label'>Gender</label>
               <div class="input-group col-sm-8">
-               <span class="input-group-addon"><i class="fa fa-at" aria-hidden='true'></i></span>
-                <input type="email" class="form-control" id="email" formControlName='email'>
+                <label class="radio-inline">
+                  <input type="radio" name="gender" id="maleRadio"
+                   value="male" formControlName='gender'>Male
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="gender" id="femaleRadio"
+                   value="female" formControlName='gender'>Female
+                </label>
               </div>
             </div>
             <div class="form-group col-sm-6">
-              <label for="referredBy" class='col-sm-4 control-label'>Referred by</label>
-              <div class="input-group col-sm-8">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden='true'></i></span>
-                <input type="text" class="form-control" id="referredBy" formControlName='referredBy'>
+              <label for="pregnant" class='col-sm-5 control-label'>Pregnant</label>
+              <div class="input-group col-sm-7">
+                <label for="no" class="radio-inline">
+                  <input type="radio" name="pregnant" id="noRadio"
+                   [value]="false" formControlName='pregnant'>No
+                </label>
+                <label for="yes" class='radio-inline'>
+                  <input type="radio" name="pregnant" id="yesRadio"
+                   [value]="true" formControlName='pregnant'>Yes
+                </label>
               </div>
             </div>
           </div>
@@ -81,31 +93,10 @@
 
         <div class="row">
           <div class="col-sm-6 form-group">
-            <div class="col-sm-6">
-              <label for="gender" class='col-sm-4 control-label'>Gender</label>
-              <div class="input-group col-sm-8">
-                <label class="radio-inline">
-                  <input type="radio" name="gender" id="maleRadio"
-                   value="male" formControlName='gender'>Male
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="gender" id="femaleRadio"
-                   value="female" formControlName='gender'>Female
-                </label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <label for="pregnant" class='col-sm-5 control-label'>Pregnant</label>
-              <div class="input-group col-sm-7">
-                <label for="no" class="radio-inline">
-                  <input type="radio" name="pregnant" id="noRadio"
-                   [value]="false" formControlName='pregnant'>No
-                </label>
-                <label for="yes" class='radio-inline'>
-                  <input type="radio" name="pregnant" id="yesRadio"
-                   [value]="true" formControlName='pregnant'>Yes
-                </label>
-              </div>
+            <label for="referredBy" class='col-sm-4 control-label'>Referred by</label>
+            <div class="input-group col-sm-8">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden='true'></i></span>
+              <input type="text" class="form-control" id="referredBy" formControlName='referredBy'>
             </div>
           </div>
 
@@ -234,6 +225,11 @@
       </tab>
       <tab heading='Email'>
         <h3>Update Email</h3>
+        <div [@alertState]='emailAlertState'>
+          <alert type='success' *ngIf='emailSaved'>
+            Your email has successfully been updated to {{newEmail}}
+          </alert>
+        </div>
         <div class="row" style='padding-top:20px'>
           <div class="col-md-6 col-md-offset-3">
             <form class='form-horizontal' [formGroup]='emailForm' novalidate>
@@ -249,31 +245,35 @@
                 <label for="newEmail" class='col-sm-4'>New Email</label>
                 <div class="input-group col-sm-8">
                   <span class="input-group-addon"><i class="fa fa-at" aria-hidden='true'></i></span>
-                  <input type="email" class='form-control' id='newEmail' formControlName='newEmail'>
+                  <input validateEqual='retypeEmail' type="email" class='form-control'
+                  id='newEmail' formControlName='newEmail' reverse='true'>
                 </div>
+                <small [hidden]="emailForm.controls.newEmail.valid || emailForm.controls.newEmail.pristine" class="text-danger">
+      Email is required and format should be <i>john@doe.com</i>.</small>
               </div>
               <div class="form-group">
-                <label for="retypeEmail" class='col-sm-4'>Re-type Email</label>
+                <label for="retypeEmail" class='col-sm-4'>Re-type New Email</label>
                 <div class="input-group col-sm-8">
                   <span class="input-group-addon"><i class="fa fa-at" aria-hidden='true'></i></span>
-                  <input type="email" class='form-control' id='retypeEmail' formControlName='retypeEmail'>
+                  <input validateEqual='newEmail' type="email" class='form-control'
+                  id='retypeEmail' formControlName='retypeEmail' reverse='false'>
                 </div>
+                <small [hidden]="emailForm.controls.retypeEmail.valid || emailForm.controls.retypeEmail.pristine" class="text-danger">
+                  Email must match with new email.</small>
               </div>
-              <button type='button' class='btn btn-success' (click)='onUpdateEmail()'>Submit</button>
+              <div class="col-sm-8 col-sm-push-4">
+                <button [disabled]='emailForm.invalid || emailSaved' type='button' class='btn btn-success' (click)='onUpdateEmail()'>
+                  <span class='glyphicon glyphicon-floppy-disk' aria-hidden='true'></span>&nbsp;Save new email</button>
+
+              </div>
             </form>
           </div>
         </div>
-      <h3>Email preferences</h3>
-        <form [formGroup]='privacyForm'>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox">Email me notifications of upcoming appointments
-            </label>
-          </div>
-        </form>
+
       </tab>
       <tab heading='Password'>
-
+        <h3>Update password</h3>
+        
       </tab>
     </tabset>
 

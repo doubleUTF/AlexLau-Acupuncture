@@ -23,7 +23,4 @@ export class ValidatorService {
     }
   }
 
-  // validateDOB(c:FormControl){
-  //   if isAfter()
-  // }
 }

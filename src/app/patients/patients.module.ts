@@ -16,6 +16,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { TextMaskModule } from 'angular2-text-mask';
 import { PatientService} from './patient.service';
 import { ValidatorService } from '../services/validator.service';
+import { EqualValidator} from '../directives/equal-validator.directive';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { ValidatorService } from '../services/validator.service';
     SafePipe,
     AppointmentsListComponent,
     AppointmentItemComponent,
-    ProfileComponent
+    ProfileComponent,
+    EqualValidator
   ],
   providers:[
     AppointmentService,

@@ -8,7 +8,7 @@ export class PatientService {
 
   constructor(private http:Http) { }
 
-  savePatientInfo(patient:Patient){
+  savePatientInfo(patient){
     const body=patient;
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
     const headers= new Headers({'Content-Type':'application/json','x-auth': token})

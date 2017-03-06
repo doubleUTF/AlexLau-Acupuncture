@@ -124,6 +124,12 @@ PatientSchema.methods.updateProfile=function(patientObj){
   return patient.update(patientObj)
 }
 
+// Patient.methods.updateEmail=function(newEmail){
+//   var patient=this;
+//   return patient.update({
+//
+//   })
+// }
 // Error handler
 PatientSchema.post('update',(error,doc,next)=>{
   console.log('save error detected')

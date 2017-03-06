@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
     this.profileForm= new FormGroup({
       firstName:new FormControl('',[Validators.required]),
       lastName:new FormControl('',[Validators.required]),
-      email:new FormControl({value:'',disabled:true},[this.validatorService.validateEmail]),
+      email:new FormControl(''),
       referredBy:new FormControl(''),
       primaryPhone:new FormControl('',Validators.required),
       secondaryPhone:new FormControl(''),
@@ -51,11 +51,12 @@ export class ProfileComponent implements OnInit {
       currentEmail:new FormControl({value:'',disabled:true},this.validatorService.validateEmail),
       newEmail:new FormControl('', this.validatorService.validateEmail),
       retypeEmail:new FormControl('', this.validatorService.validateEmail),
-      password:new FormControl('',Validators.required)
     });
 
-    this.privacyForm=new FormGroup({
-      
+    this.passwordForm=new FormGroup({
+      currentPassword:new FormControl('',Validators.required),
+      newPassword:new FormControl('',Validators.required),
+      retypePassword:new FormControl('',Validators.required)
     })
 
     this.authService.getPatientInfo().subscribe(
@@ -78,11 +79,11 @@ export class ProfileComponent implements OnInit {
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public dobMask = [ /[0-1]/, /\d/, '/', /[0-3]/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
-  alertState='hidden'
+  personalAlertState='hidden'
   canView:boolean=false;
   profileForm:FormGroup;
   emailForm:FormGroup;
-  privacyForm:FormGroup;
+  passwordForm:FormGroup;
   currentForm={};
   formDisabled:boolean=true;
 
@@ -120,15 +121,33 @@ export class ProfileComponent implements OnInit {
     this.errorMessage=err.err;
   }
 
+  emailSaved:boolean=false;
+  newEmail:string;
+  emailAlertState='hidden';
+
   onUpdateEmail(){
+    this.newEmail=this.emailForm.value.newEmail
+    this.patientService.savePatientInfo({
+      email:this.newEmail})
+      .subscribe(
+        data=>{
+          this.emailForm.patchValue({currentEmail:this.newEmail})
+          this.profileForm.patchValue({email:this.newEmail})
+          this.emailSaved=true
+          this.emailAlertState='show'
+        },
+        err=>console.error(err)
+      )
 
   }
 
   ngDoCheck(){
     if (this.profileForm.invalid) {
-      this.alertState='show'
+      this.personalAlertState='show'
     } else if (this.profileForm.valid){
-      this.alertState='hidden'
+      this.personalAlertState='hidden'
     }
   }
+
+
 }
