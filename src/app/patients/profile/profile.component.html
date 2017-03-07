@@ -1,19 +1,20 @@
 <div class="container">
   <div class="row">
     <h2>Account Settings</h2>
-    <div [@alertState]='personalAlertState'>
-      <alert type="warning" *ngIf='profileForm.invalid && canView'>
-        Your profile is incomplete, we will not be able to provide treatment until
-        it is completed.
-      </alert>
-    </div>
-    <alert type='danger' *ngIf='errorPresent'>
-      {{errorMessage}}
-    </alert>
 
     <tabset>
       <tab heading='Profile info'>
         <h3>Profile Information</h3>
+        <div [@alertState]='personalAlertState'>
+          <alert type="warning" *ngIf='profileForm.invalid && canView'>
+            Your profile is incomplete, we will not be able to provide treatment until
+            it is completed.
+          </alert>
+        </div>
+        <alert type='danger' *ngIf='errorPresent'>
+          {{errorMessage}}
+        </alert>
+
         <form class='form-horizontal' [formGroup]='profileForm' novalidate>
           <div class="row">
             <div class="text-center" style='padding-bottom:15px; padding-top:15px'>
@@ -224,6 +225,11 @@
         </fieldset>
         </form>
       </tab>
+
+      <tab heading='Insurances'>
+        <app-insurances></app-insurances>
+      </tab>
+
       <tab heading='Email'>
         <h3>Update Email</h3>
         <div [@alertState]='emailAlertState'>

@@ -7,6 +7,7 @@ import { AppointmentsListComponent} from './appointments-list/appointments-list.
 import { AuthGuard } from '../auth/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 
+
 export const PATIENTS_ROUTES:Routes=[
   {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]} ,
   {path:'schedule', component: ScheduleComponent},

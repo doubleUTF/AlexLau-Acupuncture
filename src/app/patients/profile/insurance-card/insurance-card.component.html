@@ -1,0 +1,12 @@
+<div class="insurance-card row shadow-1"
+(mouseleaveeewgewg)='toggleCheck()' (mouseenter)='toggleCheck()'>
+  <div class="icon" (click)="onChecked()" *ngIf='showCheck'>
+    <i class="material-icons">check</i>
+  </div>
+  <div class="col-xs-12 title">
+    {{ insurance.groupName }}
+  </div>
+  <div class="col-xs-12 value">
+    {{ insurance.memberId }}
+  </div>
+</div>

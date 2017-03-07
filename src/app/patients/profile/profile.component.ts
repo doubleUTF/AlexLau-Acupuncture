@@ -30,7 +30,6 @@ export class ProfileComponent implements OnInit {
     this.profileForm= new FormGroup({
       firstName:new FormControl('',[Validators.required]),
       lastName:new FormControl('',[Validators.required]),
-      email:new FormControl(''),
       referredBy:new FormControl(''),
       primaryPhone:new FormControl('',[Validators.required]),
       secondaryPhone:new FormControl(''),
@@ -64,7 +63,7 @@ export class ProfileComponent implements OnInit {
       data=>{
         this.currentForm=JSON.parse(JSON.stringify(this.profileForm.value));
         // Don't display insurance information in first profile page
-        let incomingForm=_.omit(data.patientProfile,['insurances']);
+        let incomingForm=_.omit(data.patientProfile,['insurances','email']);
         // console.log(this.currentForm)
         for (var p in incomingForm){
           this.currentForm[p]=data.patientProfile[p]
@@ -117,6 +116,7 @@ export class ProfileComponent implements OnInit {
 
   errorPresent=false;
   errorMessage=null;
+
   showError(err){
     this.errorPresent=true;
     this.errorMessage=err.err;
@@ -172,6 +172,5 @@ export class ProfileComponent implements OnInit {
       this.personalAlertState='hidden'
     }
   }
-
 
 }

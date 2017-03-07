@@ -42,7 +42,7 @@ var PatientSchema=new mongoose.Schema({
   },
   insurances:[{
     groupName:String,
-    id:String,
+    memberId:String,
     payerId:String
   }],
   referredBy:String,
