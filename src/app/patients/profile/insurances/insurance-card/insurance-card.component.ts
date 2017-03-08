@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,
+  Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'insurance-card',
@@ -7,18 +8,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InsuranceCardComponent implements OnInit {
   @Input() insurance={};
+  @Output() checkedPrimary= new EventEmitter();
+  @Output() removed=new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
-  onChecked(){
-    console.log('checked')
+  checkPrimary(){
+    this.checkedPrimary.emit();
   }
 
   showCheck:boolean=false;
 
   toggleCheck(){
     this.showCheck=!this.showCheck
+  }
+
+  remove(){
+    this.removed.emit();
   }
 }

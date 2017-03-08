@@ -61,6 +61,9 @@ export class ProfileComponent implements OnInit {
 
     this.authService.getPatientInfo().subscribe(
       data=>{
+        if (data.patientProfile.insurances){
+          this.insurances=data.patientProfile.insurances;
+        }
         this.currentForm=JSON.parse(JSON.stringify(this.profileForm.value));
         // Don't display insurance information in first profile page
         let incomingForm=_.omit(data.patientProfile,['insurances','email']);
@@ -70,15 +73,42 @@ export class ProfileComponent implements OnInit {
         }
         this.profileForm.setValue(this.currentForm);
         this.emailForm.patchValue({currentEmail:data.patientProfile.email})
+        this.profileComplete=this.profileForm.valid;
         setTimeout(()=>this.canView=true);
       },
       err=>console.error(err)
     )
+
   }
 
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public dobMask = [ /[0-1]/, /\d/, '/', /[0-3]/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
+  profileComplete:boolean=false;
+
+  insurances=[
+    // {
+    //     groupName:'United Health Care',
+    //     memberId:'12345abcde',
+    //     startDate:'01/30/2017',
+    //     primary:true,
+    //     color:'lightblue'
+    //   },
+    //   {
+    //     groupName:'Blue Cross',
+    //     memberId:'12345abcde',
+    //     startDate:'04/30/2017',
+    //     primary:false,
+    //     color:'lightblue'
+    //   },
+    //   {
+    //     groupName:'United Health Care',
+    //     memberId:'12345abcde',
+    //     startDate:'02/06/2017',
+    //     primary:false,
+    //     color:'lightblue'
+    //   }
+    ];
   personalAlertState='hidden'
   canView:boolean=false;
   profileForm:FormGroup;

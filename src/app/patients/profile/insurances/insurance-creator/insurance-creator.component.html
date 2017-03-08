@@ -1,0 +1,61 @@
+<div class="insurance-creator shadow-2" [ngStyle]='{"background-color":insuranceForm.value.color}'>
+  <form class="row" [formGroup]='insuranceForm'>
+    <select
+      formControlName="groupName"
+      placeholder="Insurance Group"
+      class="col-xs-10 title"
+    >
+      <option value="" [selected]>Add Insurance</option>
+      <option>Aetna</option>
+      <option>American Specialty Health</option>
+      <option>Blue Cross</option>
+      <option>Blue Shield of California</option>
+      <option>Cigna</option>
+      <option>Health Net</option>
+      <option>Optum Physical Health</option>
+      <option>Samba Federal Health Plan</option>
+      <option>United Health Care</option>
+      <option>United Medical Resources</option>
+      <option>Other</option>
+  </select>
+    <input
+      *ngIf='insuranceForm.value.groupName=="Other"'
+      type="text"
+      formControlName="otherInsurance"
+      placeholder="Insurance Name"
+      class="col-xs-10"
+    >
+    <input
+      type="text"
+      formControlName="memberId"
+      placeholder="Member ID"
+      class="col-xs-10"
+      *ngIf='fullForm'
+    >
+    <input
+      type="text"
+      formControlName="startDate"
+      placeholder="Coverage date: mm/dd/yyyy"
+      class="col-xs-10"
+      [textMask]='{mask:dateMask}'
+      *ngIf='fullForm'
+    >
+    <div class="actions col-xs-12 row between-xs" *ngIf='fullForm'>
+      <div class="col-xs-3">
+        <color-picker [colors]='colors'
+        (selected)='onColorSelect($event)'></color-picker>
+      </div>
+      <button
+        type="submit"
+        class="btn-light"
+        [disabled]='insuranceForm.invalid'
+        (click)='onCreateInsurance()'
+       >
+        Enter
+      </button>
+    </div>
+  </form>
+  <!-- <pre>
+    {{insuranceForm.value| json}}
+  </pre> -->
+</div>

@@ -118,7 +118,7 @@ router.post('/register',(req,res,next)=>{
 router.get('/me', authenticate, (req,res,next)=>{
   var patientObj=JSON.parse(JSON.stringify(req.patient))
   var patientProfile=_.omit(patientObj,['_id','password','__v',
-  'tokens','appointments','insurances'])
+  'tokens','appointments'])
   // if (!patientInfo.phone) patientInfo.phone=''
    res.status(200).json({
     message:'Successfully logged in',

@@ -19,6 +19,8 @@ import { ValidatorService } from '../services/validator.service';
 import { EqualValidator} from '../directives/equal-validator.directive';
 import { InsuranceCardComponent } from './profile/insurances/insurance-card/insurance-card.component';
 import { InsurancesComponent } from './profile/insurances/insurances.component';
+import { InsuranceCreatorComponent } from './profile/insurances/insurance-creator/insurance-creator.component';
+import { ColorPickerComponent } from './profile/insurances/color-picker/color-picker.component';
 
 @NgModule({
   imports: [
@@ -40,7 +42,9 @@ import { InsurancesComponent } from './profile/insurances/insurances.component';
     ProfileComponent,
     EqualValidator,
     InsuranceCardComponent,
-    InsurancesComponent
+    InsurancesComponent,
+    InsuranceCreatorComponent,
+    ColorPickerComponent
   ],
   providers:[
     AppointmentService,

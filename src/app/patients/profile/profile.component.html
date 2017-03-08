@@ -59,7 +59,7 @@
                 </label>
               </div>
             </div>
-            <div class="form-group col-sm-6">
+            <div class="form-group col-sm-6" *ngIf='profileForm.value.gender=="female"'>
               <label for="pregnant" class='col-sm-5 control-label'>Pregnant</label>
               <div class="input-group col-sm-7">
                 <label for="no" class="radio-inline">
@@ -227,7 +227,8 @@
       </tab>
 
       <tab heading='Insurances'>
-        <app-insurances></app-insurances>
+        <app-insurances [insurances]='insurances'
+        [profileComplete]='profileComplete'></app-insurances>
       </tab>
 
       <tab heading='Email'>
