@@ -13,6 +13,8 @@ export class InsurancesComponent implements OnInit {
   ngOnInit() {
   }
 
+  changed:boolean=false;
+
   @Input() profileComplete:boolean=false;
 
   onCheckedPrimary(i:number){
@@ -20,10 +22,12 @@ export class InsurancesComponent implements OnInit {
       insurance.primary=false;
     })
     this.insurances[i].primary=true;
+    this.changed=true;
   }
 
   onRemoved(i:number){
     this.insurances.splice(i,1);
+    this.changed=true;
   }
 
   onCreateInsurance(insurance){
@@ -31,6 +35,7 @@ export class InsurancesComponent implements OnInit {
       insurance.primary=true;
     }
     this.insurances.push(insurance);
+    this.changed=true;
   }
 
   insuranceSaved:boolean=false;
@@ -38,7 +43,10 @@ export class InsurancesComponent implements OnInit {
   saveInsurances(){
     this.patientService.savePatientInfo({insurances:this.insurances})
     .subscribe(
-      data=>this.insuranceSaved=true,
+      data=>{
+        this.insuranceSaved=true;
+        this.changed=false;
+      },
       err=>{
         this.insuranceError=true;
         this.insuranceSaved=false;

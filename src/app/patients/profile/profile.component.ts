@@ -31,16 +31,23 @@ export class ProfileComponent implements OnInit {
       firstName:new FormControl('',[Validators.required]),
       lastName:new FormControl('',[Validators.required]),
       referredBy:new FormControl(''),
-      primaryPhone:new FormControl('',[Validators.required]),
+      primaryPhone:new FormControl('',[
+        Validators.required,
+        Validators.pattern(/^\(?([0-9]{3})\)?[-.● ]?([0-9]{3})[-.●]?([0-9]{4})$/)]),
       secondaryPhone:new FormControl(''),
       gender:new FormControl('',Validators.required),
       pregnant:new FormControl(''),
-      dateOfBirth:new FormControl('',Validators.required),
+      dateOfBirth:new FormControl('',[
+        Validators.required,
+        Validators.pattern(/^(1[0-2]|0[1-9])\/(3[01]|[12][0-9]|0[1-9])\/[0-9]{4}$/)]),
       address:new FormGroup({
         street:new FormControl('',Validators.required),
         city:new FormControl('',Validators.required),
         state:new FormControl('',Validators.required),
-        zip:new FormControl('',Validators.required),
+        zip:new FormControl('',[
+          Validators.required,
+          Validators.maxLength(5),
+          Validators.pattern(/^[0-9]{5}$/)]),
       }),
       emergencyContact:new FormControl(''),
       emergencyPhone:new FormControl('')
@@ -84,31 +91,12 @@ export class ProfileComponent implements OnInit {
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public dobMask = [ /[0-1]/, /\d/, '/', /[0-3]/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
+  debug(){
+    console.log(this.profileForm)
+  }
   profileComplete:boolean=false;
 
-  insurances=[
-    // {
-    //     groupName:'United Health Care',
-    //     memberId:'12345abcde',
-    //     startDate:'01/30/2017',
-    //     primary:true,
-    //     color:'lightblue'
-    //   },
-    //   {
-    //     groupName:'Blue Cross',
-    //     memberId:'12345abcde',
-    //     startDate:'04/30/2017',
-    //     primary:false,
-    //     color:'lightblue'
-    //   },
-    //   {
-    //     groupName:'United Health Care',
-    //     memberId:'12345abcde',
-    //     startDate:'02/06/2017',
-    //     primary:false,
-    //     color:'lightblue'
-    //   }
-    ];
+  insurances=[];
   personalAlertState='hidden'
   canView:boolean=false;
   profileForm:FormGroup;
@@ -120,6 +108,7 @@ export class ProfileComponent implements OnInit {
   // TODO use double opt security if patient wants to change
   // email or password.
 
+  // TODO debug date of birth saving incorrectly
   onSave(){
     const formModel:Patient= this.profileForm.value;
     this.patientService.savePatientInfo(formModel).subscribe(
