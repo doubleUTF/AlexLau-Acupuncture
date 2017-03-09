@@ -6,6 +6,7 @@ import { AuthService } from '../../auth/auth.service';
 import { PatientService } from '../patient.service';
 import { ValidatorService } from '../../services/validator.service';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-profile',
@@ -34,7 +35,7 @@ export class ProfileComponent implements OnInit {
       primaryPhone:new FormControl('',[
         Validators.required,
         Validators.pattern(/^\(?([0-9]{3})\)?[-.● ]?([0-9]{3})[-.●]?([0-9]{4})$/)]),
-      secondaryPhone:new FormControl(''),
+      secondaryPhone:new FormControl('',Validators.pattern(/^\(?([0-9]{3})\)?[-.● ]?([0-9]{3})[-.●]?([0-9]{4})$/)),
       gender:new FormControl('',Validators.required),
       pregnant:new FormControl(''),
       dateOfBirth:new FormControl('',[
@@ -46,11 +47,10 @@ export class ProfileComponent implements OnInit {
         state:new FormControl('',Validators.required),
         zip:new FormControl('',[
           Validators.required,
-          Validators.maxLength(5),
           Validators.pattern(/^[0-9]{5}$/)]),
       }),
       emergencyContact:new FormControl(''),
-      emergencyPhone:new FormControl('')
+      emergencyPhone:new FormControl('',Validators.pattern(/^\(?([0-9]{3})\)?[-.● ]?([0-9]{3})[-.●]?([0-9]{4})$/))
     })
 
     this.emailForm=new FormGroup({
@@ -68,15 +68,18 @@ export class ProfileComponent implements OnInit {
 
     this.authService.getPatientInfo().subscribe(
       data=>{
+        // If true, send insurances to child Insurances component
         if (data.patientProfile.insurances){
           this.insurances=data.patientProfile.insurances;
         }
         this.currentForm=JSON.parse(JSON.stringify(this.profileForm.value));
-        // Don't display insurance information in first profile page
+        // Don't display insurance or email in first profile page
         let incomingForm=_.omit(data.patientProfile,['insurances','email']);
+        // Parse the date into mm/dd/yyyy format
+        _.set(incomingForm,'dateOfBirth',  moment(data.patientProfile.dateOfBirth).format('L'))
         // console.log(this.currentForm)
         for (var p in incomingForm){
-          this.currentForm[p]=data.patientProfile[p]
+          this.currentForm[p]=incomingForm[p]
         }
         this.profileForm.setValue(this.currentForm);
         this.emailForm.patchValue({currentEmail:data.patientProfile.email})
@@ -91,9 +94,6 @@ export class ProfileComponent implements OnInit {
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public dobMask = [ /[0-1]/, /\d/, '/', /[0-3]/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
-  debug(){
-    console.log(this.profileForm)
-  }
   profileComplete:boolean=false;
 
   insurances=[];
@@ -106,14 +106,15 @@ export class ProfileComponent implements OnInit {
   formDisabled:boolean=true;
 
   // TODO use double opt security if patient wants to change
-  // email or password.
+  // email or password. This will require implementation of new
+  // methods of node email verification.
 
-  // TODO debug date of birth saving incorrectly
+  profileSaved='hidden'
   onSave(){
     const formModel:Patient= this.profileForm.value;
     this.patientService.savePatientInfo(formModel).subscribe(
       data=>{
-        console.log(data)
+        this.profileSaved='show';
       },
       err=>{
         console.error(err);
@@ -126,6 +127,7 @@ export class ProfileComponent implements OnInit {
 
   onEdit(){
     this.formDisabled=false;
+    this.profileSaved='hidden';
   }
 
   onCancel(){
@@ -186,10 +188,13 @@ export class ProfileComponent implements OnInit {
 
   ngDoCheck(){
     if (this.profileForm.invalid) {
-      this.personalAlertState='show'
-    } else if (this.profileForm.valid){
+      this.personalAlertState='show';
+    } if (this.profileForm.valid){
       this.personalAlertState='hidden'
     }
   }
 
+  debug(){
+    console.log(this.profileForm)
+  }
 }
