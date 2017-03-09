@@ -36,8 +36,6 @@ export class SignInComponent implements OnInit, AfterViewInit {
       data=>{
         localStorage.setItem('token',data.token),
         localStorage.setItem('patientId',data.patientId);
-        localStorage.setItem('firstName',data.firstName);
-        localStorage.setItem('lastName',data.lastName);
         this.authService.emitName([data.firstName,data.lastName])
         this.router.navigateByUrl('/patients/dashboard')
       },

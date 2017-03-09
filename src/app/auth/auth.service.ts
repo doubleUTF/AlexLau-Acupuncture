@@ -3,7 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs';
 import {FormControl} from '@angular/forms'; // Just for validating email
 import { Subject } from 'rxjs/Subject'
-import 'rxjs/Rx';
+import { map } from 'rxjs/operator/map';
 import { Router } from '@angular/router';
 import { Patient } from '../patients/patient.model';
 
@@ -57,7 +57,7 @@ export class AuthService {
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
     const headers= new Headers({'Content-Type':'application/json','x-auth': token})
     return this.http.get('http://localhost:3000/patients/auth',{headers})
-      .map(response=>response.ok)
+      .map(response=>response.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
 

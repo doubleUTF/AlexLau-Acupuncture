@@ -174,7 +174,11 @@ router.patch('/me/password',authenticate,(req,res,next)=>{
 })
 
 router.get('/auth',authenticate,(req,res,next)=>{
-  res.status(200).end()
+  res.status(200).json({
+    msg:'Authenticated',
+    firstName:req.patient.firstName,
+    lastName:req.patient.lastName
+  })
 })
 
 router.post('/signin',(req,res,next)=>{

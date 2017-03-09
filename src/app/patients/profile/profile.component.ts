@@ -114,6 +114,7 @@ export class ProfileComponent implements OnInit {
     const formModel:Patient= this.profileForm.value;
     this.patientService.savePatientInfo(formModel).subscribe(
       data=>{
+        this.authService.emitName([formModel.firstName,formModel.lastName])
         this.profileSaved='show';
       },
       err=>{
@@ -194,7 +195,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  debug(){
-    console.log(this.profileForm)
-  }
+  // debug(){
+  //   console.log(this.profileForm)
+  // }
 }

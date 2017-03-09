@@ -43,8 +43,6 @@ export class RegisterComponent implements OnInit {
         data=>{
           localStorage.setItem('token',data.token);
           localStorage.setItem('patientId',data.patientId);
-          localStorage.setItem('firstName',data.firstName);
-          localStorage.setItem('lastName',data.lastName);
       },
         error=>console.error(error)
       );
