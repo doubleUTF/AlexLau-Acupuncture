@@ -34,8 +34,8 @@ export class ProfileComponent implements OnInit {
       referredBy:new FormControl(''),
       primaryPhone:new FormControl('',[
         Validators.required,
-        Validators.pattern(/^\(?([0-9]{3})\)?[-.● ]?([0-9]{3})[-.●]?([0-9]{4})$/)]),
-      secondaryPhone:new FormControl('',Validators.pattern(/^\(?([0-9]{3})\)?[-.● ]?([0-9]{3})[-.●]?([0-9]{4})$/)),
+        Validators.pattern(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)]),
+      secondaryPhone:new FormControl('',Validators.pattern(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-.●]?([0-9]{4})$/)),
       gender:new FormControl('',Validators.required),
       pregnant:new FormControl(''),
       dateOfBirth:new FormControl('',[
@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
           Validators.pattern(/^[0-9]{5}$/)]),
       }),
       emergencyContact:new FormControl(''),
-      emergencyPhone:new FormControl('',Validators.pattern(/^\(?([0-9]{3})\)?[-.● ]?([0-9]{3})[-.●]?([0-9]{4})$/))
+      emergencyPhone:new FormControl('',Validators.pattern(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-.●]?([0-9]{4})$/))
     })
 
     this.emailForm=new FormGroup({

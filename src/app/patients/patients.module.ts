@@ -21,6 +21,7 @@ import { InsuranceCardComponent } from './profile/insurances/insurance-card/insu
 import { InsurancesComponent } from './profile/insurances/insurances.component';
 import { InsuranceCreatorComponent } from './profile/insurances/insurance-creator/insurance-creator.component';
 import { ColorPickerComponent } from './profile/insurances/color-picker/color-picker.component';
+import { ConsentComponent } from './profile/consent/consent.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { ColorPickerComponent } from './profile/insurances/color-picker/color-pi
     InsuranceCardComponent,
     InsurancesComponent,
     InsuranceCreatorComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    ConsentComponent
   ],
   providers:[
     AppointmentService,

@@ -263,6 +263,7 @@ router.delete('/appointments/:id',authenticate,(req,res,next)=>{
 })
 
 // Acuity webhook routes
+// TODO gotta fix this part, new appointments aren't registering
 
 router.post('/acuity/new', acuityAuth, (req,res,next)=>{
 

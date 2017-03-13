@@ -27,17 +27,13 @@ export class NavComponent implements OnInit {
   };
 
   ngOnInit() {
-    if (this.isLoggedIn()){
-      this.firstName=localStorage.getItem('firstName');
-      this.lastName=localStorage.getItem('lastName');
-    }
   }
 
   updateMenuTitle(){
     if (!this.firstName || !this.lastName){
       return 'Menu'
     }
-    return this.firstName+ ' '+ this.lastName[0]+'.'
+    return this.firstName+ ' '+ this.lastName
   }
 
   onSignOut(){

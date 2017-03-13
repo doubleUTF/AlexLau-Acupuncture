@@ -2,10 +2,12 @@
 [ngStyle]='{"background-color":insurance.color}'
 (mouseenter)='toggleCheck()' (mouseleave)='toggleCheck()'>
   <div class="icon" (click)="checkPrimary()" *ngIf='showCheck'>
-    <i class="material-icons">check</i>
+    <!-- <i class="material-icons">check</i> -->
+    <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
   </div>
   <div class="icon2" (click)='remove()' *ngIf='showCheck'>
-    <i class="material-icons">clear</i>
+    <!-- <i class="material-icons">clear</i> -->
+    <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
   </div>
   <div class="col-xs-12 title">
     {{ insurance.groupName }} <span *ngIf='insurance.primary'>(Primary)</span>
