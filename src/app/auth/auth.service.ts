@@ -3,6 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs';
 import {FormControl} from '@angular/forms'; // Just for validating email
 import { Subject } from 'rxjs/Subject'
+import { AsyncSubject} from 'rxjs/AsyncSubject';
 import { map } from 'rxjs/operator/map';
 import { Router } from '@angular/router';
 import { Patient } from '../patients/patient.model';
@@ -17,9 +18,8 @@ export class AuthService {
     this.nameSource.next(nameArray)
   }
 
-  private upcomingAppointments=new Subject()
+  public upcomingAppointments=new AsyncSubject()
 
-  upcomingAppointments$=this.upcomingAppointments.asObservable();
   emitUpcomingAppointments(appointmentsArray:Array<any>){
     this.upcomingAppointments.next(appointmentsArray)
   }
