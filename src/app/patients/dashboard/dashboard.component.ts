@@ -8,6 +8,8 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
+  // TODO: Don't know why dashboard doesn't receive the appointments in time when
+  // I refresh the browser, there is no data.
   constructor(private authService:AuthService) {
     authService.upcomingAppointments$.subscribe(
       appointments=>console.log(appointments),
