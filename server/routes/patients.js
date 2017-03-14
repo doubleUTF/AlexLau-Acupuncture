@@ -11,6 +11,7 @@ var _=require('lodash');
 
 const {authenticate}=require('../middleware/authenticate');
 const {acuityAuth}=require('../middleware/acuity-auth');
+const {checkAlerts}=require('../middleware/check-alerts');
 const {Patient}= require('../models/patient');
 const {Appointment}=require('../models/appointment');
 const {nevConfig}=require('../config/nev');
@@ -117,7 +118,7 @@ router.post('/register',(req,res,next)=>{
 // This route is to get patient info
 router.get('/me', authenticate, (req,res,next)=>{
   var patientObj=JSON.parse(JSON.stringify(req.patient))
-  var patientProfile=_.omit(patientObj,['_id','password','__v',
+  var patientProfile=_.omit(patientObj,['password','__v',
   'tokens','appointments'])
   // if (!patientInfo.phone) patientInfo.phone=''
    res.status(200).json({
@@ -173,11 +174,15 @@ router.patch('/me/password',authenticate,(req,res,next)=>{
   })
 })
 
-router.get('/auth',authenticate,(req,res,next)=>{
+router.get('/auth',authenticate,checkAlerts,(req,res,next)=>{
+  // Send alert data by checking patient profile is complete, upcoming appointsments,
+  // expiring insurances, etc...
   res.status(200).json({
     msg:'Authenticated',
     firstName:req.patient.firstName,
-    lastName:req.patient.lastName
+    lastName:req.patient.lastName,
+    upcomingAppointments:req.upcomingAppointments,
+    formComplete:req.formComplete
   })
 })
 
@@ -264,9 +269,10 @@ router.delete('/appointments/:id',authenticate,(req,res,next)=>{
 
 // Acuity webhook routes
 // TODO gotta fix this part, new appointments aren't registering
+// Fixed- I inadvertently omitted the patient ID when retrieving patient info
+// Will remove this comment on the next commit
 
 router.post('/acuity/new', acuityAuth, (req,res,next)=>{
-
   var appointmentId=req.body.id;
   acuity.request(`/appointments/${appointmentId}`,(err,response,acuityAppointment)=>{
     if (err) res.status(400).json({msg:'Bad request'})

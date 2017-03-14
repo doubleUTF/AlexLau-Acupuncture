@@ -14,7 +14,8 @@ export class AuthGuard implements CanActivate{
   ): Observable<boolean> | boolean {
     return this.authService.isLoggedIn().map((e:any)=>{
       if (e){
-        this.authService.emitName([e.firstName,e.lastName])
+        this.authService.emitName([e.firstName,e.lastName]);
+        this.authService.emitUpcomingAppointments(e.upcomingAppointments);
         return true;
       }
     }).catch(()=>{

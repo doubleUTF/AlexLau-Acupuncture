@@ -1,15 +1,16 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="nav navbar-nav navbar-left">
       <a class="navbar-brand" routerLink=''>Aculau</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div>
 
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'><span class="glyphicon glyphicon-th" aria-hidden="true" style='font-size:150%'></span></a></li>
+        <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>
+          <span class="glyphicon glyphicon-th" aria-hidden="true" style='font-size:150%'></span></a></li>
         <!-- <li><a href="#">Visit history</a></li> -->
         <li class="dropdown" dropdown>
           <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"

@@ -74,7 +74,7 @@ export class ProfileComponent implements OnInit {
         }
         this.currentForm=JSON.parse(JSON.stringify(this.profileForm.value));
         // Don't display insurance or email in first profile page
-        let incomingForm=_.omit(data.patientProfile,['insurances','email']);
+        let incomingForm=_.omit(data.patientProfile,['insurances','email','_id']);
         // Parse the date into mm/dd/yyyy format
         _.set(incomingForm,'dateOfBirth',  moment(data.patientProfile.dateOfBirth).format('L'))
         // console.log(this.currentForm)

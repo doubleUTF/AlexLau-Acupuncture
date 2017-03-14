@@ -70,6 +70,10 @@ var PatientSchema=new mongoose.Schema({
   }],
   emailOptions:{
     reminders:Boolean
+  },
+  consent:{
+    signature:String,
+    date:Date
   }
 })
 

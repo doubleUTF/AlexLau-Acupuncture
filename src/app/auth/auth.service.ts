@@ -17,6 +17,13 @@ export class AuthService {
     this.nameSource.next(nameArray)
   }
 
+  private upcomingAppointments=new Subject()
+
+  upcomingAppointments$=this.upcomingAppointments.asObservable();
+  emitUpcomingAppointments(appointmentsArray:Array<any>){
+    this.upcomingAppointments.next(appointmentsArray)
+  }
+
   constructor(private http:Http, private router:Router) { }
 
   register(patient:Patient){
@@ -34,7 +41,6 @@ export class AuthService {
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
-
 
   signOut(){
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''

@@ -1,5 +1,5 @@
 <div class="color-selector">
-  <i class="material-icons icon" (click)='showSelector(true)'>color_lens</i>
+  <i class="glyphicon glyphicon-tint" aria-hidden='true' (click)='showSelector(true)'></i>
   <div class="selector row" *ngIf='isSelectorVisible'>
     <div class="color" *ngFor='let color of colors'
     (click)='selectColor(color)' [ngStyle]='{"background-color":color}'></div>

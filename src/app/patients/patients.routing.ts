@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 
 export const PATIENTS_ROUTES:Routes=[
-  {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]} ,
+  {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
   {path:'schedule', component: ScheduleComponent},
   {path:'register', component: RegisterComponent},
   {path:'signin',component: SignInComponent},
