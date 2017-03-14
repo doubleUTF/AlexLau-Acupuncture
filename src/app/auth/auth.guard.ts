@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthGuard implements CanActivate{
   constructor(private authService:AuthService, private router:Router){}
+  // Emits data received from AuthService so dashboard component
+  // doesn't need to make an extra call to retreive data.
 
   canActivate(
     route:ActivatedRouteSnapshot,
@@ -16,6 +18,7 @@ export class AuthGuard implements CanActivate{
       if (e){
         this.authService.emitName([e.firstName,e.lastName]);
         this.authService.emitUpcomingAppointments(e.upcomingAppointments);
+        this.authService.emitFormComplete(e.formComplete);
         return true;
       }
     }).catch(()=>{

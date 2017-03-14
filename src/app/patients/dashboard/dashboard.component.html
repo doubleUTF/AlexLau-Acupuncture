@@ -1,7 +1,9 @@
   <h2>
     Dashboard
   </h2>
-
+<alert *ngIf='alertReady' [type]='alert.type'>
+  <span [innerHTML]='alert.message'></span>
+</alert>
 <div class="row">
   <div class="col-xs-12 col-sm-4 col-md-4">
     <div class="thumbnail">
