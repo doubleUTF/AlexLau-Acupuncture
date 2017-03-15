@@ -13,3 +13,7 @@ input.ng-invalid.ng-dirty{
 .creator {
   margin-bottom: 40px;
 }
+
+.required{
+  color: rgb(252, 0, 0)
+}

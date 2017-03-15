@@ -10,18 +10,17 @@ var checkAlerts=(req,res,next)=>{
         var date=new Date(o.date)
         return date>=new Date()
       })
-      // TODO: Sort the appointments before sending to client
-      
-      req.upcomingAppointments=splitAppointments;
+      req.upcomingAppointments=_.sortBy(splitAppointments,['date']);
       next();
     }).catch((err)=>{
       res.status(400).json({err:err.toString()})
     })
 
   // Check profile for completion, return a boolean
+
   var requiredKeys=['dateOfBirth','address','primaryPhone','gender'];
   var formComplete=requiredKeys.every((k)=>{
-    return k in req.patient
+    return k in JSON.parse(JSON.stringify(req.patient))
   })
   req.formComplete=formComplete;
 }

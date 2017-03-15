@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
   showUpcomingAlert(){
     if (!this.formComplete){
       this.alert={
-        type:'danger',
+        type:'warning',
         message:`Forms must be completed in Account Management before
       receiving treatment`
     };
@@ -51,26 +51,30 @@ export class DashboardComponent implements OnInit {
         type:'info',
         message:`You have no upcoming appointments`
       }
-    } else if (this.upcomingAppointments.length==1) {
-      this.alert={
-        type:'info',
-        message:`You have an appointment
-        ${moment(this.upcomingAppointments[0].date).calendar(null,this.timeFormats)}`
-      }
     } else {
-      let appointments=this.upcomingAppointments.map((x)=>{
-        return x.date
-      });
-      let aptString=''
-      appointments.forEach((date)=>{
-        aptString+='<b>'+ moment(date).calendar(null,this.timeFormats)+'</b>&nbsp;&nbsp;&nbsp;&nbsp;'
-      })
-
       this.alert={
         type:'info',
-        message:`You have appointments ${aptString}`
+        message:`<i class='glyphicon glyphicon-time' aria-hidden='true'></i>
+        &nbsp;&nbsp;&nbsp;Your next appointment is
+        <b>${moment(this.upcomingAppointments[0].date).calendar(null,this.timeFormats)}</b>
+        `
       }
     }
+    // Displaying multiple dates in one line is rather ugly, will remove on next commit.
+    // else {
+    //   let appointments=this.upcomingAppointments.map((x)=>{
+    //     return x.date
+    //   });
+    //   let aptString=''
+    //   appointments.forEach((date)=>{
+    //     aptString+='<b>'+ moment(date).calendar(null,this.timeFormats)+'</b>&nbsp;&nbsp;&nbsp;&nbsp;'
+    //   })
+    //
+    //   this.alert={
+    //     type:'info',
+    //     message:`You have appointments ${aptString}`
+    //   }
+    // }
     this.alertReady=true;
   }
 

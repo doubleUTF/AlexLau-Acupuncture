@@ -10,7 +10,7 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class AppointmentsListComponent implements OnInit {
   // TODO: Introduce pagination to handle potentially hundreds of past appointments
-  
+
   constructor(
     private appointmentService:AppointmentService,
     private authService:AuthService) {}
@@ -18,7 +18,7 @@ export class AppointmentsListComponent implements OnInit {
   upcomingAppointments=[];
   pastAppointments=[];
   selectedAppointment={date:null}
-
+  noData:boolean=false;
   alertStatus=false
   alertMessage:string=''
   @ViewChild('staticModal') public staticModal:ModalDirective;
@@ -27,8 +27,11 @@ export class AppointmentsListComponent implements OnInit {
     this.appointmentService.getAppointments()
       .subscribe(
         data=>{
-          this.upcomingAppointments=data.upcomingAppointments,
-          this.pastAppointments=data.pastAppointments
+          this.upcomingAppointments=data.upcomingAppointments;
+          this.pastAppointments=data.pastAppointments;
+          if (this.upcomingAppointments.length==0 && this.pastAppointments.length==0){
+            this.noData=true;
+          }
         },
         err=>{
           this.authService.signOut()

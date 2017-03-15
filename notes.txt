@@ -31,8 +31,8 @@ Update 3/14/17-
 
   TODOS for 3/16/17-
     -Clean up appointments items CSS, the buttons are misaligned. Graciously
-    show no upcoming appointments.
-    - Hide the 'chat with us' button for now.
+    show no upcoming appointments. *Done
+    - Hide the 'chat with us' button for now. -Done
     - Include in email a checkbox allowing us to send certain emails such as
       appointment reminders, changes to account(email, password).
     - Create a FormGroup in the consent section.

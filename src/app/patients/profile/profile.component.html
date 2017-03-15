@@ -6,9 +6,8 @@
       <tab heading='Profile info'>
         <h3>Profile Information</h3>
         <div [@alertState]='personalAlertState'>
-          <alert type="warning" *ngIf='profileForm.invalid && canView'>
-            Your profile is incomplete, we will not be able to provide treatment until
-            it is completed.
+          <alert type="info" *ngIf='profileForm.invalid && canView'>
+            Please fill out the remaining form to verify insurance and receive treatment.
           </alert>
         </div>
         <div [@alertState]='profileSaved'>
@@ -36,14 +35,16 @@
           <fieldset [disabled]='formDisabled'>
             <div class="row">
               <div class="form-group col-sm-6">
-                <label for="firstName" class='col-sm-4 control-label'>First Name</label>
+                <label for="firstName" class='col-sm-4 control-label'>
+                  <span class='required'>*&nbsp;</span>First Name</label>
                 <div class="input-group col-sm-8">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden='true'></i></span>
                   <input type="text" class="form-control" id="firstName" formControlName='firstName'>
                 </div>
               </div>
               <div class="form-group col-sm-6">
-                <label for="lastName" class='col-sm-4 control-label'>Last Name</label>
+                <label for="lastName" class='col-sm-4 control-label'>
+                  <span class='required'>*&nbsp;</span>Last Name</label>
                 <div class="input-group col-sm-8">
                    <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden='true'></i></span>
                   <input type="text" class="form-control" id="lastName" formControlName='lastName'>
@@ -53,7 +54,8 @@
 
           <div class="row">
             <div class="form-group col-sm-6">
-              <label for="gender" class='col-sm-4 control-label'>Gender</label>
+              <label for="gender" class='col-sm-4 control-label'>
+                <span class='required'>*&nbsp;</span>Gender</label>
               <div class="input-group col-sm-8">
                 <label class="radio-inline">
                   <input type="radio" name="gender" id="maleRadio"
@@ -82,7 +84,8 @@
 
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="primaryPhone" class='col-sm-4 control-label'>Primary phone</label>
+            <label for="primaryPhone" class='col-sm-4 control-label'>
+              <span class='required'>*&nbsp;</span>Primary phone</label>
             <div class="input-group col-sm-8">
               <span class="input-group-addon"><i class='glyphicon glyphicon-earphone' aria-hidden='true'></i></span>
               <input [textMask]='{mask:phoneMask}' type="text" id="primaryPhone" class='form-control'
@@ -109,7 +112,8 @@
           </div>
 
           <div class="form-group col-sm-6">
-            <label for="dateOfBirth" class='col-sm-4 control-label'>Date of Birth</label>
+            <label for="dateOfBirth" class='col-sm-4 control-label'>
+              <span class='required'>*&nbsp;</span>Date of Birth</label>
             <div class="input-group col-sm-8">
               <span class="input-group-addon"><i class='glyphicon glyphicon-calendar' aria-hidden='true'></i></span>
               <input [textMask]='{mask:dobMask}' type="text" id="dateOfBirth" class='form-control'
@@ -121,14 +125,16 @@
       <div formGroupName='address'>
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="address" class='col-sm-4 control-label'>Street Address</label>
+            <label for="address" class='col-sm-4 control-label'>
+              <span class='required'>*&nbsp;</span>Street Address</label>
             <div class="input-group col-sm-8">
              <span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden='true'></i></span>
               <input type="text" class="form-control" id="address" formControlName='street'>
             </div>
           </div>
           <div class="form-group col-sm-6">
-            <label for="email" class='col-sm-4 control-label'>City</label>
+            <label for="email" class='col-sm-4 control-label'>
+              <span class='required'>*&nbsp;</span>City</label>
             <div class="input-group col-sm-8">
              <span class="input-group-addon"><i class="fa fa-building" aria-hidden='true'></i></span>
               <input type="text" class="form-control" id="city" formControlName='city'>
@@ -138,7 +144,8 @@
 
         <div class="row">
           <div class="form-group col-sm-6">
-          <label for="email" class='col-sm-4 control-label'>State</label>
+          <label for="email" class='col-sm-4 control-label'>
+            <span class='required'>*&nbsp;</span>State</label>
           <div class="input-group col-sm-8">
            <span class="input-group-addon"><i class="glyphicon glyphicon-th-list" aria-hidden='true'></i></span>
            <select name="state" class="form-control selectpicker" formControlName='state'>
@@ -199,7 +206,8 @@
           </div>
 
           <div class="form-group col-sm-6">
-            <label for="zip" class='col-sm-4 control-label'>Zip code</label>
+            <label for="zip" class='col-sm-4 control-label'>
+              <span class='required'>*&nbsp;</span>Zip code</label>
             <div class="input-group col-sm-8">
              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
               <input type="text" class="form-control" id="zip" formControlName='zip'

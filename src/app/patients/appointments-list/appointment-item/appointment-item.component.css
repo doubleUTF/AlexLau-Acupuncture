@@ -1,8 +1,8 @@
 .options{
   display:inline-block;
-  text-align: right;
+  text-align: center;
   font-size: 12px;
-  width:50%
+  float:right;
 }
 
 a:hover{
