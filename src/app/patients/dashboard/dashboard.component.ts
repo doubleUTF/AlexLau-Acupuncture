@@ -13,12 +13,10 @@ export class DashboardComponent implements OnInit {
   constructor(private authService:AuthService) {}
 
   ngOnInit() {
-    this.authService.upcomingAppointments.complete();
     this.authService.upcomingAppointments.subscribe(
       (appointments:Array<any>)=>this.upcomingAppointments=appointments,
       err=>console.error(err)
     )
-    this.authService.formCompleteSource.complete();
     this.authService.formCompleteSource.subscribe(
       (e:boolean)=>this.formComplete=e,
       err=>console.error(err)
@@ -35,9 +33,10 @@ export class DashboardComponent implements OnInit {
   // Considering refactoring moment related code to another component/directive
   // should the need arise(reusability elsewhere)
   timeFormats={
-    sameDay: '[today] LLL',
-    nextDay: '[tomorrow] LLL',
-    nextWeek: 'LLL'
+    sameDay: '[today] dddd, MMMM Do YYYY, h:mm a',
+    nextDay: '[tomorrow] dddd, MMMM Do YYYY, h:mm a',
+    nextWeek: 'dddd, MMMM Do YYYY, h:mm a',
+    sameElse:'dddd, MMMM Do YYYY, h:mm a'
   };
 
   showUpcomingAlert(){
@@ -64,12 +63,12 @@ export class DashboardComponent implements OnInit {
       });
       let aptString=''
       appointments.forEach((date)=>{
-        aptString+='<b>'+ moment(date).calendar(null,this.timeFormats)+'</b>;  '
+        aptString+='<b>'+ moment(date).calendar(null,this.timeFormats)+'</b>&nbsp;&nbsp;&nbsp;&nbsp;'
       })
 
       this.alert={
         type:'info',
-        message:`You have appointments on ${aptString}`
+        message:`You have appointments ${aptString}`
       }
     }
     this.alertReady=true;

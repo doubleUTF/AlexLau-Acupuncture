@@ -9,7 +9,8 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./appointments-list.component.css']
 })
 export class AppointmentsListComponent implements OnInit {
-
+  // TODO: Introduce pagination to handle potentially hundreds of past appointments
+  
   constructor(
     private appointmentService:AppointmentService,
     private authService:AuthService) {}

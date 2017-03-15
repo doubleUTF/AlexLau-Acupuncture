@@ -6,10 +6,36 @@ Users will be able to register an account with the following features:
   - Manage appointments
   - View visit history and retrieve receipts
   - Pay online
-  - Speak to a representative
+  - Chat with a representative
   - Order herbs
   - Submit insurance and intake forms
   - Enable various languages
+  - Allow patients to search for symptoms we treat
 
   Dependencies:
   Need to install type files for validator module(index.d.ts)
+
+Update 3/14/17-
+  Have to decide whether to let users do a partial or full registration to create account.
+  A full registration ensures the back-end will have all the required data
+  to create an appointment. However, new users may not be willing to create an account
+  just to check insurance. It would be wise to leave the jotform option in the landing
+  page to just check insurance for new visitors because not all of them will actually
+  come into the clinic for many reasons. For prototype stage, let's leave it at
+  partial registration. In later stages, may switch to full registration.
+
+  Considering making only one API call to patients/me or patients/auth so that
+  front end gets all the user related data at once. This may be feasible since
+  the payload should not be too large(JSON document for a patient max at 1-2MB?
+  average user maybe much less.)
+
+  TODOS for 3/16/17-
+    -Clean up appointments items CSS, the buttons are misaligned. Graciously
+    show no upcoming appointments.
+    - Hide the 'chat with us' button for now.
+    - Include in email a checkbox allowing us to send certain emails such as
+      appointment reminders, changes to account(email, password).
+    - Create a FormGroup in the consent section.
+
+
+  The home or registration page should list reasons/benefits of signing up an account.

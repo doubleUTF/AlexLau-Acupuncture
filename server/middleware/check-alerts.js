@@ -10,6 +10,8 @@ var checkAlerts=(req,res,next)=>{
         var date=new Date(o.date)
         return date>=new Date()
       })
+      // TODO: Sort the appointments before sending to client
+      
       req.upcomingAppointments=splitAppointments;
       next();
     }).catch((err)=>{
