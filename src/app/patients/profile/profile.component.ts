@@ -190,7 +190,6 @@ export class ProfileComponent implements OnInit {
   ngDoCheck(){
     if (this.profileForm.invalid) {
       this.personalAlertState='show';
-      this.onEdit();
     } if (this.profileForm.valid){
       this.personalAlertState='hidden'
     }

@@ -90,7 +90,7 @@ PatientSchema.methods.generateAuthToken=function(){
 
 // I am considering placing tokens array into its own collection to
 // utilize MongoDB's TTL feature which will auto remove expired tokens
-// from DB.
+// from DB. This will be necessary to be HIPAA compliant.
 PatientSchema.statics.findByToken=function(token){
   var Patient=this; // model object
   var decoded;
@@ -131,13 +131,6 @@ PatientSchema.methods.updateProfile=function(patientObj){
   return patient.update(patientObj)
 }
 
-// Patient.methods.updateEmail=function(newEmail){
-//   var patient=this;
-//   return patient.update({
-//
-//   })
-// }
-// Error handler
 PatientSchema.post('update',(error,doc,next)=>{
   console.log('save error detected')
   if (error.name=== 'MongoError' && error.code===11000){

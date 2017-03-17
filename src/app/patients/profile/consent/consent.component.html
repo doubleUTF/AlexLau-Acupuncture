@@ -24,7 +24,20 @@
     </p>
     <h4 class='text-center'>Data usage and security disclosure</h4>
     <p>(Additional terms pertaining to HIPAA regulations and data security...)</p>
-    <input />
-    <button type='button' class='btn btn-default'>Submit</button>
+    <form class='form-horizontal' [formGroup]='consentForm'>
+      <div class="form-group col-sm-10">
+        <label for="signature" class='col-sm-4'>Full Name</label>
+      <div class="input-group col-sm-8">
+        <span class='input-group-addon'><i class='glyphicon glyphicon-pencil' aria-hidden='true'></i></span>
+        <input type='text' class='form-control' id='signature' formControlName='signature'/>
+      </div>
+    </div>
+    <div class='form-group col-sm-10'>
+      <label for='date' class='col-sm-4'>Date</label>
+      <div class="col-sm-4">{{date|date}}</div>
+    </div>
+  </form>
+  <button type='button' class='btn btn-default' (click)='onSubmit()'
+  [disabled]='consentForm.invalid'>Submit</button>
   </div>
 </div>
