@@ -6,3 +6,15 @@
 .thumbnail{
   padding-top: 7%;
 }
+
+.glyphicon{
+  margin-right:15px;
+}
+
+.text{
+  color:black;
+}
+
+.list-group li{
+  margin-bottom: 10px;
+}

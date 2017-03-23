@@ -22,7 +22,7 @@ import * as moment from 'moment';
   ]
 })
 export class ProfileComponent implements OnInit {
-
+  // TODO: Refactor email and password into their own components
   constructor(private authService:AuthService,
   private patientService:PatientService,
   private validatorService:ValidatorService) { }
@@ -74,7 +74,7 @@ export class ProfileComponent implements OnInit {
         }
         this.currentForm=JSON.parse(JSON.stringify(this.profileForm.value));
         // Don't display insurance or email in first profile page
-        let incomingForm=_.omit(data.patientProfile,['insurances','email','_id']);
+        let incomingForm=_.omit(data.patientProfile,['insurances','email','_id','consent']);
         // Parse the date into mm/dd/yyyy format
         _.set(incomingForm,'dateOfBirth',  moment(data.patientProfile.dateOfBirth).format('L'))
         // console.log(this.currentForm)

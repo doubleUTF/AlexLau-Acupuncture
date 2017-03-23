@@ -5,10 +5,34 @@
   <span [innerHTML]='alert.message'></span>
 </alert>
 <div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <ul class='list-group'>
+      <a class='thumb-hover' routerLink='../appointments-list'>
+      <li class='list-group-item'>
+        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+        <span class='text'>&nbsp;View appointments</span></li>
+      </a>
+      <a class='thumb-hover' routerLink='../schedule'>
+        <li class='list-group-item'>
+          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          <span class='text'>Make an appointment</span></li>
+      </a>
+      <a class='thumb-hover' routerLink='../profile'>
+        <li class='list-group-item'>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <span class='text'>Account management</span></li>
+      </a>
+    </ul>
+  </div>
+</div>
+<!-->TODO: Need to implement media query so the list items above appear as it
+does below when view-screen is larger<-->
+<div class="row">
   <div class="col-xs-12 col-sm-4 col-md-4">
     <div class="thumbnail">
       <a class='thumb-hover' routerLink='../appointments-list'>
-      <span class="glyphicon glyphicon-list text-center" style='display:block; font-size:100px' aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-list text-center" style='display:block; font-size:100px'
+        aria-hidden="true"></span>
       <div class="caption">
         <h3 class='text-center'>View appointments</h3>
       </div>

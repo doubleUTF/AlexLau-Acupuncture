@@ -2,7 +2,6 @@ var mongoose= require('mongoose');
 var validator= require('validator');
 const jwt=require('jsonwebtoken');
 const _=require('lodash');
-// const bcrypt=require('bcryptjs');
 
 var PatientSchema=new mongoose.Schema({
   email:{
@@ -46,7 +45,12 @@ var PatientSchema=new mongoose.Schema({
     startDate:String,
     payerId:String,
     primary:Boolean,
-    color:String
+    color:String,
+    copay:String,
+    covered:Boolean,
+    visits:Number,
+    deductible:Number,
+    outOfPocket:Number
   }],
   referredBy:String,
   emergencyContact:String,
@@ -88,9 +92,8 @@ PatientSchema.methods.generateAuthToken=function(){
   });
 };
 
-// I am considering placing tokens array into its own collection to
-// utilize MongoDB's TTL feature which will auto remove expired tokens
-// from DB. This will be necessary to be HIPAA compliant.
+// Will need a cron function to automatically expire/remove tokens after
+// a period of time(20 minutes? need to be HIPAA compliant)
 PatientSchema.statics.findByToken=function(token){
   var Patient=this; // model object
   var decoded;
