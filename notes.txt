@@ -15,6 +15,9 @@ Users will be able to register an account with the following features:
   Dependencies:
   Need to install type files for validator module(index.d.ts)
 
+3/23/17
+Internal app prototype is ready. Next, work on basic home page and will be ready for alpha.
+
 Update 3/14/17-
   Have to decide whether to let users do a partial or full registration to create account.
   A full registration ensures the back-end will have all the required data

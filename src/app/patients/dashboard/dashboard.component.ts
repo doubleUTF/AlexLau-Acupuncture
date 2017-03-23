@@ -16,15 +16,20 @@ export class DashboardComponent implements OnInit {
     this.authService.upcomingAppointments.subscribe(
       (appointments:Array<any>)=>this.upcomingAppointments=appointments,
       err=>console.error(err)
-    )
+    );
     this.authService.formCompleteSource.subscribe(
       (e:boolean)=>this.formComplete=e,
+      err=>console.error(err)
+    );
+    this.authService.name$.subscribe(
+      name=>this.firstName=name[0],
       err=>console.error(err)
     )
   }
 
   // TODO: Now that we properly receive appointments on dashboard, it's time to implement
   // the front-end to display a proper alert message to inform user of upcoming appointment.
+  firstName:string;
   upcomingAppointments:Array<any>=[];
   formComplete:boolean;
   alertReady:boolean=false;

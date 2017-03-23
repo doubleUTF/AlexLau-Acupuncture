@@ -11,7 +11,7 @@ import { Patient } from '../patients/patient.model';
 @Injectable()
 export class AuthService {
 
-  private nameSource= new Subject();
+  private nameSource= new BehaviorSubject([]);
 
   name$=this.nameSource.asObservable();
   emitName(nameArray:Array<string>){
