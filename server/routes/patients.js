@@ -189,13 +189,13 @@ router.get('/auth',authenticate,checkAlerts,(req,res,next)=>{
 router.post('/signin',(req,res,next)=>{
   Patient.findOne({email:req.body.email}, (err,patient)=>{
     if (err){
-       res.status(500).json({
+       return res.status(500).json({
         title:'An error occured',
         error:err
       });
     }
     if (!patient){
-       res.status(401).json({
+       return res.status(401).json({
         title:'Login failed',
         error:{message: 'Invalid login credentials'}
       });

@@ -246,100 +246,11 @@
       </tab>
 
       <tab heading='Email'>
-        <h3>Update Email</h3>
-        <div [@alertState]='emailAlertState'>
-          <alert type='success' *ngIf='emailSaved'>
-            Your email has successfully been updated to {{newEmail}}
-          </alert>
-        </div>
-        <div class="row" style='padding-top:20px'>
-          <div class="col-sm-6 col-sm-offset-3">
-            <form class='form-horizontal' [formGroup]='emailForm' novalidate>
-              <div class="form-group">
-                <label for="currentEmail" class='col-sm-4'>Current Email</label>
-                <div class="input-group col-sm-8">
-                  <span class="input-group-addon"><i class="fa fa-at" aria-hidden='true'></i></span>
-                  <input type="email" class='form-control' id='currentEmail' formControlName='currentEmail'>
-                </div>
-                </div>
-
-              <div class="form-group">
-                <label for="newEmail" class='col-sm-4'>New Email</label>
-                <div class="input-group col-sm-8">
-                  <span class="input-group-addon"><i class="fa fa-at" aria-hidden='true'></i></span>
-                  <input validateEqual='retypeEmail' type="email" class='form-control'
-                  id='newEmail' formControlName='newEmail' reverse='true'>
-                </div>
-                <small [hidden]="emailForm.controls.newEmail.valid || emailForm.controls.newEmail.pristine" class="text-danger">
-      Email is required and format should be <i>john@doe.com</i>.</small>
-              </div>
-              <div class="form-group">
-                <label for="retypeEmail" class='col-sm-4'>Retype New Email</label>
-                <div class="input-group col-sm-8">
-                  <span class="input-group-addon"><i class="fa fa-at" aria-hidden='true'></i></span>
-                  <input validateEqual='newEmail' type="email" class='form-control'
-                  id='retypeEmail' formControlName='retypeEmail' reverse='false'>
-                </div>
-                <small [hidden]="emailForm.controls.retypeEmail.valid || emailForm.controls.retypeEmail.pristine" class="text-danger">
-                  Email must match with new email.</small>
-              </div>
-              <div class="col-sm-8 col-sm-push-4">
-                <button [disabled]='emailForm.invalid || emailSaved' type='button' class='btn btn-success' (click)='onUpdateEmail()'>
-                  <span class='glyphicon glyphicon-floppy-disk' aria-hidden='true'></span>&nbsp;Save new email</button>
-              </div>
-            </form>
-          </div>
-        </div>
+        <app-email [email]='email'></app-email>
       </tab>
 
       <tab heading='Password'>
-        <h3>Update Password</h3>
-          <div class="row">
-            <div [@alertState]='passwordAlertState'>
-              <alert type='success' *ngIf='passwordSaved'>
-                Password has been succesfully updated
-              </alert>
-              <alert type='danger' *ngIf='passwordUnsuccessful'>
-                Could not update password, entered password is incorrect
-              </alert>
-            </div>
-            <div class="col-sm-6 col-sm-push-3">
-            <form class='form-horizontal' [formGroup]='passwordForm'>
-              <div class="form-group">
-                <label for="currentPassword" class='col-sm-4'>Current password</label>
-                <div class="input-group col-sm-8">
-                  <span class="input-group-addon"><i class="fa fa-key" aria-hidden='true'></i></span>
-                  <input type="password" class='form-control' id='currentPassword'
-                  formControlName='currentPassword'>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="newPassword" class='col-sm-4'>New password</label>
-                <div class="input-group col-sm-8">
-                  <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden='true'></i></span>
-                  <input type="password" class='form-control' id='newPassword' reverse='true'
-                  formControlName='newPassword' validateEqual='retypePassword'>
-                </div>
-                <small [hidden]="passwordForm.controls.newPassword.valid || passwordForm.controls.newPassword.pristine" class="text-danger">
-                  New password must be 6 characters in length or greater.</small>
-              </div>
-              <div class="form-group">
-                <label for="retypePassword" class='col-sm-4'>Retype password</label>
-                <div class="input-group col-sm-8">
-                  <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden='true'></i></span>
-                  <input type="password" class='form-control' id='retypePassword' reverse='false'
-                  formControlName='retypePassword' validateEqual='newPassword'>
-                </div>
-                <small [hidden]="passwordForm.controls.retypePassword.valid || passwordForm.controls.retypePassword.pristine" class="text-danger">
-                  Passwords must match</small>
-              </div>
-              <div class="col-sm-8 col-sm-push-4">
-                <button [disabled]='passwordForm.invalid || passwordSaved' type='button' class='btn btn-success' (click)='onUpdatePassword()'>
-                  <span class='glyphicon glyphicon-floppy-disk' aria-hidden='true'></span>&nbsp;Save new password</button>
-              </div>
-            </form>
-            </div>
-          </div>
+        <app-password></app-password>
       </tab>
 
       <tab heading='Consent'>

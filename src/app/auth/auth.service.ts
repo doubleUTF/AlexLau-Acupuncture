@@ -55,7 +55,6 @@ export class AuthService {
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
       .subscribe((data)=>{
-        console.log('Signing out')
         localStorage.clear();
         this.router.navigate(['/patients','signin'])
       },
@@ -80,5 +79,4 @@ export class AuthService {
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
-
 }

@@ -21,7 +21,9 @@ export class SignInComponent implements OnInit, AfterViewInit {
         Validators.required,
         this.validatorService.validateEmail
       ]),
-      password:new FormControl(null, Validators.required)
+      password:new FormControl(null, [
+        Validators.required, Validators.minLength(6)
+      ])
     })
   }
   signInForm:FormGroup;

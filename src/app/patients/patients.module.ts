@@ -22,6 +22,8 @@ import { InsurancesComponent } from './profile/insurances/insurances.component';
 import { InsuranceCreatorComponent } from './profile/insurances/insurance-creator/insurance-creator.component';
 import { ColorPickerComponent } from './profile/insurances/color-picker/color-picker.component';
 import { ConsentComponent } from './profile/consent/consent.component';
+import { PasswordComponent } from './profile/password/password.component';
+import { EmailComponent } from './profile/email/email.component';
 
 @NgModule({
   imports: [
@@ -46,7 +48,9 @@ import { ConsentComponent } from './profile/consent/consent.component';
     InsurancesComponent,
     InsuranceCreatorComponent,
     ColorPickerComponent,
-    ConsentComponent
+    ConsentComponent,
+    PasswordComponent,
+    EmailComponent
   ],
   providers:[
     AppointmentService,

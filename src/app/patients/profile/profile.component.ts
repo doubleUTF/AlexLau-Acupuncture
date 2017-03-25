@@ -53,19 +53,6 @@ export class ProfileComponent implements OnInit {
       emergencyPhone:new FormControl('',Validators.pattern(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-.●]?([0-9]{4})$/))
     })
 
-    this.emailForm=new FormGroup({
-      currentEmail:new FormControl({value:'',disabled:true},this.validatorService.validateEmail),
-      newEmail:new FormControl('', this.validatorService.validateEmail),
-      retypeEmail:new FormControl('', this.validatorService.validateEmail),
-    });
-
-    this.passwordForm=new FormGroup({
-      currentPassword:new FormControl('',Validators.required),
-      newPassword:new FormControl('',[
-        Validators.required, Validators.minLength(6)]),
-      retypePassword:new FormControl('',Validators.required)
-    })
-
     this.authService.getPatientInfo().subscribe(
       data=>{
         // If true, send insurances to child Insurances component
@@ -82,7 +69,7 @@ export class ProfileComponent implements OnInit {
           this.currentForm[p]=incomingForm[p]
         }
         this.profileForm.setValue(this.currentForm);
-        this.emailForm.patchValue({currentEmail:data.patientProfile.email})
+        this.email=data.patientProfile.email;
         this.profileComplete=this.profileForm.valid;
         setTimeout(()=>this.canView=true);
       },
@@ -96,19 +83,14 @@ export class ProfileComponent implements OnInit {
 
   profileComplete:boolean=false;
 
+  email:string;
   insurances=[];
   personalAlertState='hidden'
   canView:boolean=false;
   profileForm:FormGroup;
-  emailForm:FormGroup;
-  passwordForm:FormGroup;
+
   currentForm={};
   formDisabled:boolean=true;
-
-  // TODO use double opt security if patient wants to change
-  // email or password. This will require implementation of new
-  // methods of node email verification.
-
   profileSaved='hidden'
   onSave(){
     const formModel:Patient= this.profileForm.value;
@@ -142,49 +124,6 @@ export class ProfileComponent implements OnInit {
   showError(err){
     this.errorPresent=true;
     this.errorMessage=err.err;
-  }
-
-  emailSaved:boolean=false;
-  newEmail:string;
-  emailAlertState='hidden';
-
-  onUpdateEmail(){
-    this.newEmail=this.emailForm.value.newEmail
-    this.patientService.savePatientInfo({
-      email:this.newEmail})
-      .subscribe(
-        data=>{
-          this.emailForm.patchValue({currentEmail:this.newEmail})
-          this.profileForm.patchValue({email:this.newEmail})
-          this.emailSaved=true
-          this.emailAlertState='show'
-        },
-        err=>console.error(err)
-      )
-  }
-
-  passwordSaved:boolean=false;
-  passwordUnsuccessful=false;
-  passwordAlertState='hidden'
-  // TODO send an email notifying the patient's password has changed
-  onUpdatePassword(){
-    this.patientService.updatePassword({
-      currentPassword:this.passwordForm.value.currentPassword,
-      newPassword:this.passwordForm.value.newPassword
-    }).subscribe(
-      data=>{
-        this.passwordSaved=true;
-        this.passwordUnsuccessful=false
-        this.passwordAlertState='show'
-        this.passwordForm.reset();
-        this.passwordForm.disabled;
-      },
-      err=>{
-        this.passwordUnsuccessful=true
-        this.passwordAlertState='show'
-        this.passwordForm.reset();
-      }
-    )
   }
 
   ngDoCheck(){

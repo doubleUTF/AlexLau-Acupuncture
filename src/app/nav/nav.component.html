@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="nav navbar-nav navbar-left">
-      <a class="navbar-brand" routerLink=''>Aculau</a>
+      <a class="navbar-brand" routerLink=''>My Clinic</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -11,14 +11,13 @@
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>
           <span class="glyphicon glyphicon-th" aria-hidden="true" style='font-size:150%'></span></a></li>
-        <!-- <li><a href="#">Visit history</a></li> -->
         <li class="dropdown" dropdown>
           <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"
            dropdownToggle>{{updateMenuTitle()}}<span class="caret"></span></a>
           <ul class="dropdown-menu" dropdownMenu >
+            <li *ngIf='isLoggedIn()'><a routerLink='patients/appointments-list'>View appointments</a></li>
             <li *ngIf='isLoggedIn()'><a routerLink='patients/schedule'>Schedule appointment</a></li>
-            <li *ngIf='isLoggedIn()'><a routerLink='patients/appointments-list'>Manage Appointments</a></li>
-            <li *ngIf='isLoggedIn()'><a href="#">Manage preferences</a></li>
+            <li *ngIf='isLoggedIn()'><a routerLink='patients/profile'>Manage account</a></li>
             <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register an account</a></li>
             <li role="separator" class="divider"></li>
             <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li>
