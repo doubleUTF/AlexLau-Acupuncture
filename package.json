@@ -6,7 +6,8 @@
   "scripts": {
     "ng": "ng",
     "pm2start": "pm2 start ecosystem.config.js",
-    "start": "nodemon ./bin/www",
+    "nodemonstart":"nodemon ./bin/www",
+    "start": "pm2 start ecosystem.config.js",
     "ngstart": "ng serve",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "test": "ng test",

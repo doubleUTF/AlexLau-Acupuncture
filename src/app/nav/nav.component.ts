@@ -44,4 +44,5 @@ export class NavComponent implements OnInit {
   ngDoCheck(){
     this.updateMenuTitle();
   }
+
 }

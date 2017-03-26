@@ -1,7 +1,8 @@
 Goal of this project:
 
-To make a fully functional web app for my acupuncture clinic. The homepage will
-be designed with an Eastern-Asian theme with bright and green colors.
+To make a fully functional web app for any clinic. The homepage will
+be generic for the purpose of marketing this app to clients. The theme
+can be customized for a specific client. 
 Users will be able to register an account with the following features:
   - Manage appointments
   - View visit history and retrieve receipts
@@ -14,6 +15,10 @@ Users will be able to register an account with the following features:
 
   Dependencies:
   Need to install type files for validator module(index.d.ts)
+
+3/25/17
+TODO: Setup production deployment for heroku, present prototype to potential
+stakeholders, friends, family, etc for feedback.
 
 3/23/17
 Internal app prototype is ready. Next, work on basic home page and will be ready for alpha.

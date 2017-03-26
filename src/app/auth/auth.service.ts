@@ -7,6 +7,7 @@ import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 import { map } from 'rxjs/operator/map';
 import { Router } from '@angular/router';
 import { Patient } from '../patients/patient.model';
+import { environment as env } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -35,7 +36,7 @@ export class AuthService {
   register(patient:Patient){
     const body=JSON.stringify(patient);
     const headers= new Headers({'Content-Type':'application/json'})
-    return this.http.post('http://localhost:3000/patients/register', body, {headers})
+    return this.http.post(env.DOMAIN + '/patients/register', body, {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error))
   }
@@ -43,7 +44,7 @@ export class AuthService {
   signIn(patient:Patient){
     const body=JSON.stringify(patient);
     const headers= new Headers({'Content-Type':'application/json'})
-    return this.http.post('http://localhost:3000/patients/signin',body, {headers})
+    return this.http.post(env.DOMAIN + '/patients/signin',body, {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
@@ -51,7 +52,7 @@ export class AuthService {
   signOut(){
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
     const headers= new Headers({'Content-Type':'application/json','x-auth': token})
-    this.http.delete('http://localhost:3000/patients/token', {headers})
+    this.http.delete(env.DOMAIN + '/patients/token', {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
       .subscribe((data)=>{
@@ -67,7 +68,7 @@ export class AuthService {
   isLoggedIn():Observable<boolean>{
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
     const headers= new Headers({'Content-Type':'application/json','x-auth': token})
-    return this.http.get('http://localhost:3000/patients/auth',{headers})
+    return this.http.get(env.DOMAIN + '/patients/auth',{headers})
       .map(response=>response.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
@@ -75,7 +76,7 @@ export class AuthService {
   getPatientInfo(){
     const token= localStorage.getItem('token') ? localStorage.getItem('token') :''
     const headers= new Headers({'Content-Type':'application/json','x-auth': token})
-    return this.http.get('http://localhost:3000/patients/me', {headers})
+    return this.http.get(env.DOMAIN + '/patients/me', {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error.json()))
   }
