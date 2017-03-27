@@ -274,6 +274,7 @@ router.delete('/appointments/:id',authenticate,(req,res,next)=>{
 
 router.post('/acuity/new', acuityAuth, (req,res,next)=>{
   var appointmentId=req.body.id;
+  console.log(req.body);
   acuity.request(`/appointments/${appointmentId}`,(err,response,acuityAppointment)=>{
     if (err) res.status(400).json({msg:'Bad request'})
 
@@ -293,7 +294,6 @@ router.post('/acuity/new', acuityAuth, (req,res,next)=>{
       appointment.save().then(()=>{
         patient.appointments.push(appointment);
         patient.save().then(()=>{
-          console.log('Appointment saved:',appointment)
           res.status(200).json({
           msg:'Appointment successfully saved',
           appointment
