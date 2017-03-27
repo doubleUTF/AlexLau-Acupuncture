@@ -35,7 +35,7 @@ export class AuthService {
 
   register(patient:Patient){
     const body=JSON.stringify(patient);
-    const headers= new Headers({'Content-Type':'application/json'})
+    const headers= new Headers({'Content-Type':'application/json'});
     return this.http.post(env.DOMAIN + '/patients/register', body, {headers})
       .map((res:Response)=>res.json())
       .catch((error:Response)=>Observable.throw(error))
