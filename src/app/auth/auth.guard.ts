@@ -23,6 +23,7 @@ export class AuthGuard implements CanActivate{
       }
     }).catch(()=>{
       this.router.navigate(['/patients','signin'])
+      localStorage.clear();
       return Observable.of(false);
     })
   }

@@ -2,7 +2,7 @@ Goal of this project:
 
 To make a fully functional web app for any clinic. The homepage will
 be generic for the purpose of marketing this app to clients. The theme
-can be customized for a specific client. 
+can be customized for a specific client.
 Users will be able to register an account with the following features:
   - Manage appointments
   - View visit history and retrieve receipts
@@ -15,6 +15,11 @@ Users will be able to register an account with the following features:
 
   Dependencies:
   Need to install type files for validator module(index.d.ts)
+
+3/26/17
+- Prototype is sorta ready. For some reason, using ng build -prod will cause server/router
+to not defer routing to angular and instead try to serve the actual resource, ie. going to
+localhost:3000/signin directly will be unrecognized.
 
 3/25/17
 TODO: Setup production deployment for heroku, present prototype to potential
