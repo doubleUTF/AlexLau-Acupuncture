@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Patient } from '../patient.model';
 import { ValidatorService } from '../../services/validator.service';
 import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,8 +12,11 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authService:AuthService,
-  private validatorService:ValidatorService) { }
+  constructor(
+    private authService:AuthService,
+    private validatorService:ValidatorService,
+    private router:Router
+) { }
 
   ngOnInit() {
     this.patientForm=new FormGroup({
@@ -43,6 +47,7 @@ export class RegisterComponent implements OnInit {
         data=>{
           localStorage.setItem('token',data.token);
           localStorage.setItem('patientId',data.patientId);
+          this.router.navigateByUrl('/patients/dashboard')
       },
         error=>console.error(error)
       );
