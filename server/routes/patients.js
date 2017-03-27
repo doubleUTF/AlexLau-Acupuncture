@@ -274,10 +274,12 @@ router.delete('/appointments/:id',authenticate,(req,res,next)=>{
 
 router.post('/acuity/new', acuityAuth, (req,res,next)=>{
   var appointmentId=req.body.id;
+  console.log(req.header('X-Acuity-Signature'))
   console.log(req.body);
   acuity.request(`/appointments/${appointmentId}`,(err,response,acuityAppointment)=>{
     if (err) res.status(400).json({msg:'Bad request'})
-
+    console.log(response);
+    console.log('Acuity appointment:', acuityAppointment)
     var mongoId=getMongoPatientId(acuityAppointment);
 
     Patient.findById(mongoId).then((patient)=>{
