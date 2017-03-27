@@ -274,13 +274,11 @@ router.delete('/appointments/:id',authenticate,(req,res,next)=>{
 
 router.post('/acuity/new', acuityAuth, (req,res,next)=>{
   var appointmentId=req.body.id;
-  // console.log(req.header('X-Acuity-Signature'))
-  // console.log(req.body);
+
   acuity.request(`/appointments/${appointmentId}`,(err,response,acuityAppointment)=>{
     if (err) res.status(400).json({msg:'Bad request'})
 
-    var mongoId=getMongoPatientId(acuityAppointment);
-
+    var mongoId=getMongoPatientId(acuityAppointment,process.env.ACUITY_INTERNAL_FORM_NAME);
     Patient.findById(mongoId).then((patient)=>{
       var appointment=new Appointment({
         _id:appointmentId,
@@ -293,10 +291,8 @@ router.post('/acuity/new', acuityAuth, (req,res,next)=>{
       })
 
       appointment.save().then(()=>{
-        console.log(appointment);
         patient.appointments.push(appointment);
         patient.save().then(()=>{
-          console.log('Patient saved')
           res.status(200).json({
           msg:'Appointment successfully saved',
           appointment
@@ -313,7 +309,9 @@ router.post('/acuity/new', acuityAuth, (req,res,next)=>{
         })
       })
     }).catch((e)=>{
-      res.end('Could not find patient with supplied ID')
+      res.status(404).json({
+        msg:'Could not find patient with supplied ID'
+      })
     })
   })
 })
