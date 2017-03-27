@@ -293,6 +293,7 @@ router.post('/acuity/new', acuityAuth, (req,res,next)=>{
       appointment.save().then(()=>{
         patient.appointments.push(appointment);
         patient.save().then(()=>{
+          console.log('Appointment saved:',appointment)
           res.status(200).json({
           msg:'Appointment successfully saved',
           appointment
