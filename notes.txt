@@ -16,6 +16,12 @@ Users will be able to register an account with the following features:
   Dependencies:
   Need to install type files for validator module(index.d.ts)
 
+3/27/17
+Updated to Angular 4,
+TODO: Fix why database is showing user paid when they don't. Update database to include
+patient information from filled form. Also, debug why appointments aren't removed from
+database after patient cancels(I haven't implemented it yet LOL).
+
 3/26/17
 - Prototype is sorta ready. For some reason, using ng build -prod will cause server/router
 to not defer routing to angular and instead try to serve the actual resource, ie. going to
