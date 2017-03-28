@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppointmentService } from './appointment.service';
 import { ModalModule, ModalDirective } from 'ng2-bootstrap/modal';
 import { AuthService } from '../../auth/auth.service';
+import { Appointment } from './appointment.model';
 
 @Component({
   selector: 'appointments-list',
@@ -12,12 +13,12 @@ export class AppointmentsListComponent implements OnInit {
   // TODO: Introduce pagination to handle potentially hundreds of past appointments
 
   constructor(
-    private appointmentService:AppointmentService,
+    public appointmentService:AppointmentService,
     private authService:AuthService) {}
 
   upcomingAppointments=[];
   pastAppointments=[];
-  selectedAppointment={date:null}
+  selectedAppointment:Appointment={date:null,_id:null};
   noData:boolean=false;
   alertStatus=false
   alertMessage:string=''
@@ -51,10 +52,10 @@ export class AppointmentsListComponent implements OnInit {
       .subscribe(
         data=>{
           this.upcomingAppointments.splice(this.upcomingAppointments.indexOf(id),1)
-          this.staticModal.hide()
           let message=`Your appointment on <b>${this.appointmentService.formatTime(this.selectedAppointment.date)}</b>
           has been canceled.`
           this.showAlert(message);
+          this.staticModal.hide()
         },
         err=>console.error(err)
       )

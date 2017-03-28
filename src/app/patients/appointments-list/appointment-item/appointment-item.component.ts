@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ModalModule } from 'ng2-bootstrap/modal';
 import { AppointmentService } from '../appointment.service';
+import { Appointment } from '../appointment.model';
 
 @Component({
   selector: 'appointment-item',
@@ -9,14 +10,14 @@ import { AppointmentService } from '../appointment.service';
 })
 export class AppointmentItemComponent implements OnInit {
 
-  constructor(private appointmentService:AppointmentService) { }
+  constructor(public appointmentService:AppointmentService) { }
 
   ngOnInit() {
   }
 
   @Input() viewReceipt:boolean=false;
   @Input() canCancel:boolean=false;
-  @Input() appointment:Object;
+  @Input() appointment:Appointment;
   @Output() onCanceled=new EventEmitter();
 
   onCancel(id:Number){

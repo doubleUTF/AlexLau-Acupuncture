@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('view engine','hbs');
+
 // Uncomment to allow cross server setup
 app.use((req,res,next)=>{
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -30,9 +31,10 @@ app.use((req,res,next)=>{
 // Routes
 app.use('/patients',patientsRoutes);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  return res.render('index');
+// Catch all routes to defer to Angular app
+
+app.use((req, res, next)=> {
+  return res.sendFile(path.join(__dirname,'../public','index.html'));
 });
 
 module.exports = app;

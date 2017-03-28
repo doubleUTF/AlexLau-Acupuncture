@@ -1,5 +1,6 @@
 import { Component, OnInit, Input,
   Output, EventEmitter } from '@angular/core';
+import { Insurance } from './insurance.model';
 
 @Component({
   selector: 'insurance-card',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input,
   styleUrls: ['./insurance-card.component.css']
 })
 export class InsuranceCardComponent implements OnInit {
-  @Input() insurance={};
+  @Input() insurance:Insurance;
   @Output() checkedPrimary= new EventEmitter();
   @Output() removed=new EventEmitter();
   constructor() { }

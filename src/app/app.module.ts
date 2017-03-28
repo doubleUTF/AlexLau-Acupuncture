@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
@@ -10,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +19,7 @@ import { AuthGuard } from './auth/auth.guard';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     BootstrapModule,
     PatientsModule,
