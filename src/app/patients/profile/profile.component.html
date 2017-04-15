@@ -19,6 +19,7 @@
           {{errorMessage}}
         </alert>
 
+        <div class="container">
         <form class='form-horizontal' [formGroup]='profileForm' novalidate>
           <div class="row">
             <div class="text-center" style='padding-bottom:15px; padding-top:15px'>
@@ -239,6 +240,7 @@
 
         </fieldset>
         </form>
+        </div>
       </tab>
       <tab heading='Insurances'>
         <app-insurances [insurances]='insurances'
