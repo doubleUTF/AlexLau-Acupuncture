@@ -2204,7 +2204,7 @@ exports = module.exports = __webpack_require__(12)();
 
 
 // module
-exports.push([module.i, "div>i{\r\n  font-size: 80px;\r\n}\r\n", ""]);
+exports.push([module.i, "div>i{\r\n  font-size: 80px;\r\n}\r\n\r\n.jumbotron{\r\n  background-image: url(" + __webpack_require__(990) + ");\r\n  background-size: cover;\r\n  background-position: 0% 25%;\r\n  height:100%;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2741,14 +2741,14 @@ webpackContext.id = 637;
 /***/ 660:
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav></app-nav>\r\n<div class=\"container\">\r\n  <router-outlet></router-outlet>\r\n</div>\r\n"
+module.exports = "<app-nav></app-nav>\r\n<!-- <div class=\"container\"> -->\r\n  <router-outlet></router-outlet>\r\n<!-- </div> -->\r\n"
 
 /***/ }),
 
 /***/ 661:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\">\r\n  <h1>My Clinic</h1>\r\n  <p>We provide acupuncture services and herbal remedies.</p>\r\n  <p>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/register' role=\"button\">Create account</a>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/signin' role=\"button\">Login</a>\r\n  </p>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>1. Create an account</h2>\r\n      <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>2. Make an appointment</h2>\r\n      <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>3. Get treatment</h2>\r\n      <i class=\"fa fa-user-md\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"jumbotron\">\r\n  <div class=\"container\">\r\n  <h1>My Clinic</h1>\r\n  <p>We provide acupuncture services and herbal remedies.</p>\r\n  <p>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/register' role=\"button\">Create account</a>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/signin' role=\"button\">Login</a>\r\n  </p>\r\n</div>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>1. Create an account</h2>\r\n      <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>2. Make an appointment</h2>\r\n      <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>3. Get treatment</h2>\r\n      <i class=\"fa fa-user-md\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2862,6 +2862,13 @@ module.exports = "\r\n<div class=\"row\">\r\n  <div class=\"col-sm-4 col-sm-push
 
 module.exports = __webpack_require__(432);
 
+
+/***/ }),
+
+/***/ 990:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "11.2b133032477e24e824cb.jpg";
 
 /***/ })
 
