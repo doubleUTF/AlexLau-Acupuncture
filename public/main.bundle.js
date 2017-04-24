@@ -66,7 +66,7 @@ AppointmentService = __decorate([
 ], AppointmentService);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/appointment.service.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/appointment.service.js.map
 
 /***/ }),
 
@@ -123,7 +123,7 @@ AuthGuard = __decorate([
 ], AuthGuard);
 
 var _a, _b;
-//# sourceMappingURL=C:/App_Projects/myApp/src/auth.guard.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/auth.guard.js.map
 
 /***/ }),
 
@@ -165,7 +165,7 @@ BootstrapModule = __decorate([
     })
 ], BootstrapModule);
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/bootstrap.module.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/bootstrap.module.js.map
 
 /***/ }),
 
@@ -213,7 +213,7 @@ HomeComponent = __decorate([
 ], HomeComponent);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/home.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/home.component.js.map
 
 /***/ }),
 
@@ -300,7 +300,7 @@ AppointmentsListComponent = __decorate([
 ], AppointmentsListComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=C:/App_Projects/myApp/src/appointments-list.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/appointments-list.component.js.map
 
 /***/ }),
 
@@ -396,7 +396,7 @@ DashboardComponent = __decorate([
 ], DashboardComponent);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/dashboard.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/dashboard.component.js.map
 
 /***/ }),
 
@@ -428,7 +428,7 @@ var Patient = (function () {
     return Patient;
 }());
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/patient.model.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/patient.model.js.map
 
 /***/ }),
 
@@ -582,7 +582,7 @@ ProfileComponent = __decorate([
 ], ProfileComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=C:/App_Projects/myApp/src/profile.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/profile.component.js.map
 
 /***/ }),
 
@@ -659,7 +659,7 @@ RegisterComponent = __decorate([
 ], RegisterComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=C:/App_Projects/myApp/src/register.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/register.component.js.map
 
 /***/ }),
 
@@ -712,7 +712,7 @@ ScheduleComponent = __decorate([
 ], ScheduleComponent);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/schedule.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/schedule.component.js.map
 
 /***/ }),
 
@@ -787,7 +787,7 @@ SignInComponent = __decorate([
 ], SignInComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=C:/App_Projects/myApp/src/sign-in.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/sign-in.component.js.map
 
 /***/ }),
 
@@ -888,7 +888,7 @@ AuthService = __decorate([
 ], AuthService);
 
 var _a, _b;
-//# sourceMappingURL=C:/App_Projects/myApp/src/auth.service.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/auth.service.js.map
 
 /***/ }),
 
@@ -925,7 +925,7 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["enableProdMode"])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_4__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=C:/App_Projects/myApp/src/main.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/main.js.map
 
 /***/ }),
 
@@ -955,7 +955,7 @@ AppComponent = __decorate([
     })
 ], AppComponent);
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/app.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/app.component.js.map
 
 /***/ }),
 
@@ -1022,7 +1022,7 @@ AppModule = __decorate([
     })
 ], AppModule);
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/app.module.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/app.module.js.map
 
 /***/ }),
 
@@ -1043,7 +1043,7 @@ var APP_ROUTES = [
     { path: '**', redirectTo: '/' }
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(APP_ROUTES);
-//# sourceMappingURL=C:/App_Projects/myApp/src/app.routing.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/app.routing.js.map
 
 /***/ }),
 
@@ -1122,7 +1122,7 @@ EqualValidator = EqualValidator_1 = __decorate([
 ], EqualValidator);
 
 var EqualValidator_1;
-//# sourceMappingURL=C:/App_Projects/myApp/src/equal-validator.directive.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/equal-validator.directive.js.map
 
 /***/ }),
 
@@ -1167,7 +1167,7 @@ FocusDirective = __decorate([
 ], FocusDirective);
 
 var _a, _b, _c;
-//# sourceMappingURL=C:/App_Projects/myApp/src/focus.directive.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/focus.directive.js.map
 
 /***/ }),
 
@@ -1236,7 +1236,7 @@ NavComponent = __decorate([
 ], NavComponent);
 
 var _a, _b;
-//# sourceMappingURL=C:/App_Projects/myApp/src/nav.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/nav.component.js.map
 
 /***/ }),
 
@@ -1301,14 +1301,14 @@ AppointmentItemComponent = __decorate([
 ], AppointmentItemComponent);
 
 var _a, _b;
-//# sourceMappingURL=C:/App_Projects/myApp/src/appointment-item.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/appointment-item.component.js.map
 
 /***/ }),
 
 /***/ 448:
 /***/ (function(module, exports) {
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/appointment.model.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/appointment.model.js.map
 
 /***/ }),
 
@@ -1417,7 +1417,7 @@ PatientsModule = __decorate([
     })
 ], PatientsModule);
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/patients.module.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/patients.module.js.map
 
 /***/ }),
 
@@ -1450,7 +1450,7 @@ var PATIENTS_ROUTES = [
     { path: '**', redirectTo: '/patients/signin' }
 ];
 // export const patientRouting=RouterModule.forChild(PATIENTS_ROUTES)
-//# sourceMappingURL=C:/App_Projects/myApp/src/patients.routing.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/patients.routing.js.map
 
 /***/ }),
 
@@ -1503,7 +1503,7 @@ ConsentComponent = __decorate([
 ], ConsentComponent);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/consent.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/consent.component.js.map
 
 /***/ }),
 
@@ -1584,7 +1584,7 @@ EmailComponent = __decorate([
 ], EmailComponent);
 
 var _a, _b;
-//# sourceMappingURL=C:/App_Projects/myApp/src/email.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/email.component.js.map
 
 /***/ }),
 
@@ -1638,7 +1638,7 @@ ColorPickerComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], ColorPickerComponent);
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/color-picker.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/color-picker.component.js.map
 
 /***/ }),
 
@@ -1702,14 +1702,14 @@ InsuranceCardComponent = __decorate([
 ], InsuranceCardComponent);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/insurance-card.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/insurance-card.component.js.map
 
 /***/ }),
 
 /***/ 455:
 /***/ (function(module, exports) {
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/insurance.model.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/insurance.model.js.map
 
 /***/ }),
 
@@ -1790,7 +1790,7 @@ InsuranceCreatorComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], InsuranceCreatorComponent);
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/insurance-creator.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/insurance-creator.component.js.map
 
 /***/ }),
 
@@ -1872,7 +1872,7 @@ InsurancesComponent = __decorate([
 ], InsurancesComponent);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/insurances.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/insurances.component.js.map
 
 /***/ }),
 
@@ -1953,7 +1953,7 @@ PasswordComponent = __decorate([
 ], PasswordComponent);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/password.component.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/password.component.js.map
 
 /***/ }),
 
@@ -1992,7 +1992,7 @@ SafePipe = __decorate([
 ], SafePipe);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/safe.pipe.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/safe.pipe.js.map
 
 /***/ }),
 
@@ -2030,7 +2030,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(476);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(987);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(988);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
 // This file includes polyfills needed by Angular and is loaded before
 // the app. You can add your own extra polyfills to this file.
@@ -2050,7 +2050,7 @@ var _a;
 
 
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/polyfills.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/polyfills.js.map
 
 /***/ }),
 
@@ -2105,7 +2105,7 @@ PatientService = __decorate([
 ], PatientService);
 
 var _a;
-//# sourceMappingURL=C:/App_Projects/myApp/src/patient.service.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/patient.service.js.map
 
 /***/ }),
 
@@ -2114,7 +2114,7 @@ var _a;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_validator__ = __webpack_require__(939);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_validator__ = __webpack_require__(940);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_validator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_validator__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ValidatorService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2152,7 +2152,7 @@ ValidatorService = __decorate([
     __metadata("design:paramtypes", [])
 ], ValidatorService);
 
-//# sourceMappingURL=C:/App_Projects/myApp/src/validator.service.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/validator.service.js.map
 
 /***/ }),
 
@@ -2174,7 +2174,7 @@ var environment = {
     "ACUITY_APPT_TYPE": "2462595",
     "ACUITY_OBJECT_ID_FIELD": "2606533"
 };
-//# sourceMappingURL=C:/App_Projects/myApp/src/environment.js.map
+//# sourceMappingURL=F:/App_Projects/myApp/src/environment.js.map
 
 /***/ }),
 
@@ -2204,7 +2204,7 @@ exports = module.exports = __webpack_require__(12)();
 
 
 // module
-exports.push([module.i, "div>i{\r\n  font-size: 80px;\r\n}\r\n\r\n.jumbotron{\r\n  background-image: url(" + __webpack_require__(990) + ");\r\n  background-size: cover;\r\n  background-position: 0% 25%;\r\n  height:100%;\r\n}\r\n", ""]);
+exports.push([module.i, "div>i{\r\n  font-size: 80px;\r\n}\r\n\r\n.jumbotron{\r\n  background-image: url(" + __webpack_require__(936) + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center 75%;\r\n  height:65vh;\r\n  display:-webkit-box;\r\n  display:-ms-flexbox;\r\n  display:flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color:white;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2222,7 +2222,7 @@ exports = module.exports = __webpack_require__(12)();
 
 
 // module
-exports.push([module.i, ".navbar-collapse.collapse {\r\n  display: block!important;\r\n}\r\n\r\n.navbar-nav>li, .navbar-nav {\r\n  float: left !important;\r\n}\r\n\r\n.navbar-nav.navbar-right:last-child {\r\n  margin-right: -15px !important;\r\n}\r\n\r\n.navbar-right {\r\n  float: right!important;\r\n}\r\n", ""]);
+exports.push([module.i, ".navbar-collapse.collapse {\r\n  display: block!important;\r\n}\r\n\r\n.navbar-nav>li, .navbar-nav {\r\n  float: left !important;\r\n}\r\n\r\n.navbar-nav.navbar-right:last-child {\r\n  margin-right: -15px !important;\r\n}\r\n\r\n.navbar-right {\r\n  float: right!important;\r\n}\r\n\r\n.navbar {\r\n  margin-bottom: 0px !important;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2294,7 +2294,7 @@ exports = module.exports = __webpack_require__(12)();
 
 
 // module
-exports.push([module.i, ".consentForm{\r\n  padding-bottom:200px;\r\n}\r\n\r\np{\r\n  font-size: 16px;\r\n  padding-bottom:16px;\r\n}\r\n\r\n.indent{\r\n  padding-left: 2.5em;\r\n}\r\n", ""]);
+exports.push([module.i, ".consentForm{\r\n  padding-bottom:200px;\r\n}\r\n\r\np{\n  font-size: 16px;\r\n  padding-bottom:16px;\r\n}\r\n\r\n.indent{\r\n  padding-left: 2.5em;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2330,7 +2330,7 @@ exports = module.exports = __webpack_require__(12)();
 
 
 // module
-exports.push([module.i, ".color-selector {\r\n  position: relative;\r\n}\r\n.selector {\r\n  min-width: 120px;\r\n  border: 1px solid lightgrey;\r\n  padding: 10px;\r\n  background-color: #efefef;\r\n  position: absolute;\r\n  top: -50px;\r\n  left: 0;\r\n  display:-webkit-box;\r\n  display:-ms-flexbox;\r\n  display:flex;\r\n}\r\n.color {\r\n  height: 30px;\r\n  width: 30px;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n  margin-right: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n.color:hover {\r\n  border: 2px solid darkgrey;\r\n}\r\n.icon {\r\n  font-size: 2rem;\r\n  color: grey;\r\n  cursor: pointer;\r\n}\r\n", ""]);
+exports.push([module.i, ".color-selector {\r\n  position: relative;\r\n}\r\n.selector {\r\n  min-width: 120px;\r\n  border: 1px solid lightgrey;\r\n  padding: 10px;\r\n  background-color: #efefef;\r\n  position: absolute;\r\n  top: -50px;\r\n  left: 0;\r\n  display:-webkit-box;\r\n  display:-ms-flexbox;\r\n  display:flex;\r\n}\r\n.color {\r\n  height: 30px;\r\n  width: 30px;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n  margin-right: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n.color:hover {\r\n  border: 2px solid darkgrey;\r\n}\r\n.icon {\r\n  font-size: 2rem;\r\n  color: grey;\r\n  cursor: pointer;\r\n}\n", ""]);
 
 // exports
 
@@ -2748,7 +2748,7 @@ module.exports = "<app-nav></app-nav>\r\n<!-- <div class=\"container\"> -->\r\n 
 /***/ 661:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\">\r\n  <div class=\"container\">\r\n  <h1>My Clinic</h1>\r\n  <p>We provide acupuncture services and herbal remedies.</p>\r\n  <p>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/register' role=\"button\">Create account</a>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/signin' role=\"button\">Login</a>\r\n  </p>\r\n</div>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>1. Create an account</h2>\r\n      <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>2. Make an appointment</h2>\r\n      <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>3. Get treatment</h2>\r\n      <i class=\"fa fa-user-md\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"jumbotron\">\r\n  <div class=\"container\">\r\n  <h1>My Clinic</h1>\r\n  <p>We provide acupuncture services and herbal remedies.</p>\r\n  <p>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/register' role=\"button\">Create account</a>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/signin' role=\"button\">Login</a>\r\n  </p>\r\n</div>\r\n</div>\r\n<div class=\"container\">\r\n<div class=\"row\">\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>1. Create an account</h2>\r\n      <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>2. Make an appointment</h2>\r\n      <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"text-center\">\r\n      <h2>3. Get treatment</h2>\r\n      <i class=\"fa fa-user-md\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  </div>\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2762,7 +2762,7 @@ module.exports = "<nav class=\"navbar navbar-default\">\r\n  <div class=\"contai
 /***/ 663:
 /***/ (function(module, exports) {
 
-module.exports = "<li class=\"list-group-item\">\r\n  {{this.appointmentService.formatTime(appointment.date)}}\r\n  <span class='options'>\r\n    <a *ngIf='canCancel' (click)='onCancel(appointment)'>Cancel</a>\r\n    <a *ngIf='viewReceipt'>View Receipt</a>\r\n  </span>\r\n</li>\r\n"
+module.exports = "<li class=\"list-group-item\">\n  {{this.appointmentService.formatTime(appointment.date)}}\n  <span class='options'>\n    <a *ngIf='canCancel' (click)='onCancel(appointment)'>Cancel</a>\n    <a *ngIf='viewReceipt'>View Receipt</a>\n  </span>\n</li>\n"
 
 /***/ }),
 
@@ -2783,7 +2783,7 @@ module.exports = "  <h2>\r\n    {{firstName}}'s Dashboard\r\n  </h2>\r\n\r\n<div
 /***/ 666:
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Consent Form</h3>\r\n<h4>Please read and sign this form before receiving treatment</h4>\r\n<div class=\"row consentForm\">\r\n  <div class=\"col-sm-8 col-sm-push-2\">\r\n    <h4 class='text-center'>Information about Acupuncture Treatment</h4>\r\n    <p><span class='indent'></span>\r\n      Acupuncture is a healing art that involves the stimulation of specific points on the body. It has the effect of normalizing physiological function, modifying the perception of pain, and treating certain diseases or dysfunctions of the body. The stimulation may be produced by needles, heat, digital pressure, electric currents, or other means, but most frequently produced by needling. Herbs and nutritional supplements may be recommended and are considered safe in the practice of Chinese Medicine.</p>\r\n    <p><span class='indent'></span>Acupuncture is considered a safe method of treatment, but occasionally there may be some bruising or tingling near the needling sites that last a few days. There have been rare instances reported in which a patient fainted, developed a scar or infection, experiences a spontaneous abortion, or sustained a pneumothorax (air in the chest cavity that could cause a collapsed lung), or got burnt on heat treatment.\r\n    Contraindications for acupuncture treatment and certain herbs include history of a bleeding disorder or current anticoagulant therapy, an implanted pacemaker or prosthetic heart valve, use of certain medication, and/or pregnancy.\r\n    </p>\r\n    <h4 class='text-center'>Insurance Information Disclosure</h4>\r\n    <p>\r\n      <span class='indent'></span>\r\n      I give permission to Aculau Acupuncture to release information to my insurance company for claim processing and for direct payment of medical benefits to Aculau Acupuncture for services provided.\r\n    </p>\r\n    <h4 class='text-center'>Consent to Acupuncture Treatment</h4>\r\n    <p>\r\n      <span class='indent'></span>\r\n    Aculau Acupuncture and/or associates, has explained the benefits and possible risks of treatment by acupuncture and use of Chinese herbal medicine to me. My questions have been answered and I wish to proceed with acupuncture treatment. No guarantee of results have been made.\r\n    I do not have an implanted or prosthetic heart valve. I do not take steroids or anticoagulants.\r\n    I may request a copy of this information and consent form at any time.\r\n    I also understand that acupuncture might cause some discomfort such as pain, bruising, numbness, etc..\r\n    I have read this information sheet and consent to receive acupuncture treatment.\r\n    </p>\r\n    <h4 class='text-center'>Data usage and security disclosure</h4>\r\n    <p>(Additional terms pertaining to HIPAA regulations and data security...)</p>\r\n    <form class='form-horizontal' [formGroup]='consentForm'>\r\n      <div class=\"form-group col-sm-10\">\r\n        <label for=\"signature\" class='col-sm-4'>Full Name</label>\r\n      <div class=\"input-group col-sm-8\">\r\n        <span class='input-group-addon'><i class='glyphicon glyphicon-pencil' aria-hidden='true'></i></span>\r\n        <input type='text' class='form-control' id='signature' formControlName='signature'/>\r\n      </div>\r\n    </div>\r\n    <div class='form-group col-sm-10'>\r\n      <label for='date' class='col-sm-4'>Date</label>\r\n      <div class=\"col-sm-4\">{{date|date}}</div>\r\n    </div>\r\n  </form>\r\n  <button type='button' class='btn btn-default' (click)='onSubmit()'\r\n  [disabled]='consentForm.invalid'>Submit</button>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<h3>Consent Form</h3>\n<h4>Please read and sign this form before receiving treatment</h4>\n<div class=\"row consentForm\">\n  <div class=\"col-sm-8 col-sm-push-2\">\n    <h4 class='text-center'>Information about Acupuncture Treatment</h4>\n    <p><span class='indent'></span>\n      Acupuncture is a healing art that involves the stimulation of specific points on the body. It has the effect of normalizing physiological function, modifying the perception of pain, and treating certain diseases or dysfunctions of the body. The stimulation may be produced by needles, heat, digital pressure, electric currents, or other means, but most frequently produced by needling. Herbs and nutritional supplements may be recommended and are considered safe in the practice of Chinese Medicine.</p>\n    <p><span class='indent'></span>Acupuncture is considered a safe method of treatment, but occasionally there may be some bruising or tingling near the needling sites that last a few days. There have been rare instances reported in which a patient fainted, developed a scar or infection, experiences a spontaneous abortion, or sustained a pneumothorax (air in the chest cavity that could cause a collapsed lung), or got burnt on heat treatment.\n    Contraindications for acupuncture treatment and certain herbs include history of a bleeding disorder or current anticoagulant therapy, an implanted pacemaker or prosthetic heart valve, use of certain medication, and/or pregnancy.\n    </p>\n    <h4 class='text-center'>Insurance Information Disclosure</h4>\n    <p>\n      <span class='indent'></span>\n      I give permission to Aculau Acupuncture to release information to my insurance company for claim processing and for direct payment of medical benefits to Aculau Acupuncture for services provided.\n    </p>\n    <h4 class='text-center'>Consent to Acupuncture Treatment</h4>\n    <p>\n      <span class='indent'></span>\n    Aculau Acupuncture and/or associates, has explained the benefits and possible risks of treatment by acupuncture and use of Chinese herbal medicine to me. My questions have been answered and I wish to proceed with acupuncture treatment. No guarantee of results have been made.\n    I do not have an implanted or prosthetic heart valve. I do not take steroids or anticoagulants.\n    I may request a copy of this information and consent form at any time.\n    I also understand that acupuncture might cause some discomfort such as pain, bruising, numbness, etc..\n    I have read this information sheet and consent to receive acupuncture treatment.\n    </p>\n    <h4 class='text-center'>Data usage and security disclosure</h4>\n    <p>(Additional terms pertaining to HIPAA regulations and data security...)</p>\n    <form class='form-horizontal' [formGroup]='consentForm'>\n      <div class=\"form-group col-sm-10\">\n        <label for=\"signature\" class='col-sm-4'>Full Name</label>\n      <div class=\"input-group col-sm-8\">\n        <span class='input-group-addon'><i class='glyphicon glyphicon-pencil' aria-hidden='true'></i></span>\n        <input type='text' class='form-control' id='signature' formControlName='signature'/>\n      </div>\n    </div>\n    <div class='form-group col-sm-10'>\n      <label for='date' class='col-sm-4'>Date</label>\n      <div class=\"col-sm-4\">{{date|date}}</div>\n    </div>\n  </form>\n  <button type='button' class='btn btn-default' (click)='onSubmit()'\n  [disabled]='consentForm.invalid'>Submit</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2797,21 +2797,21 @@ module.exports = "<h3>Update Email</h3>\r\n<div [@alertState]='emailAlertState'>
 /***/ 668:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"color-selector\">\r\n  <i class=\"glyphicon glyphicon-tint\" aria-hidden='true' (click)='showSelector(true)'></i>\r\n  <div class=\"selector row\" *ngIf='isSelectorVisible'>\r\n    <div class=\"color\" *ngFor='let color of colors'\r\n    (click)='selectColor(color)' [ngStyle]='{\"background-color\":color}'></div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"color-selector\">\n  <i class=\"glyphicon glyphicon-tint\" aria-hidden='true' (click)='showSelector(true)'></i>\n  <div class=\"selector row\" *ngIf='isSelectorVisible'>\n    <div class=\"color\" *ngFor='let color of colors'\n    (click)='selectColor(color)' [ngStyle]='{\"background-color\":color}'></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 669:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"insurance-card row shadow-1\"\r\n[ngStyle]='{\"background-color\":insurance.color}'\r\n(mouseenter)='toggleCheck()' (mouseleave)='toggleCheck()'>\r\n  <div class=\"icon\" (click)=\"checkPrimary()\" *ngIf='showCheck'>\r\n    <!-- <i class=\"material-icons\">check</i> -->\r\n    <i class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  <div class=\"icon2\" (click)='remove()' *ngIf='showCheck'>\r\n    <!-- <i class=\"material-icons\">clear</i> -->\r\n    <i class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></i>\r\n  </div>\r\n  <div class=\"col-xs-12 title\">\r\n    {{ insurance.groupName }} <span *ngIf='insurance.primary'>(Primary)</span>\r\n  </div>\r\n  <div class=\"col-xs-12 value\">\r\n    ID: {{ insurance.memberId }}\r\n  </div>\r\n  <div class=\"col-xs-12 value\">\r\n    Start date: {{insurance.startDate}}\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"insurance-card row shadow-1\"\n[ngStyle]='{\"background-color\":insurance.color}'\n(mouseenter)='toggleCheck()' (mouseleave)='toggleCheck()'>\n  <div class=\"icon\" (click)=\"checkPrimary()\" *ngIf='showCheck'>\n    <!-- <i class=\"material-icons\">check</i> -->\n    <i class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></i>\n  </div>\n  <div class=\"icon2\" (click)='remove()' *ngIf='showCheck'>\n    <!-- <i class=\"material-icons\">clear</i> -->\n    <i class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></i>\n  </div>\n  <div class=\"col-xs-12 title\">\n    {{ insurance.groupName }} <span *ngIf='insurance.primary'>(Primary)</span>\n  </div>\n  <div class=\"col-xs-12 value\">\n    ID: {{ insurance.memberId }}\n  </div>\n  <div class=\"col-xs-12 value\">\n    Start date: {{insurance.startDate}}\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 670:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"insurance-creator shadow-2\" [ngStyle]='{\"background-color\":insuranceForm.value.color}'>\r\n  <form class=\"row\" [formGroup]='insuranceForm'>\r\n    <select\r\n      formControlName=\"groupName\"\r\n      placeholder=\"Insurance Group\"\r\n      class=\"col-xs-10 title\"\r\n    >\r\n      <option value=\"\" [selected]>Add Insurance</option>\r\n      <option>Aetna</option>\r\n      <option>American Specialty Health</option>\r\n      <option>Blue Cross</option>\r\n      <option>Blue Shield of California</option>\r\n      <option>Cigna</option>\r\n      <option>Health Net</option>\r\n      <option>Optum Physical Health</option>\r\n      <option>Samba Federal Health Plan</option>\r\n      <option>United Health Care</option>\r\n      <option>United Medical Resources</option>\r\n      <option>Other</option>\r\n  </select>\r\n    <input\r\n      *ngIf='insuranceForm.value.groupName==\"Other\"'\r\n      type=\"text\"\r\n      formControlName=\"otherInsurance\"\r\n      placeholder=\"Insurance Name\"\r\n      class=\"col-xs-10\"\r\n    >\r\n    <input\r\n      type=\"text\"\r\n      formControlName=\"memberId\"\r\n      placeholder=\"Member ID\"\r\n      class=\"col-xs-10\"\r\n      *ngIf='fullForm'\r\n    >\r\n    <input\r\n      type=\"text\"\r\n      formControlName=\"startDate\"\r\n      placeholder=\"Coverage date: mm/dd/yyyy\"\r\n      class=\"col-xs-10\"\r\n      [textMask]='{mask:dateMask}'\r\n      *ngIf='fullForm'\r\n    >\r\n    <div class=\"actions col-xs-12 row between-xs\" *ngIf='fullForm'>\r\n      <div class=\"col-xs-3\">\r\n        <color-picker [colors]='colors'\r\n        (selected)='onColorSelect($event)'></color-picker>\r\n      </div>\r\n      <button\r\n        type=\"submit\"\r\n        class=\"btn-light\"\r\n        [disabled]='insuranceForm.invalid'\r\n        (click)='onCreateInsurance()'\r\n       >\r\n        Enter\r\n      </button>\r\n    </div>\r\n  </form>\r\n  <!-- <pre>\r\n    {{insuranceForm.value| json}}\r\n  </pre> -->\r\n</div>\r\n"
+module.exports = "<div class=\"insurance-creator shadow-2\" [ngStyle]='{\"background-color\":insuranceForm.value.color}'>\n  <form class=\"row\" [formGroup]='insuranceForm'>\n    <select\n      formControlName=\"groupName\"\n      placeholder=\"Insurance Group\"\n      class=\"col-xs-10 title\"\n    >\n      <option value=\"\" [selected]>Add Insurance</option>\n      <option>Aetna</option>\n      <option>American Specialty Health</option>\n      <option>Blue Cross</option>\n      <option>Blue Shield of California</option>\n      <option>Cigna</option>\n      <option>Health Net</option>\n      <option>Optum Physical Health</option>\n      <option>Samba Federal Health Plan</option>\n      <option>United Health Care</option>\n      <option>United Medical Resources</option>\n      <option>Other</option>\n  </select>\n    <input\n      *ngIf='insuranceForm.value.groupName==\"Other\"'\n      type=\"text\"\n      formControlName=\"otherInsurance\"\n      placeholder=\"Insurance Name\"\n      class=\"col-xs-10\"\n    >\n    <input\n      type=\"text\"\n      formControlName=\"memberId\"\n      placeholder=\"Member ID\"\n      class=\"col-xs-10\"\n      *ngIf='fullForm'\n    >\n    <input\n      type=\"text\"\n      formControlName=\"startDate\"\n      placeholder=\"Coverage date: mm/dd/yyyy\"\n      class=\"col-xs-10\"\n      [textMask]='{mask:dateMask}'\n      *ngIf='fullForm'\n    >\n    <div class=\"actions col-xs-12 row between-xs\" *ngIf='fullForm'>\n      <div class=\"col-xs-3\">\n        <color-picker [colors]='colors'\n        (selected)='onColorSelect($event)'></color-picker>\n      </div>\n      <button\n        type=\"submit\"\n        class=\"btn-light\"\n        [disabled]='insuranceForm.invalid'\n        (click)='onCreateInsurance()'\n       >\n        Enter\n      </button>\n    </div>\n  </form>\n  <!-- <pre>\n    {{insuranceForm.value| json}}\n  </pre> -->\n</div>\n"
 
 /***/ }),
 
@@ -2839,7 +2839,7 @@ module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <h2>
 /***/ 674:
 /***/ (function(module, exports) {
 
-module.exports = "  <h2>\r\n    Register an account\r\n  </h2>\r\n  <div class='row'>\r\n  <div class=\"col-xs-12 col-sm-5 col-sm-push-6\">\r\n    <h3>Why create an account?</h3>\r\n    <ul class='list-group'>\r\n      <li class=\"list-group-item\">Schedule and manage appointments</li>\r\n      <li class=\"list-group-item\">View medical records, physician instructions</li>\r\n      <li class=\"list-group-item\">Online payment and retrieve receipts</li>\r\n      <li class=\"list-group-item\">Complete forms digitally, no paper</li>\r\n      <li class=\"list-group-item\">Submit and check insurance for benefits</li>\r\n    </ul>\r\n  </div>\r\n<div class=\"col-xs-12 col-sm-4 col-sm-pull-4\">\r\n  <form [formGroup]='patientForm' (ngSubmit)='onSubmit()'>\r\n    <div class=\"form-group\">\r\n      <label for=\"firstNameInput\">First Name</label>\r\n      <input formControlName='firstName' type=\"text\" class='form-control'\r\n       id='firstNameInput' placeholder='First name' [focus]='focusEvent'>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"lastNameInput\">Last Name</label>\r\n      <input formControlName='lastName' type=\"text\" class='form-control'\r\n       id='lastNameInput' placeholder='Last name'>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"emailInput\">Email</label>\r\n      <input formControlName='email' type=\"text\" class='form-control'\r\n       id='emailInput' placeholder='billy212@example.com'>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"passwordInput\">Password</label>\r\n      <input formControlName='password' type=\"password\" class='form-control'\r\n       id='passwordInput' placeholder='superSecret'>\r\n    </div>\r\n    <button type='submit' class='btn btn-default'\r\n     [disabled]='!patientForm.valid'>Submit</button>\r\n  </form>\r\n</div>\r\n</div>\r\n"
+module.exports = "  <h2>\r\n    Register an account\r\n  </h2>\r\n  <div class='row'>\r\n  <div class=\"col-xs-12 col-sm-5 col-sm-push-6\">\r\n    <h3>Why create an account?</h3>\r\n    <ul class='list-group'>\r\n      <li class=\"list-group-item\">Schedule and manage appointments</li>\r\n      <li class=\"list-group-item\">View medical records, physician instructions</li>\r\n      <li class=\"list-group-item\">Online payment and retrieve receipts</li>\r\n      <li class=\"list-group-item\">Complete forms digitally, no paper</li>\r\n      <li class=\"list-group-item\">Submit and check insurance for benefits</li>\r\n    </ul>\r\n  </div>\r\n<div class=\"col-xs-12 col-sm-4 col-sm-pull-4\">\r\n  <form [formGroup]='patientForm' (ngSubmit)='onSubmit()'>\r\n    <div class=\"form-group\">\r\n      <label for=\"firstNameInput\">First Name</label>\r\n      <input formControlName='firstName' type=\"text\" class='form-control'\r\n       id='firstNameInput' placeholder='First name' [focus]='focusEvent'>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"lastNameInput\">Last Name</label>\r\n      <input formControlName='lastName' type=\"text\" class='form-control'\r\n       id='lastNameInput' placeholder='Last name'>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"emailInput\">Email</label>\r\n      <input formControlName='email' type=\"text\" class='form-control'\r\n       id='emailInput' placeholder='billy212@example.com'>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"passwordInput\">Password</label>\r\n      <input formControlName='password' type=\"password\" class='form-control'\r\n       id='passwordInput' placeholder='superSecret'>\r\n    </div>\r\n    <button type='submit' class='btn btn-default'\n     [disabled]='!patientForm.valid'>Submit</button>\r\n  </form>\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2853,24 +2853,24 @@ module.exports = "<h2>Make an appointment</h2>\r\n<p>\r\n  Total appointment tim
 /***/ 676:
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"row\">\r\n  <div class=\"col-sm-4 col-sm-push-4\">\r\n  <h2>Sign in</h2>\r\n  <form [formGroup]='signInForm' (ngSubmit)='onSubmit()'>\r\n    <div class=\"form-group\">\r\n      <label for=\"emailInput\">Email</label>\r\n      <input formControlName='email' type=\"text\" class='form-control'\r\n       id='emailInput' [focus]='focusEvent'>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"passwordInput\">Password</label>\r\n      <input formControlName='password' type=\"password\" class='form-control'\r\n       id='passwordInput'>\r\n    </div>\r\n    <button type='submit' class='btn btn-default'\r\n     [disabled]='!signInForm.valid'>Submit</button>\r\n  </form>\r\n</div>\r\n</div>\r\n"
+module.exports = "\n<div class=\"row\">\n  <div class=\"col-sm-4 col-sm-push-4\">\n  <h2>Sign in</h2>\n  <form [formGroup]='signInForm' (ngSubmit)='onSubmit()'>\n    <div class=\"form-group\">\n      <label for=\"emailInput\">Email</label>\n      <input formControlName='email' type=\"text\" class='form-control'\n       id='emailInput' [focus]='focusEvent'>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"passwordInput\">Password</label>\n      <input formControlName='password' type=\"password\" class='form-control'\n       id='passwordInput'>\n    </div>\n    <button type='submit' class='btn btn-default'\n     [disabled]='!signInForm.valid'>Submit</button>\n  </form>\n</div>\n</div>\n"
 
 /***/ }),
 
-/***/ 988:
+/***/ 936:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "11.2b133032477e24e824cb.jpg";
+
+/***/ }),
+
+/***/ 989:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(432);
 
 
-/***/ }),
-
-/***/ 990:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "11.2b133032477e24e824cb.jpg";
-
 /***/ })
 
-},[988]);
+},[989]);
 //# sourceMappingURL=main.bundle.js.map

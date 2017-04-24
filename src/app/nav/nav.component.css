@@ -13,3 +13,7 @@
 .navbar-right {
   float: right!important;
 }
+
+.navbar {
+  margin-bottom: 0px !important;
+}
