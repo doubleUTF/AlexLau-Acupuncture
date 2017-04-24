@@ -16,4 +16,15 @@
 
 .navbar {
   margin-bottom: 0px !important;
+  /*background-color: #373a37;*/
+}
+
+.navbar-inverse{
+  border-color:transparent;
+}
+
+@media (min-width: 768px){
+.navbar {
+    border-radius: 0px;
+  }
 }
