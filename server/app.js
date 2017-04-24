@@ -10,6 +10,21 @@ var bodyParser = require('body-parser');
 var patientsRoutes=require('./routes/patients');
 var app = express();
 
+/**
+ * Require Browsersync
+ * Development purposes only. Comment out during production.
+ */
+var browserSync = require('browser-sync').create();
+
+/**
+ * Run Browsersync with server config
+ */
+browserSync.init({
+    proxy:"localhost:3000",
+    files: [path.join(__dirname,'..','public')
+    ],
+});
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
