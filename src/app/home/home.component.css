@@ -11,12 +11,24 @@ div>i{
   display:flex;
   align-items: center;
   color:white;
+  margin-bottom: 0px;
 }
 
-body{
-  background-color: #222;  
-}
 #three-columns{
-
+  padding-top: 30px;
+  padding-bottom:78px;
+  background-color: #222;
   color:#CDE1C9;
+}
+
+@media screen and (max-width: 768px){
+  .jumbotron{
+    background-position:75%;
+  }
+}
+
+@media screen and (max-height:700px){
+  .jumbotron{
+    height:87vh;
+  }
 }
