@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppointmentService } from './appointment.service';
-import { ModalModule, ModalDirective } from 'ng2-bootstrap/modal';
+import { ModalModule, ModalDirective } from 'ngx-bootstrap/modal';
 import { AuthService } from '../../auth/auth.service';
 import { Appointment } from './appointment.model';
 

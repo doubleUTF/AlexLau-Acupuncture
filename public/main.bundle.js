@@ -132,7 +132,7 @@ var _a, _b;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__ = __webpack_require__(647);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__ = __webpack_require__(1086);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BootstrapModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -150,17 +150,17 @@ var BootstrapModule = (function () {
 BootstrapModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__["a" /* DropdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__["b" /* AlertModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__["c" /* ModalModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__["d" /* TabsModule */].forRoot()
+            __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["a" /* BsDropdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["b" /* AlertModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["c" /* ModalModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["d" /* TabsModule */].forRoot()
         ],
         declarations: [],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__["a" /* DropdownModule */],
-            __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__["b" /* AlertModule */],
-            __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__["c" /* ModalModule */],
-            __WEBPACK_IMPORTED_MODULE_1_ng2_bootstrap__["d" /* TabsModule */]
+            __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["a" /* BsDropdownModule */],
+            __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["b" /* AlertModule */],
+            __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["c" /* ModalModule */],
+            __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["d" /* TabsModule */]
         ]
     })
 ], BootstrapModule);
@@ -223,7 +223,7 @@ var _a;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__appointment_service__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_bootstrap_modal__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ngx_bootstrap_modal__ = __webpack_require__(1048);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_auth_service__ = __webpack_require__(34);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppointmentsListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -288,7 +288,7 @@ var AppointmentsListComponent = (function () {
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('staticModal'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_bootstrap_modal__["a" /* ModalDirective */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_bootstrap_modal__["a" /* ModalDirective */]) === "function" && _a || Object)
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ngx_bootstrap_modal__["a" /* ModalDirective */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ngx_bootstrap_modal__["a" /* ModalDirective */]) === "function" && _a || Object)
 ], AppointmentsListComponent.prototype, "staticModal", void 0);
 AppointmentsListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -2243,7 +2243,7 @@ exports = module.exports = __webpack_require__(11)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "footer p{\r\n  padding:25px 0;\r\n  color:#CDE1C9;\r\n}\r\n\r\n#footer{\r\n  background-color: #111;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2261,7 +2261,7 @@ exports = module.exports = __webpack_require__(11)();
 
 
 // module
-exports.push([module.i, "div>i{\r\n  font-size: 80px;\r\n}\r\n\r\n.jumbotron{\r\n  background-image: url(" + __webpack_require__(939) + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center 75%;\r\n  height:65vh;\r\n  display:-webkit-box;\r\n  display:-ms-flexbox;\r\n  display:flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color:white;\r\n  margin-bottom: 0px;\r\n}\r\n\r\n#three-columns{\r\n  padding-top: 30px;\r\n  padding-bottom:88px;\r\n  /*background-color: #222;*/\r\n  background: -webkit-linear-gradient(#222, #333);\r\n  background: linear-gradient(#222, #333);\r\n  color:#CDE1C9;\r\n}\r\n\r\n@media screen and (max-width: 768px){\r\n  .jumbotron{\r\n    background-position:75%;\r\n  }\r\n}\r\n\r\n@media screen and (max-height:700px){\r\n  .jumbotron{\r\n    height:87vh;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "div>i{\r\n  font-size: 80px;\r\n}\r\n\r\n.jumbotron{\r\n  background-image: url(" + __webpack_require__(939) + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center 75%;\r\n  height:65vh;\r\n  display:-webkit-box;\r\n  display:-ms-flexbox;\r\n  display:flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color:white;\r\n  margin-bottom: 0px;\r\n}\r\n\r\n#three-columns{\r\n  padding-top: 48px;\r\n  padding-bottom:70px;\r\n  /*background-color: #222;*/\r\n  background: -webkit-linear-gradient(#222, #333);\r\n  background: linear-gradient(#222, #333);\r\n  color:#CDE1C9;\r\n}\r\n\r\n@media screen and (max-width: 768px){\r\n  .jumbotron{\r\n    background-position:75%;\r\n  }\r\n}\r\n\r\n@media screen and (max-height:700px){\r\n  .jumbotron{\r\n    height:87vh;\r\n  }\r\n}\r\n", ""]);
 
 // exports
 
@@ -2805,21 +2805,21 @@ module.exports = "<app-nav></app-nav>\r\n<router-outlet></router-outlet>\r\n"
 /***/ 663:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <h2>Footer example</h2>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<section id='footer'>\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <footer>\r\n        <div class=\"col-xs-12\">\r\n          <p>My Clinic - 2017 All Rights Reserved</p>\r\n        </div>\r\n      </footer>\r\n    </div>\r\n  </div>\r\n</section>\r\n"
 
 /***/ }),
 
 /***/ 664:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\">\r\n  <div class=\"container\">\r\n  <h1>My Clinic</h1>\r\n  <p>We provide acupuncture services and herbal remedies.</p>\r\n  <p>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/register' role=\"button\">Create account</a>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/signin' role=\"button\">Login</a>\r\n  </p>\r\n</div>\r\n</div>\r\n<section id='three-columns'>\r\n  <div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-4\">\r\n      <div class=\"text-center\">\r\n        <h2>1. Sign up</h2>\r\n        <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\r\n    </div>\r\n    </div>\r\n    <div class=\"col-sm-4\">\r\n      <div class=\"text-center\">\r\n        <h2>2. Make an appointment</h2>\r\n        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n    </div>\r\n    </div>\r\n    <div class=\"col-sm-4\">\r\n      <div class=\"text-center\">\r\n        <h2>3. Get treatment</h2>\r\n        <i class=\"fa fa-user-md\" aria-hidden=\"true\"></i>\r\n    </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n</section>\r\n<app-footer></app-footer>\r\n"
+module.exports = "<div class=\"jumbotron\">\r\n  <div class=\"container\">\r\n  <h1>My Clinic</h1>\r\n  <p>We provide acupuncture services and herbal remedies.</p>\r\n  <p>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/register' role=\"button\">Create account</a>\r\n    <a class=\"btn btn-success btn-lg\" routerLink='patients/signin' role=\"button\">Login</a>\r\n  </p>\r\n</div>\r\n</div>\r\n<section id='three-columns'>\r\n  <div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-4\">\r\n      <div class=\"text-center\">\r\n        <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\r\n        <h2>1. Sign up</h2>\r\n    </div>\r\n    </div>\r\n    <div class=\"col-sm-4\">\r\n      <div class=\"text-center\">\r\n        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n        <h2>2. Make an appointment</h2>\r\n    </div>\r\n    </div>\r\n    <div class=\"col-sm-4\">\r\n      <div class=\"text-center\">\r\n        <i class=\"fa fa-user-md\" aria-hidden=\"true\"></i>\r\n        <h2>3. Get treatment</h2>\r\n    </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n</section>\r\n<app-footer></app-footer>\r\n"
 
 /***/ }),
 
 /***/ 665:
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\r\n  <div class=\"container\">\r\n    <!-- Brand and toggle get grouped for better mobile display -->\r\n    <div class=\"nav navbar-nav navbar-left\">\r\n      <a class=\"navbar-brand\" routerLink=''>My Clinic</a>\r\n    </div>\r\n\r\n    <!-- Collect the nav links, forms, and other content for toggling -->\r\n    <div>\r\n\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>\r\n          <span class=\"glyphicon glyphicon-th\" aria-hidden=\"true\" style='font-size:150%'></span></a></li>\r\n        <li class=\"dropdown\" dropdown>\r\n          <a href=\"#\" class=\"dropdown-toggle\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n           dropdownToggle>{{updateMenuTitle()}}<span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu\" dropdownMenu >\r\n            <li *ngIf='isLoggedIn()'><a routerLink='patients/appointments-list'>View appointments</a></li>\r\n            <li *ngIf='isLoggedIn()'><a routerLink='patients/schedule'>Schedule appointment</a></li>\r\n            <li *ngIf='isLoggedIn()'><a routerLink='patients/profile'>Manage account</a></li>\r\n            <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register an account</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li>\r\n            <li *ngIf='isLoggedIn()'><a style='cursor:pointer' (click)='onSignOut()'>Sign out</a></li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n    </div><!-- /.navbar-collapse -->\r\n  </div><!-- /.container-fluid -->\r\n</nav>\r\n"
+module.exports = "<nav class=\"navbar navbar-inverse\">\r\n  <div class=\"container\">\r\n    <!-- Brand and toggle get grouped for better mobile display -->\r\n    <div class=\"nav navbar-nav navbar-left\">\r\n      <a class=\"navbar-brand\" routerLink=''>My Clinic</a>\r\n    </div>\r\n\r\n    <!-- Collect the nav links, forms, and other content for toggling -->\r\n    <div>\r\n\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>\r\n          <span class=\"glyphicon glyphicon-th\" aria-hidden=\"true\" style='font-size:150%'></span></a></li>\r\n        <li class=\"dropdown\" dropdown>\r\n          <a href=\"#\" class=\"dropdown-toggle\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n           dropdownToggle>{{updateMenuTitle()}}<span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu\" *dropdownMenu >\r\n            <li *ngIf='isLoggedIn()'><a routerLink='patients/appointments-list'>View appointments</a></li>\r\n            <li *ngIf='isLoggedIn()'><a routerLink='patients/schedule'>Schedule appointment</a></li>\r\n            <li *ngIf='isLoggedIn()'><a routerLink='patients/profile'>Manage account</a></li>\r\n            <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register an account</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li>\r\n            <li *ngIf='isLoggedIn()'><a style='cursor:pointer' (click)='onSignOut()'>Sign out</a></li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n    </div><!-- /.navbar-collapse -->\r\n  </div><!-- /.container-fluid -->\r\n</nav>\r\n"
 
 /***/ }),
 

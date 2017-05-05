@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
-import { DropdownModule, AlertModule, ModalModule,
-TabsModule } from 'ng2-bootstrap';
+import { BsDropdownModule, AlertModule, ModalModule,
+TabsModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
-    DropdownModule.forRoot(),
+    BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot()
   ],
   declarations: [],
   exports:[
-    DropdownModule,
+    BsDropdownModule,
     AlertModule,
     ModalModule,
     TabsModule

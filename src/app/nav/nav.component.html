@@ -14,7 +14,7 @@
         <li class="dropdown" dropdown>
           <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"
            dropdownToggle>{{updateMenuTitle()}}<span class="caret"></span></a>
-          <ul class="dropdown-menu" dropdownMenu >
+          <ul class="dropdown-menu" *dropdownMenu >
             <li *ngIf='isLoggedIn()'><a routerLink='patients/appointments-list'>View appointments</a></li>
             <li *ngIf='isLoggedIn()'><a routerLink='patients/schedule'>Schedule appointment</a></li>
             <li *ngIf='isLoggedIn()'><a routerLink='patients/profile'>Manage account</a></li>
