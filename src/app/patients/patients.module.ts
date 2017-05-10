@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BootstrapModule } from '../bootstrap/bootstrap.module';
@@ -31,7 +32,8 @@ import { EmailComponent } from './profile/email/email.component';
     ReactiveFormsModule,
     BootstrapModule,
     RouterModule,
-    TextMaskModule
+    TextMaskModule,
+    SharedModule
   ],
   declarations: [
     SignInComponent,
@@ -50,7 +52,7 @@ import { EmailComponent } from './profile/email/email.component';
     ColorPickerComponent,
     ConsentComponent,
     PasswordComponent,
-    EmailComponent
+    EmailComponent,
   ],
   providers:[
     AppointmentService,

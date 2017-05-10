@@ -12,7 +12,7 @@
         <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>
           <span class="glyphicon glyphicon-th" aria-hidden="true" style='font-size:150%'></span></a></li>
         <li class="dropdown" dropdown>
-          <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"
+          <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"
            dropdownToggle>{{updateMenuTitle()}}<span class="caret"></span></a>
           <ul class="dropdown-menu" *dropdownMenu >
             <li *ngIf='isLoggedIn()'><a routerLink='patients/appointments-list'>View appointments</a></li>

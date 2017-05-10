@@ -3,9 +3,9 @@
   <h2>
     Register an account
   </h2>
-  <div class='row'>
+    <div class='row'>
   <div class="col-xs-12 col-sm-5 col-sm-push-6">
-    <h3>Why create an account?</h3>
+    <h3>With an account, you can:</h3>
     <ul class='list-group'>
       <li class="list-group-item">Schedule and manage appointments</li>
       <li class="list-group-item">View medical records, physician instructions</li>
@@ -36,10 +36,11 @@
       <input formControlName='password' type="password" class='form-control'
        id='passwordInput' placeholder='superSecret'>
     </div>
-    <button type='submit' class='btn btn-default'
+    <button type='submit' class='btn btn-success'
      [disabled]='!patientForm.valid'>Submit</button>
   </form>
 </div>
 </div>
 </div>
 </section>
+<app-footer></app-footer>

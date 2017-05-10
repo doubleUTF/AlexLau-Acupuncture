@@ -16,6 +16,7 @@
 
 .navbar {
   margin-bottom: 0px !important;
+  background-color: #408E2F;
   /*background-color: #373a37;*/
 }
 
@@ -27,4 +28,8 @@
 .navbar {
     border-radius: 0px;
   }
+}
+
+a{
+  color:#CDE1C9 !important
 }

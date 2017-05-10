@@ -1,3 +1,18 @@
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+#register{
+  background-color: #222;
+  color:#CDE1C9;
+}
+
+ul >li{
+  background-color: #222;
+  color:rgba(255, 255, 255, 0.5);
+}
+
+.form-control{
+  background-color: #CDE1C9;
+  color:black;
+}
