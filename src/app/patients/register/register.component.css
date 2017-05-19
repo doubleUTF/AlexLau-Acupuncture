@@ -1,17 +1,11 @@
 input.ng-invalid.ng-touched {
-  border: 1px solid red;
+  border: 2px solid rgb(200, 0, 0);
 }
 
 #register{
   background-color: #222;
   color:#CDE1C9;
-  height:100%;
-  display:flex;
-  flex-direction: column;
-}
-
-.container{
-  flex:1 0 auto;
+  margin-bottom: 20px;
 }
 
 ul >li{
@@ -22,4 +16,16 @@ ul >li{
 .form-control{
   background-color: #CDE1C9;
   color:black;
+}
+
+@media only screen and (min-width: 768px){
+  #register{
+    margin-top: 130px;
+  }
+}
+
+.submit{
+  margin-top:25px;
+  padding-left:50px;
+  padding-right:50px;
 }

@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
   }
 
   patientForm:FormGroup;
-
   onSubmit(){
     const patient= new Patient(
       this.patientForm.value.email,

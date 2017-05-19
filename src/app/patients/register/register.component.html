@@ -1,10 +1,10 @@
 <section id='register'>
   <div class="container">
-    <h2>
-      Register an account
+    <h2 class='text-center'>
+      Sign up
     </h2>
       <div class='row'>
-    <div class="col-xs-12 col-sm-5 col-sm-push-6">
+    <!-- <div class="col-xs-12 col-sm-5 col-sm-push-6">
       <h3>With an account, you can:</h3>
       <ul class='list-group'>
         <li class="list-group-item">Schedule and manage appointments</li>
@@ -13,8 +13,8 @@
         <li class="list-group-item">Complete forms digitally, no paper</li>
         <li class="list-group-item">Submit and check insurance for benefits</li>
       </ul>
-    </div>
-  <div class="col-xs-12 col-sm-4 col-sm-pull-4">
+    </div> -->
+  <div class="col-xs-12 col-sm-4 col-sm-push-4">
     <form [formGroup]='patientForm' (ngSubmit)='onSubmit()'>
       <div class="form-group">
         <label for="firstNameInput">First Name</label>
@@ -36,11 +36,10 @@
         <input formControlName='password' type="password" class='form-control'
          id='passwordInput' placeholder='superSecret'>
       </div>
-      <button type='submit' class='btn btn-success'
+      <button type='submit' class='btn btn-success center-block submit'
        [disabled]='!patientForm.valid'>Submit</button>
     </form>
   </div>
   </div>
   </div>
-  <app-footer></app-footer>
 </section>
