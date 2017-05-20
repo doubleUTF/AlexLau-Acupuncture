@@ -21,7 +21,11 @@
 }
 
 .navbar-inverse{
-  border-color:transparent;
+  border:none;
+}
+
+.navbar-nav >.open>a{
+  background-color: #373a37;
 }
 
 @media (min-width: 768px){
@@ -32,4 +36,12 @@
 
 a{
   color:#CDE1C9 !important
+}
+
+.dropdown-menu{
+  background-color: #373a37;
+}
+
+ul>li>a:hover{
+  background-color: #373a37;
 }

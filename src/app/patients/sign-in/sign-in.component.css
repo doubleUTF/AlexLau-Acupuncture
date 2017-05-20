@@ -1,0 +1,19 @@
+input.ng-invalid.ng-touched {
+  border: 2px solid rgb(200, 0, 0);
+}
+
+@media only screen and (min-width: 768px){
+  #sign-in{
+    margin-top: 130px;
+  }
+}
+
+#sign-in{
+  color:#CDE1C9;
+}
+
+.submit{
+  margin-top:15px;
+  padding-left:50px;
+  padding-right:50px;
+}
