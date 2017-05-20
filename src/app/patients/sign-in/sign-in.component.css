@@ -1,5 +1,6 @@
-input.ng-invalid.ng-touched {
-  border: 2px solid rgb(200, 0, 0);
+input.ng-invalid.ng-touched.ng-dirty {
+  background-color: rgb(212, 129, 129);
+  border: transparent;
 }
 
 @media only screen and (min-width: 768px){
@@ -16,4 +17,8 @@ input.ng-invalid.ng-touched {
   margin-top:15px;
   padding-left:50px;
   padding-right:50px;
+}
+
+input.ng-valid:not(:focus){
+  background-color: #CDE1C9;
 }
