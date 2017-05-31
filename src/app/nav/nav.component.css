@@ -42,6 +42,22 @@ a{
   background-color: #373a37;
 }
 
+ul>li>ul>li>a:hover{
+  animation: glow .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes glow{
+  from {background-color: transparent;}
+  to {background-color: #408E2F;}
+}
+
 ul>li>a:hover{
-  background-color: #373a37;
+  animation: menu-hover .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes menu-hover{
+  from {background-color: transparent;}
+  to {background-color: #373a37;}
 }
