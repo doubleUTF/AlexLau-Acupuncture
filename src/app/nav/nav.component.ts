@@ -45,4 +45,8 @@ export class NavComponent implements OnInit {
     this.updateMenuTitle();
   }
 
+  dropdownOpen=false;
+  isOpenChange(): void {
+    this.dropdownOpen=!this.dropdownOpen;
+ }
 }

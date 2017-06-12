@@ -52,7 +52,7 @@ ul>li>ul>li>a:hover{
   to {background-color: #408E2F;}
 }
 
-ul>li>a:hover{
+.dropdownClosed:hover{
   animation: menu-hover .5s;
   animation-fill-mode: forwards;
 }
