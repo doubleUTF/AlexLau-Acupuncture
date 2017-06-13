@@ -57,3 +57,8 @@ input.ng-invalid.ng-touched.ng-dirty {
   border-color: #80BB73 !important;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #80BB73 !important;
 }
+
+.form-control.ng-invalid.ng-dirty.ng-touched:focus {
+  border-color: #f95252 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #f95252 !important;
+}
