@@ -19,3 +19,8 @@ ul >li{
   padding-left:50px;
   padding-right:50px;
 }
+
+.alert.alert-danger{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}

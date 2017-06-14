@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
     private router:Router
 ) { }
 
+  patientForm:FormGroup;
   ngOnInit() {
     this.patientForm=new FormGroup({
       firstName:new FormControl(null, Validators.required),
@@ -30,10 +31,55 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6)
       ])
-    })
+    });
+
+    this.patientForm.valueChanges.subscribe(
+      data=>this.onValueChange(data)
+    );
   }
 
-  patientForm:FormGroup;
+  formErrors={
+    firstName:'',
+    lastName:'',
+    email:'',
+    password:''
+  };
+
+  validationMessages={
+    firstName:{
+      required:'Name is required.',
+    },
+    lastName:{
+      required:'Name is required.',
+    },
+    email:{
+      required:'Email is required.',
+      validateEmail:'Invalid email.'
+    },
+    password:{
+      required:'Password is required.',
+      minlength:'Password must be at least 6 characters in length.'
+    }
+  };
+
+  onValueChange(data?:string){
+    if (!this.patientForm) return;
+    const form=this.patientForm;
+
+    for (const field in this.formErrors){
+      // Clear error messages
+      this.formErrors[field]='';
+      const control=form.get(field);
+
+      if (control && control.dirty && !control.valid){
+        const messages= this.validationMessages[field];
+        for (const key in control.errors){
+          this.formErrors[field]+=messages[key] + ' ';
+        }
+      }
+    }
+  }
+
   onSubmit(){
     const patient= new Patient(
       this.patientForm.value.email,
