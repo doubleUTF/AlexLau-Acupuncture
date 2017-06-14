@@ -22,12 +22,48 @@ export class SignInComponent implements OnInit, AfterViewInit {
         this.validatorService.validateEmail
       ]),
       password:new FormControl(null, [
-        Validators.required, Validators.minLength(6)
+        Validators.required,
+        Validators.minLength(6)
       ])
     })
+    this.signInForm.valueChanges.subscribe(
+      (data)=>this.onValueChange()
+    );
+    
   }
   signInForm:FormGroup;
 
+  formErrors={
+    email:'',
+    password:''
+  };
+
+  validationMessages={
+    email:{
+      required:'Email required.',
+      validateEmail:'Invalid email.'
+    },
+    password:{
+      required:'Password required.',
+      minlength:'Minimum password length is 6 characters.'
+    }
+  };
+
+  onValueChange(){
+    const form= this.signInForm;
+    // Clear messages
+    for (const field in this.formErrors){
+      this.formErrors[field]='';
+      const control= form.get(field);
+
+      if (control && control.invalid && control.dirty){
+        const messages=this.validationMessages[field];
+        for (const key in control.errors){
+          this.formErrors[field]+=messages[key] + '';
+        }
+      }
+    }
+  }
   onSubmit(){
     const patient= new Patient(
       this.signInForm.value.email,

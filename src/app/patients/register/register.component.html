@@ -20,7 +20,7 @@
         <label for="firstNameInput">First Name</label>
         <input formControlName='firstName' type="text" class='form-control'
          id='firstNameInput' [focus]='focusEvent' maxlength="26">
-         <div *ngIf='formErrors.firstName' class='alert alert-danger'>
+         <div *ngIf='formErrors.firstName && patientForm.controls.firstName.touched' class='alert alert-danger'>
            {{formErrors.firstName}}
          </div>
       </div>
@@ -28,7 +28,7 @@
         <label for="lastNameInput">Last Name</label>
         <input formControlName='lastName' type="text" class='form-control'
          id='lastNameInput' maxlength="26">
-         <div *ngIf='formErrors.lastName' class='alert alert-danger'>
+         <div *ngIf='formErrors.lastName && patientForm.controls.lastName.touched' class='alert alert-danger'>
            {{formErrors.lastName}}
          </div>
       </div>
@@ -36,7 +36,7 @@
         <label for="emailInput">Email</label>
         <input formControlName='email' type="text" class='form-control'
          id='emailInput' maxlength="255">
-         <div *ngIf='formErrors.email' class='alert alert-danger'>
+         <div *ngIf='formErrors.email && patientForm.controls.email.touched' class='alert alert-danger'>
            {{formErrors.email}}
          </div>
       </div>
@@ -44,7 +44,7 @@
         <label for="passwordInput">Password</label>
         <input formControlName='password' type="password" class='form-control'
          id='passwordInput' minLength='6' maxlength="26">
-         <div *ngIf='formErrors.password' class='alert alert-danger'>
+         <div *ngIf='formErrors.password && patientForm.controls.password.touched' class='alert alert-danger'>
            {{formErrors.password}}
          </div>
       </div>
