@@ -20,6 +20,7 @@ export class NavComponent implements OnInit {
 
   firstName:string='';
   lastName:string='';
+  isCollapsed=true;
 
   isLoggedIn(){
     return localStorage.getItem('token') !== null;

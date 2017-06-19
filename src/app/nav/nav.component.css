@@ -1,7 +1,3 @@
-.navbar-collapse.collapse {
-  display: block!important;
-}
-
 .navbar-nav>li, .navbar-nav {
   float: left !important;
 }
@@ -10,12 +6,9 @@
   margin-right: -15px !important;
 }
 
-@media (max-width:768px ){
-  .navbar-nav>li>a{
-    margin-top: 5px;
-  }
+.navbar-toggle{
+  border: none;
 }
-
 .navbar-right {
   float: right!important;
 }
@@ -26,6 +19,9 @@
   /*background-color: #373a37;*/
 }
 
+.navbar-nav>li>a:hover{
+  background-color: #373a37
+}
 .navbar-inverse{
   border:none;
 }
