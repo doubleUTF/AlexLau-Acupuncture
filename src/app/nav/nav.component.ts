@@ -50,4 +50,14 @@ export class NavComponent implements OnInit {
   isOpenChange(): void {
     this.dropdownOpen=!this.dropdownOpen;
  }
+
+  navWidth='0px';
+
+  openNav(){
+    this.navWidth='250px';
+  }
+
+  closeNav(){
+    this.navWidth='0px';
+  }
 }
