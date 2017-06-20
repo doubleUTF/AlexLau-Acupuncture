@@ -28,7 +28,8 @@
 }
 
 .navbar-nav>li>a:hover{
-  background-color: #373a37
+  background-color: #373a37;
+  transition: 0.7s;
 }
 .navbar-inverse{
   border:none;

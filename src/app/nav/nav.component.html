@@ -14,11 +14,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class='navbar-collapse' [collapse]='isCollapsed'>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!isLoggedIn()"><a href="#">About Us</a></li>
+        <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Appointments</a></li>
         <li *ngIf="!isLoggedIn()"><a href="#">Services</a></li>
         <li *ngIf="!isLoggedIn()"><a href="#">Insurance</a></li>
-        <li *ngIf="!isLoggedIn()"><a href="#">Contact Us</a></li>
-        <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register</a></li>
+        <li *ngIf="!isLoggedIn()"><a href="#">About</a></li>
+        <li *ngIf="!isLoggedIn()"><a href="#">Contact</a></li>
         <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li>
         <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>
           <span class="glyphicon glyphicon-th" aria-hidden="true" style='font-size:150%'></span></a></li>
@@ -40,8 +40,9 @@
 
 <div id="mySidenav" class="sidenav" [ngStyle]='{"width":navWidth}'>
   <a href="javascript:void(0)" class="closebtn" (click)='closeNav()'>&times;</a>
-  <a href="#">About</a>
+  <a href="#">Appointments</a>
   <a href="#">Services</a>
-  <a href="#">Clients</a>
+  <a href="#">Insurance</a>
+  <a href="#">About</a>
   <a href="#">Contact</a>
 </div>
