@@ -12,13 +12,11 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-
   ],
   imports: [
     BrowserModule,

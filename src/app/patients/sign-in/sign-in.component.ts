@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     this.signInForm.valueChanges.subscribe(
       (data)=>this.onValueChange()
     );
-    
+
   }
   signInForm:FormGroup;
 
@@ -59,7 +59,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
       if (control && control.invalid && control.dirty){
         const messages=this.validationMessages[field];
         for (const key in control.errors){
-          this.formErrors[field]+=messages[key] + '';
+          this.formErrors[field]+=messages[key] + ' ';
         }
       }
     }

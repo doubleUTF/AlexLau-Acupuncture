@@ -19,6 +19,7 @@
         <li *ngIf="!isLoggedIn()"><a href="#">Insurance</a></li>
         <li *ngIf="!isLoggedIn()"><a href="#">About</a></li>
         <li *ngIf="!isLoggedIn()"><a href="#">Contact</a></li>
+        <!-- <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register</a></li> -->
         <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li>
         <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>
           <span class="glyphicon glyphicon-th" aria-hidden="true" style='font-size:150%'></span></a></li>
