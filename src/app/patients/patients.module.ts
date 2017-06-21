@@ -6,9 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BootstrapModule } from '../bootstrap/bootstrap.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ScheduleComponent } from './schedule/schedule.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { RegisterComponent } from './register/register.component';
-import { FocusDirective } from '../directives/focus.directive';
 import { SafePipe } from '../pipes/safe.pipe';
 import { AppointmentsListComponent } from './appointments-list/appointments-list.component';
 import { AppointmentItemComponent } from './appointments-list/appointment-item/appointment-item.component';
@@ -36,11 +33,8 @@ import { EmailComponent } from './profile/email/email.component';
     SharedModule
   ],
   declarations: [
-    SignInComponent,
     DashboardComponent,
     ScheduleComponent,
-    RegisterComponent,
-    FocusDirective,
     SafePipe,
     AppointmentsListComponent,
     AppointmentItemComponent,

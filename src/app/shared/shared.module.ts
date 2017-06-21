@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
+import { FocusDirective } from '../directives/focus.directive';
 
 @NgModule({
   imports: [
@@ -8,9 +9,11 @@ import { FooterComponent } from './footer/footer.component';
   ],
   declarations: [
     FooterComponent,
+    FocusDirective,
   ],
   exports:[
-    FooterComponent
+    FooterComponent,
+    FocusDirective,
   ]
 })
 export class SharedModule { }

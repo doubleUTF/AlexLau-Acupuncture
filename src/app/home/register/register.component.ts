@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
-import { Patient } from '../patient.model';
+import { Patient } from '../../patients/patient.model';
 import { ValidatorService } from '../../services/validator.service';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';

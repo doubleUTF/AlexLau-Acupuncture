@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, EventEmitter, Output } from '@angular
 import { AuthService } from '../../auth/auth.service';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { Patient } from '../patient.model';
+import { Patient } from '../../patients/patient.model';
 import { ValidatorService } from '../../services/validator.service';
 
 @Component({

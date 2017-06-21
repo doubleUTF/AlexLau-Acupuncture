@@ -6,9 +6,9 @@ import { routing } from './app.routing';
 import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { SharedModule } from './shared/shared.module';
 import { PatientsModule } from './patients/patients.module';
+import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 
@@ -16,7 +16,6 @@ import { AuthGuard } from './auth/auth.guard';
   declarations: [
     AppComponent,
     NavComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +24,7 @@ import { AuthGuard } from './auth/auth.guard';
     BootstrapModule,
     SharedModule,
     PatientsModule,
+    HomeModule,
     routing,
   ],
   providers: [
