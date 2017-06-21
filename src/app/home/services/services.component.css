@@ -5,3 +5,7 @@ h1{
 .page-header{
   border-bottom: 1px solid #CDE1C9;
 }
+
+.media-object{
+  width:96px;
+}
