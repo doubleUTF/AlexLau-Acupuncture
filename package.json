@@ -47,6 +47,7 @@
     "moment": "^2.18.1",
     "mongoose": "^4.10.7",
     "morgan": "^1.7.0",
+    "ng-lazyload-image": "^3.1.1",
     "ngx-bootstrap": "^1.7.1",
     "nodemailer": "^3.1.8",
     "rxjs": "^5.4.1",

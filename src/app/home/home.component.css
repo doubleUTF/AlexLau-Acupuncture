@@ -3,7 +3,7 @@ div>i{
 }
 
 .jumbotron{
-  background-image: url(../../assets/zen.jpg);
+  /*background-image: url(../../assets/zen.jpg);*/
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 75%;
@@ -12,6 +12,12 @@ div>i{
   align-items: center;
   color:white;
   margin-bottom: 0px;
+  transition: opacity 800ms;
+  opacity: 0;
+}
+
+.ng-lazyloaded{
+  opacity:1;
 }
 
 #three-columns{

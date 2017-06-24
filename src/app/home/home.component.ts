@@ -19,4 +19,7 @@ export class HomeComponent implements OnInit {
       setTimeout(()=>this.router.navigate(['/patients','dashboard']))
     }
   }
+
+  image='../../assets/zen.jpg';
+  defaultImage='../../assets/zen_tiny.jpg';
 }

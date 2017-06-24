@@ -1,3 +1,7 @@
 h1, h3, h4{
   color:rgb(205,225,201);
 }
+
+.page-header{
+  border-bottom: 1px solid #CDE1C9;
+}
