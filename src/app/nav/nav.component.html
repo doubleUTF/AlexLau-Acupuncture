@@ -14,11 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class='navbar-collapse' [collapse]='isCollapsed'>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf='!isLoggedIn()'><a href='#'>Appointments</a></li>
+        <li *ngIf='!isLoggedIn()'><a routerLink='appointment'>Appointment</a></li>
         <li *ngIf="!isLoggedIn()"><a routerLink='services'>Services</a></li>
-        <li *ngIf="!isLoggedIn()"><a href="#">Insurance</a></li>
-        <li *ngIf="!isLoggedIn()"><a href="#">About</a></li>
-        <li *ngIf="!isLoggedIn()"><a href="#">Contact</a></li>
+        <li *ngIf="!isLoggedIn()"><a routerLink='insurance'>Insurance</a></li>
+        <li *ngIf="!isLoggedIn()"><a routerLink='about'>About/Contact</a></li>
         <!-- <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register</a></li> -->
         <!-- <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li> -->
         <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>

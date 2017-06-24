@@ -6,6 +6,9 @@ import { HomeComponent } from './home.component';
 import { ServicesComponent } from './services/services.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { RegisterComponent } from './register/register.component';
+import { InsuranceComponent } from './insurance/insurance.component';
+import { AboutComponent } from './about/about.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 @NgModule({
   imports: [
@@ -18,6 +21,9 @@ import { RegisterComponent } from './register/register.component';
     ServicesComponent,
     SignInComponent,
     RegisterComponent,
+    InsuranceComponent,
+    AboutComponent,
+    AppointmentComponent,
   ],
   exports:[
     HomeComponent,
