@@ -40,9 +40,9 @@
 
 <div id="mySidenav" class="sidenav" [ngStyle]='{"width":navWidth}'>
   <a href="javascript:void(0)" class="closebtn" (click)='closeNav()'>&times;</a>
-  <a href="#">Appointments</a>
-  <a [routerLink]="['/','services']">Services</a>
-  <a href="#">Insurance</a>
-  <a href="#">About</a>
-  <a href="#">Contact</a>
+  <a [routerLink]="['/']" (click)='closeNav()'>Home</a>
+  <a [routerLink]="['/','appointment']" (click)='closeNav()'>Appointments</a>
+  <a [routerLink]="['/','services']" (click)='closeNav()'>Services</a>
+  <a [routerLink]="['/','insurance']" (click)='closeNav()'>Insurance</a>
+  <a [routerLink]="['/','about']" (click)='closeNav()'>About/Contact</a>
 </div>

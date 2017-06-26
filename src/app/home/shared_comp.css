@@ -1,0 +1,36 @@
+h1, h3, h4, p{
+  color:rgb(205,225,201);
+}
+
+p{
+  font-size: 16px;
+}
+
+.page-header{
+  border-bottom: 1px solid #CDE1C9;
+}
+
+.media-object{
+  width:96px;
+}
+
+.media{
+  margin-bottom: 26px;
+}
+
+@media screen and (min-width:768px){
+  .side-menu{
+    margin-top:119px;
+  }
+}
+
+ul>li{
+  background-color: #222;
+  color:#CDE1C9;
+  border-color: #717171;
+}
+
+.font{
+  font-size: 50px !important;
+  color:#D1D1D1;
+}

@@ -3,7 +3,7 @@ import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
-  styleUrls: ['./services.component.css']
+  styleUrls: ['./services.component.css','../shared_comp.css']
 })
 export class ServicesComponent implements OnInit, AfterViewInit {
 
