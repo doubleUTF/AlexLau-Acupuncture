@@ -6,6 +6,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { InsuranceComponent } from './insurance/insurance.component';
 import { AboutComponent } from './about/about.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { ContactComponent } from './contact/contact.component';
 
 export const HomeRoutes:Routes=[
   {path:'', component:HomeComponent},
@@ -15,4 +16,5 @@ export const HomeRoutes:Routes=[
   {path:'appointment',component:AppointmentComponent},
   {path:'register', component: RegisterComponent},
   {path:'signin',component: SignInComponent},
+  {path:'contact', component:ContactComponent}
 ]

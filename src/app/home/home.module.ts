@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { InsuranceComponent } from './insurance/insurance.component';
 import { AboutComponent } from './about/about.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { AppointmentComponent } from './appointment/appointment.component';
     InsuranceComponent,
     AboutComponent,
     AppointmentComponent,
+    ContactComponent,
   ],
   exports:[
     HomeComponent,

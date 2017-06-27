@@ -17,7 +17,8 @@
         <li *ngIf='!isLoggedIn()'><a routerLink='appointment'>Appointment</a></li>
         <li *ngIf="!isLoggedIn()"><a routerLink='services'>Services</a></li>
         <li *ngIf="!isLoggedIn()"><a routerLink='insurance'>Insurance</a></li>
-        <li *ngIf="!isLoggedIn()"><a routerLink='about'>About/Contact</a></li>
+        <li *ngIf="!isLoggedIn()"><a routerLink='about'>About</a></li>
+        <li *ngIf="!isLoggedIn()"><a routerLink='contact'>Contact</a></li>
         <!-- <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register</a></li> -->
         <!-- <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li> -->
         <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>
@@ -44,5 +45,6 @@
   <a [routerLink]="['/','appointment']" (click)='closeNav()'>Appointments</a>
   <a [routerLink]="['/','services']" (click)='closeNav()'>Services</a>
   <a [routerLink]="['/','insurance']" (click)='closeNav()'>Insurance</a>
-  <a [routerLink]="['/','about']" (click)='closeNav()'>About/Contact</a>
+  <a [routerLink]="['/','about']" (click)='closeNav()'>About</a>
+  <a [routerLink]="['/','contact']" (click)='closeNav()'>Contact</a>  
 </div>
