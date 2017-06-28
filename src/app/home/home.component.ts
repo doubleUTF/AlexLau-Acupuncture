@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +7,12 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
-  isLoggedIn(){
-    return localStorage.getItem('token') !== null;
-  };
+  constructor() { }
 
   ngOnInit() {
-    if (this.isLoggedIn()){
-      setTimeout(()=>this.router.navigate(['/patients','dashboard']))
-    }
   }
 
+  // Homepage background image
   image='../../assets/zen.jpg';
-  defaultImage='../../assets/zen_tiny.jpg';
+  defaultImage='../../assets/zen_tiny.jpg'; // Initial small image
 }

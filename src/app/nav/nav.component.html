@@ -12,28 +12,13 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class='navbar-collapse' [collapse]='isCollapsed'>
+    <div class='navbar-collapse' [collapse]='true'>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf='!isLoggedIn()'><a routerLink='appointment'>Appointment</a></li>
-        <li *ngIf="!isLoggedIn()"><a routerLink='services'>Services</a></li>
-        <li *ngIf="!isLoggedIn()"><a routerLink='insurance'>Insurance</a></li>
-        <li *ngIf="!isLoggedIn()"><a routerLink='about'>About</a></li>
-        <li *ngIf="!isLoggedIn()"><a routerLink='contact'>Contact</a></li>
-        <!-- <li *ngIf='!isLoggedIn()'><a routerLink='patients/register'>Register</a></li> -->
-        <!-- <li *ngIf='!isLoggedIn()'><a routerLink='patients/signin'>Sign in</a></li> -->
-        <li *ngIf='isLoggedIn()'><a routerLink='patients/dashboard'>
-          <span class="glyphicon glyphicon-th" aria-hidden="true" style='font-size:150%'></span></a></li>
-        <!-- <li class="dropdown" dropdown (isOpenChange)="isOpenChange()" [ngClass]='{dropdownClosed:!dropdownOpen}'>
-          <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"
-           dropdownToggle>{{updateMenuTitle()}}<span class="caret"></span></a>
-          <ul class="dropdown-menu" *dropdownMenu >
-            <li *ngIf='isLoggedIn()'><a routerLink='patients/appointments-list'>View appointments</a></li>
-            <li *ngIf='isLoggedIn()'><a routerLink='patients/schedule'>Schedule appointment</a></li>
-            <li *ngIf='isLoggedIn()'><a routerLink='patients/profile'>Manage account</a></li>
-            <li role="separator" class="divider"></li>
-            <li *ngIf='isLoggedIn()'><a style='cursor:pointer' (click)='onSignOut()'>Sign out</a></li>
-          </ul>
-        </li> -->
+        <li><a routerLink='appointment'>Appointment</a></li>
+        <li><a routerLink='services'>Services</a></li>
+        <li><a routerLink='insurance'>Insurance</a></li>
+        <li><a routerLink='about'>About</a></li>
+        <li><a routerLink='contact'>Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -46,5 +31,5 @@
   <a [routerLink]="['/','services']" (click)='closeNav()'>Services</a>
   <a [routerLink]="['/','insurance']" (click)='closeNav()'>Insurance</a>
   <a [routerLink]="['/','about']" (click)='closeNav()'>About</a>
-  <a [routerLink]="['/','contact']" (click)='closeNav()'>Contact</a>  
+  <a [routerLink]="['/','contact']" (click)='closeNav()'>Contact</a>
 </div>
