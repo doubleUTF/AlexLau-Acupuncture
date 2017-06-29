@@ -14,3 +14,16 @@ ul{
 span{
   font-weight:bold;
 }
+
+ul>li{
+  margin-bottom: 16px;
+}
+
+address{
+  font-size: 16px;
+  color:#CDE1C9;
+}
+
+.glyphicon{
+  margin-right: 12px;
+}
