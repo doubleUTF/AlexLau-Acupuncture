@@ -1,3 +1,7 @@
 .list-group{
   padding: 20px 0px;
 }
+
+li{
+  font-size: 16px;
+}
