@@ -11,13 +11,19 @@ import { InsuranceComponent } from './insurance/insurance.component';
 import { AboutComponent } from './about/about.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { ContactComponent } from './contact/contact.component';
+import { AgmCoreModule } from '@agm/core';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    RouterModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyCP_Vy7_B9ESJi11tTb58XKlLT-iR4aOMY'
+    })
   ],
   declarations: [
     HomeComponent,

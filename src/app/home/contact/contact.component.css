@@ -24,6 +24,11 @@ address{
   color:#CDE1C9;
 }
 
-.glyphicon{
-  margin-right: 12px;
+agm-map{
+  height:300px;
+}
+
+.regular{
+  color:black;
+  text-align: left;
 }
