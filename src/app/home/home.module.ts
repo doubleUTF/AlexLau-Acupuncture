@@ -13,6 +13,9 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { ContactComponent } from './contact/contact.component';
 import { AgmCoreModule } from '@agm/core';
 import { RouterModule } from '@angular/router';
+import { FullComponent } from './appointment/full/full.component';
+import { ConsultationComponent } from './appointment/consultation/consultation.component';
+import { FollowUpComponent } from './appointment/follow-up/follow-up.component';
 
 @NgModule({
   imports: [
@@ -34,6 +37,9 @@ import { RouterModule } from '@angular/router';
     AboutComponent,
     AppointmentComponent,
     ContactComponent,
+    FullComponent,
+    ConsultationComponent,
+    FollowUpComponent,
   ],
   exports:[
     HomeComponent,
