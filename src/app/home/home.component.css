@@ -1,5 +1,5 @@
 div>i{
-  font-size: 80px;
+  font-size: 70px;
 }
 
 .jumbotron{
@@ -31,10 +31,20 @@ div>i{
   .jumbotron{
     background-position:75%;
   }
+
+  .body-text{
+    padding-bottom: 26px;
+  }
 }
 
 @media screen and (max-height:700px){
   .jumbotron{
     height:87vh;
   }
+}
+
+.body-text{
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.5em;
 }
