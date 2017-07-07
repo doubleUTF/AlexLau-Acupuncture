@@ -7,7 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var patientsRoutes=require('./routes/patients');
+// var patientsRoutes=require('./routes/patients');
 var app = express();
 
 /**
@@ -44,7 +44,7 @@ app.use((req,res,next)=>{
 });
 
 // Routes
-app.use('/patients',patientsRoutes);
+// app.use('/patients',patientsRoutes);
 
 // Catch all routes to defer to Angular app
 

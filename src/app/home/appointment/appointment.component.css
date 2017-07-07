@@ -7,3 +7,7 @@
 .btn-success:hover{
   background-color: #156005;
 }
+
+#buttons{
+  margin-bottom: 32px;
+}

@@ -3,7 +3,8 @@ div>i{
 }
 
 .jumbotron{
-  /*background-image: url(../../assets/zen.jpg);*/
+  /*background-image: url(../../assets/zen_tiny.jpg);*/
+  background-color:#222; 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 75%;
