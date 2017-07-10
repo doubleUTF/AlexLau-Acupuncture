@@ -8,6 +8,18 @@
   background-color: #156005;
 }
 
-#buttons{
+.buttons{
   margin-bottom: 32px;
+}
+
+@media (min-width:768px) {
+  .mobile{
+    display:none;
+  }
+}
+
+@media (max-width:768px) {
+  #big{
+    display:none;
+  }
 }

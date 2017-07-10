@@ -15,7 +15,7 @@
     "e2e": "protractor",
     "build": "ng build -w",
     "herokupush": "git push heroku master",
-    "bundle-report":"webpack-bundle-analyzer public/stats.json"
+    "bundle-report": "webpack-bundle-analyzer public/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -61,6 +61,7 @@
   "devDependencies": {
     "@angular/cli": "^1.1.2",
     "@angular/compiler-cli": "^4.2.3",
+    "@types/google.analytics": "0.0.33",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.78",
     "browser-sync": "^2.18.12",
