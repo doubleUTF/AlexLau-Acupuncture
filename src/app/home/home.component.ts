@@ -13,6 +13,5 @@ export class HomeComponent implements OnInit {
   }
 
   // Homepage background image
-  image='../../assets/zen.jpg';
-  defaultImage='../../assets/zen_tiny.jpg'; // Initial small image
+  image='./assets/zen.jpg';
 }
