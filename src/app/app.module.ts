@@ -6,6 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import {TimeService} from './time-service.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NavComponent } from './nav/nav.component';
     HomeModule,
     routing,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers:[TimeService]
 })
 export class AppModule { }
