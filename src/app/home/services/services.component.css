@@ -9,4 +9,24 @@
   .side-menu{
     display: none;
   }
+
+  .page-header{
+    margin-top:20px;
+  }
+}
+
+ul{
+  list-style-type: none;
+  font-size: 16px;
+  padding-bottom: 14px;
+}
+
+ul>li{
+  margin-bottom: 14px;
+}
+
+@media screen and (min-width:768px){
+  .h3margin{
+    padding-top: 13px;
+  }
 }

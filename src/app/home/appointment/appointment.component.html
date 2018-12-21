@@ -1,3 +1,49 @@
-<p>
-  appointment works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-push-2">
+      <div class="page-header">
+        <h1>Appointment</h1>
+      </div>
+      <p>To make an appointment with us, you can call us at (650) 799-9088 or
+        schedule online below. Same day appointments can be made only via phone.
+      </p>
+      <p class='mobile' *ngIf='showButtons'>Clicking a button will create a new tab.</p>
+
+      <router-outlet></router-outlet>
+      <div *ngIf='showButtons' class='buttons' id='big'>
+        <div class="row">
+          <div class="col-sm-6 text-center">
+            <h3>New patients</h3>
+            <p>
+              <button routerLink='full' type='button' class='btn btn-success btn-lg'>Consultation & treatment</button>
+            </p>
+          </div>
+          <div class="col-sm-6 text-center">
+            <h3>Returning patients</h3>
+            <button routerLink='follow-up' type='button' class='btn btn-success btn-lg'>Follow-up treatment</button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf='showButtons' class='buttons mobile'>
+        <div class="row">
+          <div class="col-sm-6 text-center">
+            <h3>New patients</h3>
+            <p>
+              <a href='https://app.acuityscheduling.com/schedule.php?owner=13202886&appointmentType=3531670'
+               target='_blank' class='btn btn-success btn-lg' role='button'>
+                Consultation & treatment
+              </a>
+            </p>
+          </div>
+          <div class="col-sm-6 text-center">
+            <h3>Returning patients</h3>
+            <a href='https://app.acuityscheduling.com/schedule.php?owner=13202886&appointmentType=2462595'
+            class='btn btn-success btn-lg' role='button' target='_blank'>Follow-up treatment</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

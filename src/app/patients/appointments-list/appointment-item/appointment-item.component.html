@@ -1,7 +1,0 @@
-<li class="list-group-item">
-  {{this.appointmentService.formatTime(appointment.date)}}
-  <span class='options'>
-    <a *ngIf='canCancel' (click)='onCancel(appointment)'>Cancel</a>
-    <a *ngIf='viewReceipt'>View Receipt</a>
-  </span>
-</li>

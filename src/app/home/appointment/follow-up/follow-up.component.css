@@ -1,0 +1,14 @@
+h3{
+  color:#CDE1C9;
+  margin-top: 120px;
+}
+
+.thumb-hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.thumbnail{
+  padding-top: 10%;
+  background-color: #373a37;
+}

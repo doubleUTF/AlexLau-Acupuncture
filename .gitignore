@@ -5,6 +5,9 @@ cd h# See http://help.github.com/ignore-files/ for more about ignoring files.
 /tmp
 /dist
 
+# production files
+public.zip
+
 # dependencies
 /node_modules
 
@@ -47,3 +50,8 @@ Thumbs.db
 # testing/playground
 /test
 /server/test
+
+# firebase
+firebase.json
+.firebaserc
+.firebase/*

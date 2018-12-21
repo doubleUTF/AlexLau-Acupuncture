@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="template">
+	<name>Alex Lau Acupuncture</name>
+	<creationDate>7/9/2017</creationDate>
+	<author>David Lau</author>
+	<authorEmail>aculau@gmail.com</authorEmail>
+	<authorUrl>http://www.aculau.com</authorUrl>
+	<copyright>Alex Lau Acupuncture 2017</copyright>
+	<license>GNU/GPL</license>
+	<version>1.0.0</version>
+	<description>Alex Lau Acupuncture Template</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>favicon.ico</filename>
+		<filename>fontawesome-webfont.674f50d287a8c48dc19b.eot</filename>
+		<filename>fontawesome-webfont.acf3dcb7ff752b5296ca.svg</filename>
+		<filename>fontawesome-webfont.af7ae505a9eed503f8b8.woff2</filename>
+		<filename>fontawesome-webfont.b06871f281fee6b241d6.ttf</filename>
+		<filename>fontawesome-webfont.fee66e712a8a08eef580.woff</filename>
+		<filename>glyphicons-halflings-regular.448c34a56d699c29117a.woff2</filename>
+		<filename>glyphicons-halflings-regular.89889688147bd7575d63.svg</filename>
+		<filename>glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf</filename>
+		<filename>glyphicons-halflings-regular.f4769f9bdb7466be6508.eot</filename>
+		<filename>glyphicons-halflings-regular.fa2772327f55d8198301.woff</filename>
+		<filename>inline.bundle.js</filename>
+		<filename>main.bundle.js</filename>
+		<filename>styles.bundle.js</filename>
+		<filename>vendor.bundle.js</filename>
+		<folder>assets</folder>
+	</files>
+	<positions>
+		<position>breadcrumb</position>
+		<position>left</position>
+		<position>right</position>
+		<position>top</position>
+		<position>user1</position>
+		<position>user2</position>
+		<position>user3</position>
+		<position>user4</position>
+		<position>footer</position>
+	</positions>
+</extension>
