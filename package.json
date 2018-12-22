@@ -30,6 +30,7 @@
     "@angular/platform-browser-dynamic": "^7.1.4",
     "@angular/platform-server": "^7.1.4",
     "@angular/router": "^7.1.4",
+    "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
     "@types/jquery": "^2.0.47",
     "@types/lodash": "^4.14.66",
     "acuityscheduling": "^0.1.7",
@@ -56,6 +57,7 @@
     "rxjs-compat": "^6.0.0-rc.0",
     "serve-favicon": "^2.3.2",
     "ts-helpers": "^1.1.2",
+    "ts-loader": "^5.3.2",
     "tslib": "^1.9.0",
     "validator": "^6.3.0",
     "zone.js": "^0.8.12"
