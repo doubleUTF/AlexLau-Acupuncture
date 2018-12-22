@@ -1,7 +1,0 @@
-<div class="color-selector">
-  <i class="glyphicon glyphicon-tint" aria-hidden='true' (click)='showSelector(true)'></i>
-  <div class="selector row" *ngIf='isSelectorVisible'>
-    <div class="color" *ngFor='let color of colors'
-    (click)='selectColor(color)' [ngStyle]='{"background-color":color}'></div>
-  </div>
-</div>

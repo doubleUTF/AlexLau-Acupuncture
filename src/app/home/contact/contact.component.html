@@ -1,22 +1,48 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-2">
       <div class="page-header">
         <h1>Contact</h1>
       </div>
-      <ul>
-      <li><i class="fa fa-map-marker"></i><span>Address:</span> 1098 Foster City Blvd. Ste 301, Foster City, CA 94404</li>
-      <li><i class="fa fa-phone"></i><span>Phone:</span> (650) 212-7298</li>
-      <li><i class="fa fa-fax"></i><span>Fax:</span> (650) 212-7298</li>
-      <li><i class="fa fa-envelope"></i><span>Email:</span> aculau@gmail.com</li>
-    </ul>
+      <address>
+        <strong>Alex Lau Acupuncture and Herbs</strong><br>
+        1098 Foster City Blvd. Ste 301 <br>
+        Foster City, CA 94404 <br>
+        Phone: (650) 799-9088 <br>
+        Fax: (650) 212-7298 <br>
+        Email: aculau@gmail.com
+      </address>
+      <h3>Location</h3>
+      <div>
+        <p><b>Directions</b>: Take 92 and exit off Foster City Blvd.
+          We are located in the offices left of the 99 Ranch/Marlin Cove Marketplace.
+          Enter the lobby and take the elevator to the third floor.
+          Parking is free and available.</p>
+        </div>
+      <agm-map [latitude]='lat' [longitude]='lng' [zoom]='zoom'>
+        <agm-marker [latitude]='markerLat' [longitude]='markerLng'
+        [label]='label'>
+        <agm-info-window [isOpen]='true'>
+          <div class='agm-info-window-content'>
+            <div id="content" style="max-width:250px">
+              <h5>Alex Lau Acupuncture</h5>
+            </div>
+          </div>
+        </agm-info-window>
+      </agm-marker>
+      </agm-map>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="side-menu">
-        <h3>Hours</h3>
+    <div class="col-xs-12 col-sm-3">
+      <div class="side-menu text-center">
+        <h3><b>Open Hours</b></h3>
         <ul>
-          <li><i class="fa fa-calendar"></i><span>Monday - Friday:</span> 10:00 AM to 5:00 PM</li>
-          <li><i class="fa fa-calendar"></i><span>Saturday:</span> 9:00 AM to 12:00 PM</li>
+          <li><span>Monday</span><br> 10:00 AM to 5:00 PM</li>
+          <li><span>Tuesday</span><br> 10:00 AM to 5:00 PM</li>
+          <li><span>Wednesday</span><br> 9:00 AM to 10:00 AM<br /> 3:00 PM to 5:00 PM </li>
+          <li><span>Thursday</span><br> 10:00 AM to 5:00 PM</li>
+          <li><span>Friday</span><br> 10:00 AM to 5:00 PM</li>
+          <li><span>Saturday</span><br> 9:00 AM to 12:00 PM</li>
+          <li><span>Sunday</span><br> Call or email to request appointment</li>
         </ul>
       </div>
     </div>

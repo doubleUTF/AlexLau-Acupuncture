@@ -14,3 +14,25 @@ ul{
 span{
   font-weight:bold;
 }
+
+ul>li{
+  margin-bottom: 16px;
+}
+
+address{
+  font-size: 16px;
+  color:#CDE1C9;
+}
+
+agm-map{
+  height:300px;
+}
+
+.regular{
+  color:black;
+  text-align: left;
+}
+
+.side-menu{
+  max-width: 220px;
+}

@@ -1,9 +1,10 @@
 div>i{
-  font-size: 80px;
+  font-size: 70px;
 }
 
 .jumbotron{
-  /*background-image: url(../../assets/zen.jpg);*/
+  background-image: url(../../assets/zen_tiny.jpg);
+  background-color:#222;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 75%;
@@ -31,10 +32,20 @@ div>i{
   .jumbotron{
     background-position:75%;
   }
+
+  .body-text{
+    padding-bottom: 26px;
+  }
 }
 
 @media screen and (max-height:700px){
   .jumbotron{
     height:87vh;
   }
+}
+
+.body-text{
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.5em;
 }

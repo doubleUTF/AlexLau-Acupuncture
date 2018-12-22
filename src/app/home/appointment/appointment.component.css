@@ -1,0 +1,25 @@
+.btn-success{
+  background-color: #408E2F;
+  border:none;
+  color: #CDE1C9;
+}
+
+.btn-success:hover{
+  background-color: #156005;
+}
+
+.buttons{
+  margin-bottom: 32px;
+}
+
+@media (min-width:768px) {
+  .mobile{
+    display:none;
+  }
+}
+
+@media (max-width:768px) {
+  #big{
+    display:none;
+  }
+}
