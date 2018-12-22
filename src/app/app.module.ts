@@ -7,7 +7,6 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import {TimeService} from './time-service.service';
-
 @NgModule({
   declarations: [
     AppComponent,
