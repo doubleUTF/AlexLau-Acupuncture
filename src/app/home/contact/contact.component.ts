@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -14,7 +13,7 @@ export class ContactComponent implements OnInit {
   markerLat:number=37.553282;
   markerLng:number=-122.256321;
   label:'A';
-  
+
   constructor() { }
 
   ngOnInit() {

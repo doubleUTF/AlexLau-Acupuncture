@@ -7,14 +7,13 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import {TimeService} from './time-service.service';
-
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId:'alex_lau_app'}),
     BootstrapModule,
     SharedModule,
     HomeModule,
