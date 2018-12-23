@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { RouterModule } from '@angular/router';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HomeComponent } from './home.component';
 import { ServicesComponent } from './services/services.component';
@@ -15,7 +14,6 @@ import { FollowUpComponent } from './appointment/follow-up/follow-up.component';
   imports: [
     SharedModule,
     LazyLoadImageModule,
-    RouterModule,
   ],
   declarations: [
     HomeComponent,
