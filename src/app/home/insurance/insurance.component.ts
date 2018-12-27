@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-insurance',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsuranceComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _title:Title,
+    private _meta: Meta
+  ) { }
 
   ngOnInit() {
+    this._title.setTitle('Insurances Accepted');
+    this._meta.updateTag({name:'description',content:'We accept the following insurances'})
   }
 
 }

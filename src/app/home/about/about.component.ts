@@ -1,5 +1,7 @@
 import { Component, OnInit,AfterViewInit, ElementRef } from '@angular/core';
 import {TimeService} from '../../time-service.service';
+import { Title, Meta } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -9,12 +11,17 @@ export class AboutComponent implements OnInit, AfterViewInit {
 
   constructor(
     private elemRef:ElementRef,
-    private ts:TimeService
+    private ts:TimeService,
+    private _title:Title,
+    private _meta: Meta
   ) { }
 
   yearsPracticed:number;
   ngOnInit() {
-    this.yearsPracticed=this.ts.getYearsPracticing()
+    this.yearsPracticed=this.ts.getYearsPracticing();
+    this._title.setTitle('About Page');
+    this._meta.updateTag({ name: 'description', content: 'About our clinic' });
+    this._meta.updateTag({name:'keywords',content:'Alex Lau'})
   }
 
   ngAfterViewInit(){

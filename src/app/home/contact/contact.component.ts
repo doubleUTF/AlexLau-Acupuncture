@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -14,9 +16,14 @@ export class ContactComponent implements OnInit {
   markerLng:number=-122.256321;
   label:'A';
 
-  constructor() { }
+  constructor(
+    private _title:Title,
+    private _meta: Meta
+  ) { }
 
   ngOnInit() {
+    this._title.setTitle('Contact page');
+    this._meta.updateTag({name:'description',content:'Contact information and office location'})
   }
 
 }

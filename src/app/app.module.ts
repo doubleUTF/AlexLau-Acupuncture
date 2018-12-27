@@ -13,11 +13,11 @@ import {TimeService} from './time-service.service';
     NavComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({appId:'alex_lau_app'}),
+    BrowserModule,
     BootstrapModule,
     SharedModule,
-    routing,
     HomeModule,
+    routing,
   ],
   bootstrap: [AppComponent],
   providers:[TimeService]

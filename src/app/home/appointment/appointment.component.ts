@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
-
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
@@ -8,10 +8,16 @@ import { Router, Event, NavigationEnd } from '@angular/router';
 })
 export class AppointmentComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(
+    private route:Router,
+    private _title:Title,
+    private _meta: Meta
+    ) { }
 
   showButtons=true;
   ngOnInit() {
+    this._title.setTitle('Appointment Page');
+    this._meta.updateTag({name:'description',content:'Schedule an appointment with us online.'})
     if (this.route.url!='/appointment'){
       this.showButtons=false;
     }

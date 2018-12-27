@@ -23,4 +23,4 @@ const APP_ROUTES:Routes=[
   {path:'**',redirectTo:'/'},
 ]
 
-export const routing=RouterModule.forRoot(APP_ROUTES,{enableTracing:true})
+export const routing=RouterModule.forRoot(APP_ROUTES)
