@@ -16,8 +16,8 @@ import {TimeService} from './time-service.service';
     BrowserModule.withServerTransition({appId:'alex_lau_app'}),
     BootstrapModule,
     SharedModule,
-    HomeModule,
     routing,
+    HomeModule,
   ],
   bootstrap: [AppComponent],
   providers:[TimeService]
