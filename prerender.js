@@ -38,10 +38,10 @@ async function main() {
 
   // Creating a new Tap/Page
   const page = await browser.newPage();
-
+  page.setDefaultNavigationTimeout('100000000')
   do {
     const p = PAGES[0];
-
+    console.log(p)
     // Requesting the first page in PAGES array
     await page.goto(`${HOST}/${p}`);
 
