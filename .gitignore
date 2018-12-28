@@ -53,6 +53,5 @@ Thumbs.db
 /server/test
 
 # firebase
-firebase.json
 .firebaserc
 .firebase/*
