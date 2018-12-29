@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this._title.setTitle('Contact page');
-    this._meta.updateTag({name:'description',content:'Contact information and office location'})
+    this._meta.updateTag({name:'description',content:'Contact information including office hours and location.'})
   }
 
 }
