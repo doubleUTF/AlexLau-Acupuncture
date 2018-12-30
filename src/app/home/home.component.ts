@@ -10,8 +10,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private ts:TimeService,
-    private _title:Title,
-    private _meta: Meta
   ) { }
   yearsPracticed:number;
   ngOnInit() {
