@@ -17,7 +17,8 @@
             "tsConfig": "src/tsconfig.json",
             "assets": [
               "src/assets",
-              "src/favicon.ico"
+              "src/favicon.ico",
+              "src/sitemap.xml"
             ],
             "styles": [
               "src/styles.css",

@@ -7,6 +7,8 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import {TimeService} from './time-service.service';
+import {MetaService} from './meta-service.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,6 @@ import {TimeService} from './time-service.service';
     routing,
   ],
   bootstrap: [AppComponent],
-  providers:[TimeService]
+  providers:[TimeService, MetaService]
 })
 export class AppModule { }

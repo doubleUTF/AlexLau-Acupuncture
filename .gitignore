@@ -55,3 +55,4 @@ Thumbs.db
 # firebase
 .firebaserc
 .firebase/*
+firebase-debug.log
