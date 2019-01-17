@@ -7,11 +7,15 @@ import { DOCUMENT } from '@angular/common';
  
 export class MetaService { 
    constructor(@Inject(DOCUMENT) private dom) { }
-    
+   
+   link: HTMLLinkElement = this.dom.createElement('link');
    createCanonicalURL() {
-      let link: HTMLLinkElement = this.dom.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      this.dom.head.appendChild(link);
-      link.setAttribute('href', this.dom.URL);
+      this.link.setAttribute('rel', 'canonical');
+      this.dom.head.appendChild(this.link);
+      this.link.setAttribute('href', this.dom.URL);
+   }
+
+   deleteCanonicalURL(){
+      this.dom.head.removeChild(this.link);
    }
 } 

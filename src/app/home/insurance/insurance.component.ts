@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import {MetaService} from '../../meta-service.service';
 
@@ -7,7 +7,7 @@ import {MetaService} from '../../meta-service.service';
   templateUrl: './insurance.component.html',
   styleUrls: ['./insurance.component.css','../shared_comp.css']
 })
-export class InsuranceComponent implements OnInit {
+export class InsuranceComponent implements OnInit, OnDestroy {
 
   constructor(
     private _title:Title,
@@ -21,4 +21,7 @@ export class InsuranceComponent implements OnInit {
     this.metaService.createCanonicalURL();
   }
 
+  ngOnDestroy(){
+    this.metaService.deleteCanonicalURL()
+  }
 }
