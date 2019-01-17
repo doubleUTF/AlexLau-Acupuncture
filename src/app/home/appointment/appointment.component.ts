@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, Event, NavigationEnd } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+<<<<<<< HEAD
+=======
+import {MetaService} from '../../meta-service.service';
+
+>>>>>>> revert-canonical
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.css', '../shared_comp.css']
 })
-export class AppointmentComponent implements OnInit {
+export class AppointmentComponent implements OnInit, OnDestroy {
 
   constructor(
     private route:Router,
@@ -33,6 +38,10 @@ export class AppointmentComponent implements OnInit {
       }
 
     )
+  }
+
+  ngOnDestroy(){
+    this.metaService.deleteCanonicalURL()
   }
 
 }

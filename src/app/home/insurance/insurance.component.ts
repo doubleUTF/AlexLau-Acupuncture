@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
@@ -6,7 +6,7 @@ import { Title, Meta } from '@angular/platform-browser';
   templateUrl: './insurance.component.html',
   styleUrls: ['./insurance.component.css','../shared_comp.css']
 })
-export class InsuranceComponent implements OnInit {
+export class InsuranceComponent implements OnInit, OnDestroy {
 
   constructor(
     private _title:Title,
@@ -18,4 +18,7 @@ export class InsuranceComponent implements OnInit {
     this._meta.updateTag({name:'description',content:'We accept the following insurances'})
   }
 
+  ngOnDestroy(){
+    this.metaService.deleteCanonicalURL()
+  }
 }

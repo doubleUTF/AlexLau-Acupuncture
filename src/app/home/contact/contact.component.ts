@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
@@ -6,7 +6,7 @@ import { Title, Meta } from '@angular/platform-browser';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css', '../shared_comp.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
 
   lat: number=37.557826;
   lng:number=-122.265209;
@@ -25,5 +25,8 @@ export class ContactComponent implements OnInit {
     this._title.setTitle('Contact page');
     this._meta.updateTag({name:'description',content:'Contact information including office hours and location.'})
   }
-
+  
+  ngOnDestroy(){
+    this.metaService.deleteCanonicalURL()
+  }
 }
