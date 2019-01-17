@@ -1,11 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-<<<<<<< HEAD
-=======
 import {MetaService} from '../../meta-service.service';
 
->>>>>>> revert-canonical
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
@@ -17,10 +14,12 @@ export class AppointmentComponent implements OnInit, OnDestroy {
     private route:Router,
     private _title:Title,
     private _meta: Meta,
+    private metaService:MetaService
     ) { }
 
   showButtons=true;
   ngOnInit() {
+    this.metaService.createCanonicalURL()
     this._title.setTitle('Appointment Page');
     this._meta.updateTag({name:'description',content:'Schedule an appointment with us online.'})
     if (this.route.url!='/appointment'){
