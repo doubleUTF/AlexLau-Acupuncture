@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import {MetaService} from '../../meta-service.service';
 
 @Component({
   selector: 'app-insurance',
@@ -12,13 +11,11 @@ export class InsuranceComponent implements OnInit {
   constructor(
     private _title:Title,
     private _meta: Meta,
-    private metaService:MetaService
   ) { }
 
   ngOnInit() {
     this._title.setTitle('Insurances Accepted');
     this._meta.updateTag({name:'description',content:'We accept the following insurances'})
-    this.metaService.createCanonicalURL();
   }
 
 }

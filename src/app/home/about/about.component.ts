@@ -1,7 +1,6 @@
 import { Component, OnInit,AfterViewInit, ElementRef } from '@angular/core';
 import {TimeService} from '../../time-service.service';
 import { Title, Meta } from '@angular/platform-browser';
-import {MetaService} from '../../meta-service.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -14,7 +13,6 @@ export class AboutComponent implements OnInit, AfterViewInit {
     private ts:TimeService,
     private _title:Title,
     private _meta: Meta,
-    private metaService:MetaService
   ) { }
 
   yearsPracticed:number;
@@ -23,7 +21,6 @@ export class AboutComponent implements OnInit, AfterViewInit {
     this._title.setTitle('About Page');
     this._meta.updateTag({ name: 'description', content: 'About our clinic' });
     this._meta.updateTag({name:'keywords',content:'Alex Lau'})
-    this.metaService.createCanonicalURL();
   }
 
   ngAfterViewInit(){

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import {MetaService} from '../../meta-service.service';
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
@@ -13,14 +12,12 @@ export class AppointmentComponent implements OnInit {
     private route:Router,
     private _title:Title,
     private _meta: Meta,
-    private metaService:MetaService
     ) { }
 
   showButtons=true;
   ngOnInit() {
     this._title.setTitle('Appointment Page');
     this._meta.updateTag({name:'description',content:'Schedule an appointment with us online.'})
-    this.metaService.createCanonicalURL();
     if (this.route.url!='/appointment'){
       this.showButtons=false;
     }
