@@ -54,7 +54,7 @@
     "ts-helpers": "^1.1.2",
     "ts-loader": "^5.3.2",
     "tslib": "^1.9.0",
-    "validator": "^6.3.0",
+    "validator": "^13.7.0",
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
